@@ -6,6 +6,22 @@ import NavBar from './components/NavBar';
 
 class App extends Component {
 
+
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    fetch('/parks/index')
+    .then(response => {return response.json()
+    })
+    // .then(parsedJSON => console.log(parsedJSON.results))
+    .then(data => console.log(data))
+    .catch(err => console.log('parsing failed', err))
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -16,6 +32,10 @@ class App extends Component {
           loadingElement={<div style={{ height: `100%` }} />}
           mapElement={<div style={{ height: `100%` }} />}
         />
+        <header className="App-header">
+      <h1>hit hit</h1>
+
+        </header>
       </div>
     );
   }
