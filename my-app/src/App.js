@@ -10,9 +10,12 @@ class App extends Component {
     return (
       <div className="App">
         < NavBar />
-        < MyMapComponent 
-          containerElement={<div style={{ height: `600px` }} />} 
-          mapElement={<div style={{ height: `100%` }} />} />
+        < MyMapComponent
+          googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyADfvn7bqN8wTxIrPUpCZZMEoURzEsj5sU"
+          containerElement={<div style={{ height: `600px` }} />}
+          loadingElement={<div style={{ height: `100%` }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+        />
       </div>
     );
   }
