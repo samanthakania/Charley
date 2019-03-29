@@ -1,6 +1,7 @@
 /* global google */
 import React, { Component } from 'react';
 import { withGoogleMap, withScriptjs, GoogleMap, Marker, DirectionsRenderer } from "react-google-maps";
+import './MyMapComponent.css';
 
 
 
