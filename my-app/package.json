@@ -8,7 +8,8 @@
     "react-dom": "^16.8.5",
     "react-google-maps": "^9.4.5",
     "react-modal": "^3.8.1",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "react-tabs": "^3.0.0"
   },
   "scripts": {
     "start": "PORT=3006 react-scripts start",
