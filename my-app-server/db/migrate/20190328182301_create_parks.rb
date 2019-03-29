@@ -11,8 +11,11 @@ class CreateParks < ActiveRecord::Migration[5.2]
       t.string :url
       t.integer :established
       t.boolean :unesco
-
+      t.text :weather_info
+      t.string :designation  
       t.timestamps
     end
   end
 end
+
+
