@@ -2,20 +2,20 @@
 import React, { Component } from 'react';
 import { withGoogleMap, withScriptjs, GoogleMap, Marker, DirectionsRenderer } from "react-google-maps";
 
-
-
 class MyMapComponent extends Component {
-  state = {
-    directions: null,
+  constructor(props){
+    super(props);
+    this.state = {
+      directions: null,
+    }
   }
 
   componentDidMount() {
       const DirectionsService = new google.maps.DirectionsService();
-      const directionsDisplay = new google.maps.DirectionsRenderer;
 
       DirectionsService.route({
         origin: new google.maps.LatLng(43.6532, -79.3832),
-        destination: new google.maps.LatLng(41.8525800, -87.6514100),
+        destination: new google.maps.LatLng(37.7749, -122.4194),
         travelMode: google.maps.TravelMode.DRIVING,
         waypoints: [{location: 'Los Angeles', stopover: true}]
       },
