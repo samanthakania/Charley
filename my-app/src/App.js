@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import MyMapComponent from './components/MyMapComponent.jsx';
 import NavBar from './components/NavBar';
+import ModalWindow from './components/ModalWindow';
 
 class App extends Component {
 
@@ -31,10 +32,7 @@ class App extends Component {
           loadingElement={<div className="loadingElement"/>}
           mapElement={<div className="mapElement"/>}
         />
-        <header className="App-header">
-      <h1>hit hit</h1>
-
-        </header>
+        < ModalWindow />
       </div>
     );
   }
