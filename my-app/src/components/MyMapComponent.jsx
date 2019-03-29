@@ -11,12 +11,15 @@ class MyMapComponent extends Component {
 
   componentDidMount() {
       const DirectionsService = new google.maps.DirectionsService();
+      const directionsDisplay = new google.maps.DirectionsRenderer;
 
       DirectionsService.route({
         origin: new google.maps.LatLng(43.6532, -79.3832),
         destination: new google.maps.LatLng(41.8525800, -87.6514100),
         travelMode: google.maps.TravelMode.DRIVING,
-      }, (result, status) => {
+        waypoints: [{location: 'Los Angeles', stopover: true}]
+      },
+      (result, status) => {
         if (status === google.maps.DirectionsStatus.OK) {
           this.setState({
             directions: result,
