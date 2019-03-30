@@ -32,14 +32,13 @@ ActiveRecord::Schema.define(version: 2019_03_29_142808) do
     t.string "prov_state"
     t.decimal "lat"
     t.decimal "long"
-    t.string "img"
     t.text "description"
+    t.string "img"
     t.string "url"
-    t.string "activites"
     t.integer "established"
     t.boolean "unesco"
-    t.string "designation"
     t.text "weather_info"
+    t.string "designation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
