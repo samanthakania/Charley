@@ -5,7 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+def open_asset(file_name)
+  File.open(Rails.root.join('db', 'seed_assets', file_name))
+end
 Park.destroy_all
 parks_canadian = [
     {
@@ -655,474 +657,502 @@ parks_canadian = [
     ]
 
 parks_american = [
-    {
-      prov_state: "ME",
-      lat: 44.30777545,
-      long: -68.30063316,
-      description: "Acadia National Park protects the natural beauty of the highest rocky headlands along the Atlantic coastline of the United States, an abundance of habitats with high biodiversity, clean air and water, and a rich cultural heritage. Each year, more than 3.3 million people explore seven peaks above 1,000 feet, 158 miles of hiking trails, and 45 miles of carriage roads with 16 stone bridges.",
-      designation: "National Park",
-      full_name: "Acadia National Park",
-      url: "https://www.nps.gov/acad/index.htm",
-      weather_info: "Located on Mount Desert Island in Maine, Acadia experiences all four seasons. Summer temperatures range from 45-90F (7-30C). Fall temperatures range from 30-70F (-1-21C). Typically the first frost is in mid-October and first snowfall begins in November and can continue through April with an average accumulation of 73 inches (185 cm). Winter temperatures range from 14-35F (-10 - 2C). Spring temperatures range from 30-70F (-1-21C).",
-      name: "Acadia"
-    },
-    {
-      prov_state: "UT",
-      lat: 38.72261844,
-      long: -109.5863666,
-      description: "Visit Arches to discover a landscape of contrasting colors, land forms and textures unlike any other in the world. The park has over 2,000 natural stone arches, in addition to hundreds of soaring pinnacles, massive fins and giant balanced rocks. This red-rock wonderland will amaze you with its formations, refresh you with its trails, and inspire you with its sunsets.",
-      designation: "National Park",
-      full_name: "Arches National Park",
-      url: "https://www.nps.gov/arch/index.htm",
-      weather_info: "Arches is part of the Colorado Plateau, a \"high desert\" region that experiences wide temperature fluctuations, sometimes over 40 degrees in a single day. The temperate (and most popular) seasons are spring (April-May) and fall (mid-September-October), when daytime highs average 60 to 80 F and lows average 30 to 50 F. Summer temperatures often exceed 100 F, making strenuous exercise difficult. Winters are cold, with highs averaging 30 to 50 F, and lows averaging 0 to 20 F.",
-      name: "Arches"
-    },
-        {
-      prov_state: "SD",
-      lat: 43.68584846,
-      long: -102.482942,
-      designation: "National Park",
-      description: "The rugged beauty of the Badlands draws visitors from around the world. These striking geologic deposits contain one of the world’s richest fossil beds. Ancient mammals such as the rhino, horse, and saber-toothed cat once roamed here. The park’s 244,000 acres protect an expanse of mixed-grass prairie where bison, bighorn sheep, prairie dogs, and black-footed ferrets live today.",
-      full_name: "Badlands National Park",
-      url: "https://www.nps.gov/badl/index.htm",
-      weather_info: "The Badlands weather is variable and unpredictable with temperature extremes ranging from 116° F to -40° F. Summers are hot and dry with occasional violent thunderstorms. Hailstorms and occasional tornadoes can descend on the Badlands with sudden fury. Winters are typically cold with 12 to 24 inches of total snowfall.",
-      name: "Badlands"
-    },
-    {
-      prov_state: "TX",
-      lat: 29.29817767,
-      long: -103.2297897,
-      description: "There is a place in Far West Texas where night skies are dark as coal and rivers carve temple-like canyons in ancient limestone. Here, at the end of the road, hundreds of bird species take refuge in a solitary mountain range surrounded by weather-beaten desert. Tenacious cactus bloom in sublime southwestern sun, and diversity of species is the best in the country. This magical place is Big Bend...",
-      designation: "National Park",
-
-      full_name: "Big Bend National Park",
-      url: "https://www.nps.gov/bibe/index.htm",
-      weather_info: "Variable\n-- February through April the park abounds with pleasant and comfortable temperatures.\n-- May through August is hot and can also be stormy. Temperatures regularly reach well over 100 degrees in the lower elevations and along the Rio Grande.\n-- September through January temperatures are cooler; the weather can quickly turn cold at any time during these months.",
-      name: "Big Bend"
-    },
-    {
-      prov_state: "FL",
-      lat: 25.490587,
-      long: -80.21023851,
-      description: "Within sight of downtown Miami, yet worlds away, Biscayne protects a rare combination of aquamarine waters, emerald islands, and fish-bejeweled coral reefs. Here too is evidence of 10,000 years of human history, from pirates and shipwrecks to pineapple farmers and presidents. Outdoors enthusiasts can boat, snorkel, camp, watch wildlife…or simply relax in a rocking chair gazing out over the bay.",
-      designation: "National Park",
-      full_name: "Biscayne National Park",
-      url: "https://www.nps.gov/bisc/index.htm",
-      weather_info: "The park is situated in a subtropical climate, which ensures sunshine year-round. Winters are normally dry and mild, with occasional fronts bringing wind and little rain. Summer brings hot and humid weather with scattered thunderstorms in the afternoons. The average temperature in January is 68 degrees Fahrenheit and 82 in July. The average rainfall for the area is 2.17 inches in January and 3.95 inches in July. June to November is hurricane season.",
-      name: "Biscayne"
-    },
-        {
-      prov_state: "AK",
-      lat: 67.75961636,
-      long: -153.2917758,
-      description: "This vast landscape does not contain any roads or trails. Visitors discover intact ecosystems where people have lived with the land for thousands of years. Wild rivers meander through glacier-carved valleys, caribou migrate along age-old trails, endless summer light fades into aurora-lit night skies of winter. It remains virtually unchanged except by the forces of nature.",
-      designation: "National Park & Preserve",
-
-      full_name: "Gates Of The Arctic National Park & Preserve",
-      url: "https://www.nps.gov/gaar/index.htm",
-      weather_info: "The climate of Gates of the Arctic National Park & Preserve is generally classified as arctic and sub-arctic, with exceptionally cold winters, relatively mild summers, low annual precipitation, and generally high winds. The weather is influenced by many different systems, and can change rapidly.",
-      name: "Gates Of The Arctic"
-    },
-        {
-      prov_state: "CA",
-      lat: 40.49354575,
-      long: -121.4075993,
-      description: "Lassen Volcanic National Park is home to steaming fumaroles, meadows freckled with wildflowers, clear mountain lakes, and numerous volcanoes. Jagged peaks tell the story of its eruptive past while hot water continues to shape the land. Lassen Volcanic offers opportunities to discover the wonder and mysteries of volcanoes and hot water for visitors willing to explore the undiscovered.",
-      designation: "National Park",
-      full_name: "Lassen Volcanic National Park",
-      url: "https://www.nps.gov/lavo/index.htm",
-      weather_info: "Weather at Lassen can vary dramatically throughout the year.\n\nAverage January temperatures are a high of 40.4 °F (4.7 °C) and a low of 20.8 °F (-6.2 °C). Average July temperatures are a high of 88.4 °F and a low of 49.8 °F. Temperatures reach 90 °F or higher on an average of 36.9 days, and drop to 32 ° or lower on an average of 164 days days annually.",
-      name: "Lassen Volcanic"
-    },
-        {
-      prov_state: "CA",
-      lat: 40.49354575,
-      long: -121.4075993,
-      description: "Lassen Volcanic National Park is home to steaming fumaroles, meadows freckled with wildflowers, clear mountain lakes, and numerous volcanoes. Jagged peaks tell the story of its eruptive past while hot water continues to shape the land. Lassen Volcanic offers opportunities to discover the wonder and mysteries of volcanoes and hot water for visitors willing to explore the undiscovered.",
-      designation: "National Park",
-      full_name: "Lassen Volcanic National Park",
-      url: "https://www.nps.gov/lavo/index.htm",
-      weather_info: "Weather at Lassen can vary dramatically throughout the year.\n\nAverage January temperatures are a high of 40.4 °F (4.7 °C) and a low of 20.8 °F (-6.2 °C). Average July temperatures are a high of 88.4 °F and a low of 49.8 °F. Temperatures reach 90 °F or higher on an average of 36.9 days, and drop to 32 ° or lower on an average of 164 days days annually.",
-      name: "Lassen Volcanic"
-    },
-        {
-      prov_state: "CA",
-      lat: 37.84883288,
-      long: -119.5571873,
-      description: "Not just a great valley, but a shrine to human foresight, the strength of granite, the power of glaciers, the persistence of life, and the tranquility of the High Sierra.\n\nFirst protected in 1864, Yosemite National Park is best known for its waterfalls, but within its nearly 1,200 square miles, you can find deep valleys, grand meadows, ancient giant sequoias, a vast wilderness area, and much more.",
-      designation: "National Park",
-      full_name: "Yosemite National Park",
-      url: "https://www.nps.gov/yose/index.htm",
-      weather_info: "Yosemite National Park covers nearly 1,200 square miles (3,100 square km) in the Sierra Nevada, with elevations ranging from about 2,000 feet (600 m) to 13,000 ft (4,000 m). Yosemite receives 95% of its precipitation between October and May (and over 75% between November and March). Most of Yosemite is blanketed in snow from about November through May. (Yosemite Valley can be rainy or snowy in any given winter storm.)",
-      name: "Yosemite"
-    },
-        {
-      prov_state: "UT",
-      lat: 37.58399144,
-      long: -112.1826689,
-      description: "Hoodoos (irregular columns of rock) exist on every continent, but here is the largest concentration found anywhere on Earth. Situated along a high plateau at the top of the Grand Staircase, the park's high elevations include numerous life communities, fantastic dark skies, and geological wonders that defy description.",
-      designation: "National Park",
-      full_name: "Bryce Canyon National Park",
-      url: "https://www.nps.gov/brca/index.htm",
-      weather_info: "http://forecast.weather.gov/MapClick.php?lat=37.63&lon=-112.17#.VpUamdHUhaR",
-      name: "Bryce Canyon"
-    },
-        {
-      prov_state: "UT",
-      lat: 38.24555783,
-      long: -109.8801624,
-      description: "Canyonlands invites you to explore a wilderness of countless canyons and fantastically formed buttes carved by the Colorado River and its tributaries. Rivers divide the park into four districts: Island in the Sky, The Needles, The Maze, and the rivers themselves. These areas share a primitive desert atmosphere, but each offers different opportunities for sightseeing and adventure.",
-      designation: "National Park",
-      full_name: "Canyonlands National Park",
-      url: "https://www.nps.gov/cany/index.htm",
-      weather_info: "Canyonlands is part of the Colorado Plateau, a \"high desert\" region that experiences wide temperature fluctuations, sometimes over 40 degrees in a single day. The temperate (and most popular) seasons are spring (April-May) and fall (mid-September-October), when daytime highs average 60 to 80 F and lows average 30 to 50 F. Summer temperatures often exceed 100 F, making strenuous exercise difficult. Winters are cold, with highs averaging 30 to 50 F, and lows averaging 0 to 20 F.",
-      name: "Canyonlands"
-    },
-        {
-      prov_state: "UT",
-      lat: 37.29839254,
-      long: -113.0265138,
-      description: "Follow the paths where ancient native people and pioneers walked. Gaze up at massive sandstone cliffs of cream, pink, and red that soar into a brilliant blue sky. Experience wilderness in a narrow slot canyon. Zion’s unique array of plants and animals will enchant you as you absorb the rich history of the past and enjoy the excitement of present day adventures.",
-      designation: "National Park",
-
-      full_name: "Zion National Park",
-      url: "https://www.nps.gov/zion/index.htm",
-      weather_info: "Zion is known for a wide range of weather conditions. Temperatures vary with changes in elevation and day/night temperatures may differ by over 30°F.\n\nIn summer, temperatures in Zion National Park often exceed 100°F/38°C. Zion experiences monsoons from mid-July into September that results in an increased risk of flash floods. Always be aware of the threat of storms and lightning and be prepared for a wide range of weather conditions. Winters are generally mild.",
-      name: "Zion"
-    },
-    {
-      prov_state: "CO",
-      lat: 38.57779869,
-      long: -107.7242756,
-      description: "Big enough to be overwhelming, still intimate enough to feel the pulse of time, Black Canyon of the Gunnison exposes you to some of the steepest cliffs, oldest rock, and craggiest spires in North America. With two million years to work, the Gunnison River, along with the forces of weathering, has sculpted this vertical wilderness of rock, water, and sky.",
-      designation: "National Park",
-      full_name: "Black Canyon Of The Gunnison National Park",
-      url: "https://www.nps.gov/blca/index.htm",
-      weather_info: "Today's Weather: http://www.weather.com/weather/today/l/NPBLCA:13:US\n\nCLIMATE\nWeather can vary greatly throughout the day. Summer daytime temperatures range between 55 to 90F (13 to 32C), nights 45 to 60F (7 to 16C). Winter daytime temperatures range between 15 to 40F (-9 to 4C), nights 10 to 20F (-12 to -6C).\n\nAfternoon thunderstorms are common during the summer. Snow accumulation varies greatly year to year. Layered clothing appropriate for the season is recommended.",
-      name: "Black Canyon Of The Gunnison"
-    },
-    {
-      prov_state: "CO",
-      lat: 37.23908345,
-      long: -108.4624032,
-      description: "Mesa Verde National Park was established in 1906 to preserve and interpret the archeological heritage of the Ancestral Pueblo people who made it their home for over 700 years, from 600 to 1300 CE. Today, the park protects nearly 5,000 known archeological sites, including 600 cliff dwellings. These sites are some of the most notable and best preserved in the United States.",
-      designation: "National Park",
-      full_name: "Mesa Verde National Park",
-      url: "https://www.nps.gov/meve/index.htm",
-      weather_info: "Spring: Temps range from 40 F to 70 F, but snowstorms can occur as late as May. \n\nSummer: Temps can reach well into the 90s F. Thunderstorms are common in July and August. Be prepared to bring and DRINK plenty of water.\n\nFall: Temps can range from 50 F to 75 F. Snowstorms can occur as early as October. \n\nWinter: Temps can range from the teens to low 30s F. Icy roads are common. Snow tires, all-wheel drive, or chains, may be required. Be prepared with water, snacks, and layers of warm clothing.",
-      name: "Mesa Verde"
-    },
-    {
-      prov_state: "CO",
-      lat: 40.3556924,
-      long: -105.6972879,
-      description: "Rocky Mountain National Park’s 415 square miles encompass and protect spectacular mountain environments. Enjoy Trail Ridge Road – which crests at over 12,000 feet including many overlooks to experience the subalpine and alpine worlds – along with over 300 miles of hiking trails, wildflowers, wildlife, starry nights, and fun times. In a world of superlatives, Rocky is on top!",
-      designation: "National Park",
-      full_name: "Rocky Mountain National Park",
-      url: "https://www.nps.gov/romo/index.htm",
-      weather_info: "Winter (Dec–Mar): cold weather, deep snow at higher elevations, and seasonal closures of facilities and roads. Spring (April–May): unpredictable weather, with a mix of warm sunny days and cool days with heavy snow and rain. Many trails are still snow-covered. Trail Ridge Road opens in late May. Summer (Jun–Aug): warmer weather, thunderstorms, and wildflowers. Most park roads and facilities are open. Fall (Sep–Nov): crisp air, blue skies, fall colors, and the elk rut. Trail Ridge Road closes mid-October.",
-      name: "Rocky Mountain"
-    },
-    {
-      prov_state: "AZ",
-      lat: 36.17280161,
-      long: -112.6836024,
-      description: "Unique combinations of geologic color and erosional forms decorate a canyon that is 277 river miles (446km) long, up to 18 miles (29km) wide, and a mile (1.6km) deep. Grand Canyon overwhelms our senses through its immense size.\n\nSouth Rim is open all year.  North Rim is closed for the winter.  \n\nOn February 26, 1919, Grand Canyon became a National Park. This is our Centennial Year!",
-      designation: "National Park",
-      full_name: "Grand Canyon National Park",
-      url: "https://www.nps.gov/grca/index.htm",
-      weather_info: "This weather varies with cold winters and mild pleasant summers, moderate humidity, and considerable diurnal temperature changes at the higher elevations, with hot and drier summers at the bottom of the Grand Canyon along with cool damp winters. Summer thunderstorms and winter snowfall adds to the weather variety in this region.",
-      name: "Grand Canyon"
-    },
-        {
-      prov_state: "AZ",
-      lat: 34.98387664,
-      long: -109.7877678,
-      description: "Did you know that Petrified Forest is more spectacular than ever? While the park has all the wonders known for a century, there are many new adventures and discoveries to share. There are backcountry hikes into areas never open before such as Red Basin and little known areas like the Martha's Butte. There are new exhibits that bring the stories to life. Come rediscover Petrified Forest!",
-      designation: "National Park",
-      full_name: "Petrified Forest National Park",
-      url: "https://www.nps.gov/pefo/index.htm",
-      weather_info: "Petrified Forest National Park is a semi-arid grassland. Temperatures range from above 100° F (38° C) to well below freezing. About 10 inches (25.4 cm) of moisture comes during infrequent snow in the winter and often dramatic summer thunder-storms. Animals and plants are adapted to extremes in temperature and moisture. You should be ready too. Check out the forecast before you arrive and plan accordingly.",
-      name: "Petrified Forest"
-    },
-        {
-      prov_state: "AZ",
-      lat: 32.20909636,
-      long: -110.7574974,
-      description: "Tucson, Arizona is home to the nation's largest cacti. The giant saguaro is the universal symbol of the American west. These majestic plants, found only in a small portion of the United States, are protected by Saguaro National Park, to the east and west of the modern city of Tucson. Here you have a chance to see these enormous cacti, silhouetted by the beauty of a magnificent desert sunset.",
-      designation: "National Park",
-      full_name: "Saguaro National Park",
-      url: "https://www.nps.gov/sagu/index.htm",
-      weather_info: "Winter Season\nWith daytime temperature from the low 50's to the high 70's\n\nSummer Season \nAs we get deeper into the summer season, temperatures will range from mid-80's to low 100's. This is a great time to experience the desert as the day breaks or in the late of the day as the sun disappears behind the surrounding mountain ranges. During the late spring and summer months Saguaro National Park only offers interpretive programs on an intermittent basis.",
-      name: "Saguaro"
-    },
-        {
-      prov_state: "FL",
-      lat: 24.64884965,
-      long: -82.87176297,
-      description: "Almost 70 miles (113 km) west of Key West lies the remote Dry Tortugas National Park. This 100-square mile park is mostly open water with seven small islands.  Accessible only by boat or seaplane, the park is known the world over as the home of magnificent Fort Jefferson, picturesque blue waters, superlative coral reefs and marine life, and the vast assortment of bird life that frequents the area.",
-      designation: "National Park",
-      full_name: "Dry Tortugas National Park",
-      url: "https://www.nps.gov/drto/index.htm",
-      weather_info: "The climate in the Dry Tortugas is subtropical, which basically means that it has warm and tropical weather in the range of 60°F to 90°F. The two main seasons are the winter stormy season from December through March which is windier and sees rougher seas, and the summertime tropical storm season from June through November where there is a higher chance of isolated storms. During the summers it is hot and humid. During the winter the temperature is milder and drier.",
-      name: "Dry Tortugas"
-    },
-        {
-      prov_state: "FL",
-      lat: 25.37294225,
-      long: -80.88200301,
-      description: "Everglades National Park protects an unparalleled landscape that provides important habitat for numerous rare and endangered species like the manatee,  American crocodile, and the elusive Florida panther.\n\nAn international treasure as well -  a World Heritage Site, International Biosphere Reserve, a Wetland of International Importance, and a specially protected area under the Cartagena Treaty.",
-      designation: "National Park",
-      full_name: "Everglades National Park",
-      url: "https://www.nps.gov/ever/index.htm",
-      weather_info: "The climate in Florida is known to be mild and sunny.The average annual temperatures for South Florida and the Keys range from 74° to 77°F (23° to 25°C). There are two seasons at the Everglades National Park: the wet season and the dry season. The wet season runs from Mid-May to November and the dry season runs from December to mid-May.",
-      name: "Everglades"
-    },
-        {
-      prov_state: "WA",
-      lat: 46.86075416,
-      long: -121.7043885,
-      description: "Ascending to 14,410 feet above sea level, Mount Rainier stands as an icon in the Washington landscape. An active volcano, Mount Rainier is the most glaciated peak in the contiguous U.S.A., spawning five major rivers. Subalpine wildflower meadows ring the icy volcano while ancient forest cloaks Mount Rainier’s lower slopes. Wildlife abounds in the park’s ecosystems. A lifetime of discovery awaits.",
-      designation: "National Park",
-      full_name: "Mount Rainier National Park",
-      url: "https://www.nps.gov/mora/index.htm",
-      weather_info: "Weather patterns at Mount Rainier are strongly influenced by the Pacific Ocean and elevation. The climate is generally cool and rainy, with summer highs in the 60s and 70s. While July and August are the sunniest months of the year, rain is very likely in spring, fall, and winter. Visitors should be aware that mountain weather is very changeable. In the higher elevations, like Paradise, winter can last from November to May with many feet of snow on the ground.",
-      name: "Mount Rainier"
-    },
-        {
-      prov_state: "WA",
-      lat: 48.71171756,
-      long: -121.2069423,
-      description: "Less than three hours from Seattle, an alpine landscape beckons. Discover communities of life adapted to moisture in the west and recurring fire in the east. Explore jagged peaks crowned by more than 300 glaciers. Listen to cascading waters in forested valleys. Witness a landscape sensitive to the Earth's changing climate. Help steward the ecological heart of the Cascades.",
-      designation: "National Park",
-      full_name: "North Cascades National Park",
-      url: "https://www.nps.gov/noca/index.htm",
-      weather_info: "The best weather for visiting the North Cascades generally occurs between mid-June and late-September. Summer daytime temperatures average in the 70's F. Snow is off most trails by mid-July. Autumn and Spring are popular for color and wildlife. Storms are common: always be prepared for a few days of rain and wind. The east side of the Cascade Mountains (Lake Chelan National Recreation Area) is drier and warmer in the summer than the west side. Summer temperatures at Stehekin reach the 90's F.",
-      name: "North Cascades"
-    },
-    {
-      prov_state: "WA",
-      lat: 47.80392754,
-      long: -123.6663848,
-      description: "With its incredible range of precipitation and elevation, diversity is the hallmark of Olympic National Park. Encompassing nearly a million acres, the park protects a vast wilderness, thousands of years of human history, and several distinctly different ecosystems, including glacier-capped mountains, old-growth temperate rain forests, and over 70 miles of wild coastline. Come explore!",
-      designation: "National Park",
-      full_name: "Olympic National Park",
-      url: "https://www.nps.gov/olym/index.htm",
-      weather_info: "Summers tend to be fair and warm, with high temperatures between 65 and 75 degrees F. July, August and September are the driest months, with heavier precipitation during the rest of the year. While winters are mild at lower elevation, snowfall can be heavy in the mountains. It is common for different weather conditions to exist within the park at the same time.  At any time of year, visitors should come prepared for a variety of conditions.",
-      name: "Olympic"
-    },
-    {
-      prov_state: "HI",
-      lat: 20.70693015,
-      long: -156.1591775,
-      description: "This special place vibrates with stories of ancient and modern Hawaiian culture and protects the bond between the land and its people. The park also cares for endangered species, some of which exist nowhere else. Come visit this special place - renew your spirit amid stark volcanic landscapes and sub-tropical rain forest with an unforgettable hike through the backcountry.",
-      designation: "National Park",
-      full_name: "Haleakal&#257; National Park",
-      url: "https://www.nps.gov/hale/index.htm",
-      weather_info: "On any given day, the temperatures in the park can range from a high of 80°F (27°C) in Kīpahulu to a low of 30°F (-1°C) at the summit. In either area clouds and rain can quickly replace warm sunshine.\nWeather in the high-elevation summit and wilderness areas of the park is highly unpredictable and changes often. Cool temperatures, intense solar radiation, and rapidly moving clouds are characteristic. On average, the temperature drops about 3°F for every 1,000 foot rise in elevation.",
-      name: "Haleakal&#257;"
-    },
-    {
-      prov_state: "HI",
-      lat: 19.3355036,
-      long: -155.4700257,
-      description: "Hawai‘i Volcanoes National Park protects some of the most unique geologic, biologic, and cultural landscapes in the world. Extending from sea level to the summit of Mauna Loa at 13,677 feet, the park encompasses the summits of two of the world's most active volcanoes - Kīlauea and Mauna Loa. Learn more about this special place and traditional Hawaiian culture connected to these landscapes.",
-      designation: "National Park",
-      full_name: "Hawai'i Volcanoes National Park",
-      url: "https://www.nps.gov/havo/index.htm",
-      weather_info: "The weather at Kīlauea's summit (4000' elevation) varies daily and may be rainy and chilly any time of the year. Temperature varies by elevation. At the summit of the volcano, temperatures may be 12 to 15 degrees cooler than at sea level. The coastal plain at the end of Chain of Craters Road, where lava crossed the road in 2003, is often hot, dry, and windy with the possibility of passing showers.",
-      name: "Hawai'i Volcanoes"
-    },
-    {
-      prov_state: "SD",
-      lat: 43.58012365,
-      long: -103.4394709,
-      description: "Bison, elk, and other wildlife roam the rolling prairie grasslands and forested hillsides of one of America's oldest national parks. Below the remnant island of intact prairie sits Wind Cave, one of the longest and most complex caves in the world. Named for barometric winds at its entrance, this maze of passages is home to boxwork, a unique formation rarely found elsewhere.",
-      designation: "National Park",
-      full_name: "Wind Cave National Park",
-      url: "https://www.nps.gov/wica/index.htm",
-      weather_info: "Spring:  Highs range from 50 - 70 F with highly variable weather. Spring is the park's wettest season.\n\nSummer:  Warm and generally dry with highs in the 80s F. Thunderstorms are common and can produce large hail and severe lightning. \n\nFall:  Generally dry with warm days and cool nights. Highs in the 50s - 60s F. Lows below freezing are common.\n\nWinter: Highs in the upper 30s F with lows in the 10s F. Snowfall averages 30 inches annually, periodically closing park roads.",
-      name: "Wind Cave"
-    },
-    {
-      prov_state: "TX",
-      lat: 31.92304462,
-      long: -104.885527,
-      description: "Guadalupe Mountains National Park protects the world's most extensive Permian fossil reef, the four highest peaks in Texas, an environmentally diverse collection of flora and fauna, and the stories of lives shaped through conflict, cooperation and survival. Come experience mountains and canyons, desert and dunes, night skies and spectacular vistas within a place unlike any other within the NPS.",
-      designation: "National Park",
-      full_name: "Guadalupe Mountains National Park",
-      url: "https://www.nps.gov/gumo/index.htm",
-      weather_info: "Weather in the Guadalupe Mountains can change in an instant. In the Spring and Summer, average temperatures vary with highs between 70F-80F+ with evening lows in the 40F-60F range. The Fall and Winter bring milder temperatures with highs in between 50F-60F with evening lows in the 30F-50F range.",
-      name: "Guadalupe Mountains"
-    },
-    {
-      prov_state: "WY",
-      lat: 43.81853565,
-      long: -110.7054666,
-      description: "Rising above a scene rich with extraordinary wildlife, pristine lakes, and alpine terrain, the Teton Range stands monument to the people who fought to protect it. These are mountains of the imagination. Mountains that led to the creation of Grand Teton National Park where you can explore over two hundred miles of trails, float the Snake River or enjoy the serenity of this remarkable place.",
-      designation: "National Park",
-      full_name: "Grand Teton National Park",
-      url: "https://www.nps.gov/grte/index.htm",
-      weather_info: "Jackson Hole has long, cold winters; snow and frost are possible any month. \nmid-April, May & June - Mild days and cool nights alternate with rain and snow.\nJuly & August - Warm days and cool nights prevail, with afternoon thundershowers common.\nSeptember, October & November - Sunny days and cold nights alternate with rain and occasional snowstorms.\nDecember to mid-April - Between storms the days are sunny and nights are frigid. Snow blankets the mountains and valley.",
-      name: "Grand Teton"
-    },
-    {
-      prov_state: "ID,MT,WY",
-      lat: 44.59824417,
-      long: -110.5471695,
-      description: "On March 1, 1872, Yellowstone became the first national park for all to enjoy the unique hydrothermal wonders. Preserved within are Earth's most active and diverse geysers, hot springs, mudpots, and fumaroles.",
-      designation: "National Park",
-      full_name: "Yellowstone National Park",
-      url: "https://www.nps.gov/yell/index.htm",
-      weather_info: "Yellowstone's weather can vary quite a bit, even in a single day. In the summer, daytime highs can exceed 70F (25C), only to drop 20 or more degrees when a thunderstorm rolls through. It can snow during any month of the year, and winter lows frequently drop below zero, especially at night. Bring a range of clothing options, including a warm jacket and rain gear, even in the summer.",
-      name: "Yellowstone"
-    },
-    {
-      prov_state: "AR",
-      lat: 34.52414366,
-      long: -93.06332936,
-      description: "Water. That's what first attracted people, and they have been coming here ever since to use these soothing thermal waters to heal and relax. Rich and poor alike came for the baths, and a thriving city built up around the hot springs. Together nicknamed \"The American Spa,\" Hot Springs National Park today surrounds the north end of the city of Hot Springs, Arkansas. Come discover it for yourself.",
-      designation: "National Park",
-      full_name: "Hot Springs National Park",
-      url: "https://www.nps.gov/hosp/index.htm",
-      weather_info: "Temperatures range from >100°F (38°C) to <20°F (-7°C). \nSpring has the highest average rainfall. \nSummer temperatures frequently reach the triple-digit range and high humidity \nFall begins fall colors and cooler temperatures. Frost starts to become more common.\nWinter  temperatures often fall below 33 degrees and occasionally drop below 0. Roads may be icy. \nYour visit can be more enjoyable by checking the forecast and coming prepared for hikes or walks in the park.",
-      name: "Hot Springs"
-    },
-    {
-      prov_state: "KY",
-      lat: 37.19760458,
-      long: -86.13090198,
-      description: "Mammoth Cave National Park preserves the cave system and a part of the Green River valley and hilly country of south central Kentucky. This is the world's longest known cave system, with more than 400 miles (643 km) explored. Early guide Stephen Bishop called the cave a \"grand, gloomy and peculiar place,\" but its vast chambers and complex labyrinths have earned its name - Mammoth.",
-      designation: "National Park",
-      full_name: "Mammoth Cave National Park",
-      url: "https://www.nps.gov/maca/index.htm",
-      weather_info: "Kentucky has a moderate climate with warm, yet moist conditions. Summers average in the high 80s; winters average in the low 40s. Southern Kentucky, where Mammoth Cave is located, receives the highest average precipitation for the state, about 50 inches per year, mostly in spring. Winter can bring mild to moderate snow and ice. Storms happen year-round, and can include tornadoes and flooding in low-lying areas, but severe weather is infrequent. The temperature deep in the cave is a constant 54°F (12°C).",
-      name: "Mammoth Cave"
-    },
-    {
-      prov_state: "MI",
-      lat: 48.01145819,
-      long: -88.82780657,
-      description: "Explore a rugged, isolated island, far from the sights and sounds of civilization. Surrounded by Lake Superior, Isle Royale offers unparalleled solitude and adventures for backpackers, hikers, boaters, kayakers, canoeists and scuba divers. Here, amid stunning scenic beauty, you'll find opportunities for reflection and discovery, and make memories that last a lifetime.",
-      designation: "National Park",
-      full_name: "Isle Royale National Park",
-      url: "https://www.nps.gov/isro/index.htm",
-      weather_info: "Isle Royale National Park is a remote island wilderness in the middle of Lake Superior.  Weather influences traveling to and from the island, as well as your trip once you arrive.  For the most up-to-date weather information, call (906) 482-0984 or email isro_parkinfo@nps.gov prior to your trip.",
-      name: "Isle Royale"
-    },
-        {
-      prov_state: "MN",
-      lat: 48.48370609,
-      long: -92.8382913,
-      description: "With over 40% of the park water, Voyageurs is a maze of interconnected water highways. Plan ahead before coming to this water park by bringing your own watercraft, reserving a watercraft, or taking a park ranger boat tour.",
-      designation: "National Park",
-      full_name: "Voyageurs National Park",
-      url: "https://www.nps.gov/voya/index.htm",
-      weather_info: "There are four distinct seasons in Voyageur country.  The air is temperate during June, July, and August when periods of fine, mild weather prevail.  The frost-free season averages 120 days from June to mid-September.  The average ice-out date is May 3 but varies year to year.  Annual precipitation (rain and snow) averages 25-28 inches in the park and snowfall ranges from 55-70 inches, but is highly variable.  The first measurable snowfall occurs in late October and the last in late April or early May.",
-      name: "Voyageurs"
-    },
-    {
-      prov_state: "MT",
-      lat: 48.68414678,
-      long: -113.8009306,
-      description: "Come and experience Glacier's pristine forests, alpine meadows, rugged mountains, and spectacular lakes. With over 700 miles of trails, Glacier is a hiker's paradise for adventurous visitors seeking wilderness and solitude. Relive the days of old through historic chalets, lodges, and the famous Going-to-the-Sun Road. Explore Glacier National Park and discover what awaits you.",
-      designation: "National Park",
-      full_name: "Glacier National Park",
-      url: "https://www.nps.gov/glac/index.htm",
-      weather_info: "Glacier's weather is highly variable and can be extreme. Expect warm sunny summer days and in the winter the temperatures can fall well below freezing. Glacier's geography, straddling the Continental Divide, sets the stage for clashes of two very different climates. Warm, wet Pacific air moves in from the west, and cold dry Arctic air from the northeast. They meet at the Divide.",
-      name: "Glacier"
-    },
-    {
-      prov_state: "CA,NV",
-      lat: 36.48753731,
-      long: -117.134395,
-      description: "In this below-sea-level basin, steady drought and record summer heat make Death Valley a land of extremes. Yet, each extreme has a striking contrast. Towering peaks are frosted with winter snow. Rare rainstorms bring vast fields of wildflowers. Lush oases harbor tiny fish and refuge for wildlife and humans. Despite its morbid name, a great diversity of life survives in Death Valley.",
-      designation: "National Park",
-      full_name: "Death Valley National Park",
-      url: "https://www.nps.gov/deva/index.htm",
-      weather_info: "AUTUMN arrives in late October, with warm but pleasant temperatures and generally clear skies.\nWINTER has cool days, chilly nights and rarely, rainstorms. With snow capping the high peaks and low angled winter light, this season is especially beautiful for exploring the valley.\nSPRINGTIME is the most popular time to visit Death Valley. Besides warm and sunny days, the possibility of spring wildflowers is a big attraction.\nSUMMER starts early in Death Valley. By May the valley is too hot for most visitors",
-      name: "Death Valley"
-    },
-    {
-      prov_state: "NM",
-      lat: 32.14089463,
-      long: -104.5529688,
-      description: "High ancient sea ledges, deep rocky canyons, flowering cactus, and desert wildlife—treasures above the ground in the Chihuahuan Desert. Hidden beneath the surface are more than 119 caves—formed when sulfuric acid dissolved limestone leaving behind caverns of all sizes.",
-      designation: "National Park",
-      full_name: "Carlsbad Caverns National Park",
-      url: "https://www.nps.gov/cave/index.htm",
-      weather_info: "Carlsbad Caverns National Park is located in the Chihuahuan Desert in southeast New Mexico. Summers are hot with temperatures between 90°F (32°C) and low 100s °F (38°C). Windy conditions and mild temperatures are common in early spring (March-May) with frequent rain in early fall (August-September). This part of the country also sees cold temperatures in the winter with occasional snow and icy conditions. Most days, the park is enveloped by a gorgeous blue sky with very few clouds, 278 sunny days a year!",
-      name: "Carlsbad Caverns"
-    },
-    {
-      prov_state: "NC,TN",
-      lat: 35.60116374,
-      long: -83.50818326,
-      description: "Ridge upon ridge of forest straddles the border between North Carolina and Tennessee in Great Smoky Mountains National Park. World renowned for its diversity of plant and animal life, the beauty of its ancient mountains, and the quality of its remnants of Southern Appalachian mountain culture, this is America's most visited national park.",
-      designation: "National Park",
-      full_name: "Great Smoky Mountains National Park",
-      url: "https://www.nps.gov/grsm/index.htm",
-      weather_info: "Elevations in the park range from approximately 875 feet to 6,643 feet and the topography can drastically affect local weather. Temperatures can vary 10-20 degrees Fahrenheit from mountain base to top, and clear skies lower down do not guarantee equally pleasant weather at higher elevations. Visit http://www.nps.gov/grsm/planyourvisit/weather.htm for seasonal weather information and links to local forecasts.",
-      name: "Great Smoky Mountains"
-    },
-    {
-      prov_state: "ND",
-      lat: 47.17777274,
-      long: -103.4300083,
-      description: "When Theodore Roosevelt came to Dakota Territory to hunt bison in 1883, he was a skinny, young, spectacled dude from New York. He could not have imagined how his adventure in this remote and unfamiliar place would forever alter the course of the nation. The rugged landscape and strenuous life that TR experienced here would help shape a conservation policy that we still benefit from today.",
-      designation: "National Park",
-
-      full_name: "Theodore Roosevelt National Park",
-      url: "https://www.nps.gov/thro/index.htm",
-      weather_info: "In winter, some or all park roads may be closed due to snow.",
-      name: "Theodore Roosevelt"
-    },
-    {
-      prov_state: "OH",
-      lat: "41.26093905, long: -81.57116722",
-      description: "Though a short distance from the urban areas of Cleveland and Akron, Cuyahoga Valley National Park seems worlds away. The park is a refuge for native plants and wildlife, and provides routes of discovery for visitors. The winding Cuyahoga River gives way to deep forests, rolling hills, and open farmlands. Walk or ride the Towpath Trail to follow the historic route of the Ohio & Erie Canal.",
-      designation: "National Park",
-      full_name: "Cuyahoga Valley National Park",
-      url: "https://www.nps.gov/cuva/index.htm",
-      weather_info: "Spring's rain and warming temperatures bring new leaves on trees, blooming wildflowers, and visitors anxious get out on the trail. \n\nSummer temperatures range from 49 to 95 degrees F and can be humid. Dressing in layers is advisable. \n\nFall temperatures can range from low 70s during the day to freezing during the night. Fall foliage often peaks in mid-October.\n\nWinter weather conditions can rapidly change, due to the lake effect snow from Lake Erie. Temperatures vary from mid-30s to below zero.",
-      name: "Cuyahoga Valley"
-    },
-    {
-      prov_state: "OR",
-      lat: "42.94065854, long: -122.1338414",
-      description: "Crater Lake inspires awe. Native Americans witnessed its formation 7,700 years ago, when a violent eruption triggered the collapse of a tall peak. Scientists marvel at its purity: fed by rain and snow, it’s the deepest lake in the USA and one of the most pristine on earth. Artists, photographers, and sightseers gaze in wonder at its blue water and stunning setting atop the Cascade Mountain Range.",
-      designation: "National Park",
-      full_name: "Crater Lake National Park",
-      url: "https://www.nps.gov/crla/index.htm",
-      weather_info: "October through June Crater Lake is snow covered. Snowfall averages 533 inches (1,350 cm) annually, and by early spring, it is typical to have ten to fifteen feet (4 meters) of snow on the ground. \n\nJuly, August, and September are drier and warmer. A typical daytime high temperature during these three months is around 67°F (19°C), but can range from 40°F to 80°F or more (4°C to 27°C). Temperatures cool off rapidly in the evening, with a typical nighttime low around 40°F (4°C).",
-      name: "Crater Lake"
-    },
-
-    {
-      prov_state: "SC",
-      lat: "33.79187523, long: -80.74867805",
-      description: "Astonishing biodiversity exists in Congaree National Park, the largest intact expanse of old growth bottomland hardwood forest remaining in the southeastern United States. Waters from the Congaree and Wateree Rivers sweep through the floodplain, carrying nutrients and sediments that nourish and rejuvenate this ecosystem and support the growth of national and state champion trees.",
-      designation: "National Park",
-      full_name: "Congaree National Park",
-      url: "https://www.nps.gov/cong/index.htm",
-      weather_info: "Check the forecast before getting on the road. Conditions can change rapidly within the park. Flooding can happen with little or no warning, so make sure to check water levels for Cedar Creek and the Congaree River.",
-      name: "Congaree"
-    },
-    
-    {
-      prov_state: "VA",
-      lat: "38.49236644, long: -78.46907715",
-      description: "Just 75 miles from the bustle of Washington, D.C., Shenandoah National Park is your escape to recreation and re-creation. Cascading waterfalls, spectacular vistas, quiet wooded hollows—take a hike, meander along Skyline Drive, or picnic with the family. 200,000 acres of protected lands are haven to deer, songbirds, the night sky…and you. Plan a Shenandoah escape today!",
-      designation: "National Park",
-      full_name: "Shenandoah National Park",
-      url: "https://www.nps.gov/shen/index.htm",
-      weather_info: "Shenandoah experiences four distinct seasons. Best known for its fall foliage, the park is also spectacular in spring when the wildflowers and trees are in full bloom. Summer brings lush greens and relief from the hot valleys. The park's elevation encourages as much as a 10 degree temperature difference. In winter, this means that when surrounding lowlands are experiencing rain, the the park can be blanketed in snow and ice. It's always a good idea to be prepared for varying weather.",
-      name: "Shenandoah"
-    }
-  ]
-
-
-
+  {
+    prov_state: "ME",
+    lat: 44.30777545,
+    long: -68.30063316,
+    description: "Acadia National Park protects the natural beauty of the highest rocky headlands along the Atlantic coastline of the United States, an abundance of habitats with high biodiversity, clean air and water, and a rich cultural heritage. Each year, more than 3.3 million people explore seven peaks above 1,000 feet, 158 miles of hiking trails, and 45 miles of carriage roads with 16 stone bridges.",
+    designation: "National Park",
+    full_name: "Acadia National Park",
+    url: "https://www.nps.gov/acad/index.htm",
+    weather_info: "Located on Mount Desert Island in Maine, Acadia experiences all four seasons. Summer temperatures range from 45-90F (7-30C). Fall temperatures range from 30-70F (-1-21C). Typically the first frost is in mid-October and first snowfall begins in November and can continue through April with an average accumulation of 73 inches (185 cm). Winter temperatures range from 14-35F (-10 - 2C). Spring temperatures range from 30-70F (-1-21C).",
+    name: "Acadia",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "UT",
+    lat: 38.72261844,
+    long: -109.5863666,
+    description: "Visit Arches to discover a landscape of contrasting colors, land forms and textures unlike any other in the world. The park has over 2,000 natural stone arches, in addition to hundreds of soaring pinnacles, massive fins and giant balanced rocks. This red-rock wonderland will amaze you with its formations, refresh you with its trails, and inspire you with its sunsets.",
+    designation: "National Park",
+    full_name: "Arches National Park",
+    url: "https://www.nps.gov/arch/index.htm",
+    weather_info: "Arches is part of the Colorado Plateau, a \"high desert\" region that experiences wide temperature fluctuations, sometimes over 40 degrees in a single day. The temperate (and most popular) seasons are spring (April-May) and fall (mid-September-October), when daytime highs average 60 to 80 F and lows average 30 to 50 F. Summer temperatures often exceed 100 F, making strenuous exercise difficult. Winters are cold, with highs averaging 30 to 50 F, and lows averaging 0 to 20 F.",
+    name: "Arches",
+    img: open_asset("usa_np.jpg")
+  },
+      {
+    prov_state: "SD",
+    lat: 43.68584846,
+    long: -102.482942,
+    designation: "National Park",
+    description: "The rugged beauty of the Badlands draws visitors from around the world. These striking geologic deposits contain one of the world’s richest fossil beds. Ancient mammals such as the rhino, horse, and saber-toothed cat once roamed here. The park’s 244,000 acres protect an expanse of mixed-grass prairie where bison, bighorn sheep, prairie dogs, and black-footed ferrets live today.",
+    full_name: "Badlands National Park",
+    url: "https://www.nps.gov/badl/index.htm",
+    weather_info: "The Badlands weather is variable and unpredictable with temperature extremes ranging from 116° F to -40° F. Summers are hot and dry with occasional violent thunderstorms. Hailstorms and occasional tornadoes can descend on the Badlands with sudden fury. Winters are typically cold with 12 to 24 inches of total snowfall.",
+    name: "Badlands",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "TX",
+    lat: 29.29817767,
+    long: -103.2297897,
+    description: "There is a place in Far West Texas where night skies are dark as coal and rivers carve temple-like canyons in ancient limestone. Here, at the end of the road, hundreds of bird species take refuge in a solitary mountain range surrounded by weather-beaten desert. Tenacious cactus bloom in sublime southwestern sun, and diversity of species is the best in the country. This magical place is Big Bend...",
+    designation: "National Park",
+    full_name: "Big Bend National Park",
+    url: "https://www.nps.gov/bibe/index.htm",
+    weather_info: "Variable\n-- February through April the park abounds with pleasant and comfortable temperatures.\n-- May through August is hot and can also be stormy. Temperatures regularly reach well over 100 degrees in the lower elevations and along the Rio Grande.\n-- September through January temperatures are cooler; the weather can quickly turn cold at any time during these months.",
+    name: "Big Bend",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "FL",
+    lat: 25.490587,
+    long: -80.21023851,
+    description: "Within sight of downtown Miami, yet worlds away, Biscayne protects a rare combination of aquamarine waters, emerald islands, and fish-bejeweled coral reefs. Here too is evidence of 10,000 years of human history, from pirates and shipwrecks to pineapple farmers and presidents. Outdoors enthusiasts can boat, snorkel, camp, watch wildlife…or simply relax in a rocking chair gazing out over the bay.",
+    designation: "National Park",
+    full_name: "Biscayne National Park",
+    url: "https://www.nps.gov/bisc/index.htm",
+    weather_info: "The park is situated in a subtropical climate, which ensures sunshine year-round. Winters are normally dry and mild, with occasional fronts bringing wind and little rain. Summer brings hot and humid weather with scattered thunderstorms in the afternoons. The average temperature in January is 68 degrees Fahrenheit and 82 in July. The average rainfall for the area is 2.17 inches in January and 3.95 inches in July. June to November is hurricane season.",
+    name: "Biscayne",
+    img: open_asset("usa_np.jpg")
+  },
+      {
+    prov_state: "AK",
+    lat: 67.75961636,
+    long: -153.2917758,
+    description: "This vast landscape does not contain any roads or trails. Visitors discover intact ecosystems where people have lived with the land for thousands of years. Wild rivers meander through glacier-carved valleys, caribou migrate along age-old trails, endless summer light fades into aurora-lit night skies of winter. It remains virtually unchanged except by the forces of nature.",
+    designation: "National Park & Preserve",
+    full_name: "Gates Of The Arctic National Park & Preserve",
+    url: "https://www.nps.gov/gaar/index.htm",
+    weather_info: "The climate of Gates of the Arctic National Park & Preserve is generally classified as arctic and sub-arctic, with exceptionally cold winters, relatively mild summers, low annual precipitation, and generally high winds. The weather is influenced by many different systems, and can change rapidly.",
+    name: "Gates Of The Arctic",
+    img: open_asset("usa_np.jpg")
+  },
+      {
+    prov_state: "CA",
+    lat: 40.49354575,
+    long: -121.4075993,
+    description: "Lassen Volcanic National Park is home to steaming fumaroles, meadows freckled with wildflowers, clear mountain lakes, and numerous volcanoes. Jagged peaks tell the story of its eruptive past while hot water continues to shape the land. Lassen Volcanic offers opportunities to discover the wonder and mysteries of volcanoes and hot water for visitors willing to explore the undiscovered.",
+    designation: "National Park",
+    full_name: "Lassen Volcanic National Park",
+    url: "https://www.nps.gov/lavo/index.htm",
+    weather_info: "Weather at Lassen can vary dramatically throughout the year.\n\nAverage January temperatures are a high of 40.4 °F (4.7 °C) and a low of 20.8 °F (-6.2 °C). Average July temperatures are a high of 88.4 °F and a low of 49.8 °F. Temperatures reach 90 °F or higher on an average of 36.9 days, and drop to 32 ° or lower on an average of 164 days days annually.",
+    name: "Lassen Volcanic",
+    img: open_asset("usa_np.jpg")
+  },
+      {
+    prov_state: "CA",
+    lat: 37.84883288,
+    long: -119.5571873,
+    description: "Not just a great valley, but a shrine to human foresight, the strength of granite, the power of glaciers, the persistence of life, and the tranquility of the High Sierra.\n\nFirst protected in 1864, Yosemite National Park is best known for its waterfalls, but within its nearly 1,200 square miles, you can find deep valleys, grand meadows, ancient giant sequoias, a vast wilderness area, and much more.",
+    designation: "National Park",
+    full_name: "Yosemite National Park",
+    url: "https://www.nps.gov/yose/index.htm",
+    weather_info: "Yosemite National Park covers nearly 1,200 square miles (3,100 square km) in the Sierra Nevada, with elevations ranging from about 2,000 feet (600 m) to 13,000 ft (4,000 m). Yosemite receives 95% of its precipitation between October and May (and over 75% between November and March). Most of Yosemite is blanketed in snow from about November through May. (Yosemite Valley can be rainy or snowy in any given winter storm.)",
+    name: "Yosemite",
+    img: open_asset("usa_np.jpg")
+  },
+      {
+    prov_state: "UT",
+    lat: 37.58399144,
+    long: -112.1826689,
+    description: "Hoodoos (irregular columns of rock) exist on every continent, but here is the largest concentration found anywhere on Earth. Situated along a high plateau at the top of the Grand Staircase, the park's high elevations include numerous life communities, fantastic dark skies, and geological wonders that defy description.",
+    designation: "National Park",
+    full_name: "Bryce Canyon National Park",
+    url: "https://www.nps.gov/brca/index.htm",
+    weather_info: "http://forecast.weather.gov/MapClick.php?lat=37.63&lon=-112.17#.VpUamdHUhaR",
+    name: "Bryce Canyon",
+    img: open_asset("usa_np.jpg")
+  },
+      {
+    prov_state: "UT",
+    lat: 38.24555783,
+    long: -109.8801624,
+    description: "Canyonlands invites you to explore a wilderness of countless canyons and fantastically formed buttes carved by the Colorado River and its tributaries. Rivers divide the park into four districts: Island in the Sky, The Needles, The Maze, and the rivers themselves. These areas share a primitive desert atmosphere, but each offers different opportunities for sightseeing and adventure.",
+    designation: "National Park",
+    full_name: "Canyonlands National Park",
+    url: "https://www.nps.gov/cany/index.htm",
+    weather_info: "Canyonlands is part of the Colorado Plateau, a \"high desert\" region that experiences wide temperature fluctuations, sometimes over 40 degrees in a single day. The temperate (and most popular) seasons are spring (April-May) and fall (mid-September-October), when daytime highs average 60 to 80 F and lows average 30 to 50 F. Summer temperatures often exceed 100 F, making strenuous exercise difficult. Winters are cold, with highs averaging 30 to 50 F, and lows averaging 0 to 20 F.",
+    name: "Canyonlands",
+    img: open_asset("usa_np.jpg")
+  },
+      {
+    prov_state: "UT",
+    lat: 37.29839254,
+    long: -113.0265138,
+    description: "Follow the paths where ancient native people and pioneers walked. Gaze up at massive sandstone cliffs of cream, pink, and red that soar into a brilliant blue sky. Experience wilderness in a narrow slot canyon. Zion’s unique array of plants and animals will enchant you as you absorb the rich history of the past and enjoy the excitement of present day adventures.",
+    designation: "National Park",
+    full_name: "Zion National Park",
+    url: "https://www.nps.gov/zion/index.htm",
+    weather_info: "Zion is known for a wide range of weather conditions. Temperatures vary with changes in elevation and day/night temperatures may differ by over 30°F.\n\nIn summer, temperatures in Zion National Park often exceed 100°F/38°C. Zion experiences monsoons from mid-July into September that results in an increased risk of flash floods. Always be aware of the threat of storms and lightning and be prepared for a wide range of weather conditions. Winters are generally mild.",
+    name: "Zion",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "CO",
+    lat: 38.57779869,
+    long: -107.7242756,
+    description: "Big enough to be overwhelming, still intimate enough to feel the pulse of time, Black Canyon of the Gunnison exposes you to some of the steepest cliffs, oldest rock, and craggiest spires in North America. With two million years to work, the Gunnison River, along with the forces of weathering, has sculpted this vertical wilderness of rock, water, and sky.",
+    designation: "National Park",
+    full_name: "Black Canyon Of The Gunnison National Park",
+    url: "https://www.nps.gov/blca/index.htm",
+    weather_info: "Today's Weather: http://www.weather.com/weather/today/l/NPBLCA:13:US\n\nCLIMATE\nWeather can vary greatly throughout the day. Summer daytime temperatures range between 55 to 90F (13 to 32C), nights 45 to 60F (7 to 16C). Winter daytime temperatures range between 15 to 40F (-9 to 4C), nights 10 to 20F (-12 to -6C).\n\nAfternoon thunderstorms are common during the summer. Snow accumulation varies greatly year to year. Layered clothing appropriate for the season is recommended.",
+    name: "Black Canyon Of The Gunnison",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "CO",
+    lat: 37.23908345,
+    long: -108.4624032,
+    description: "Mesa Verde National Park was established in 1906 to preserve and interpret the archeological heritage of the Ancestral Pueblo people who made it their home for over 700 years, from 600 to 1300 CE. Today, the park protects nearly 5,000 known archeological sites, including 600 cliff dwellings. These sites are some of the most notable and best preserved in the United States.",
+    designation: "National Park",
+    full_name: "Mesa Verde National Park",
+    url: "https://www.nps.gov/meve/index.htm",
+    weather_info: "Spring: Temps range from 40 F to 70 F, but snowstorms can occur as late as May. \n\nSummer: Temps can reach well into the 90s F. Thunderstorms are common in July and August. Be prepared to bring and DRINK plenty of water.\n\nFall: Temps can range from 50 F to 75 F. Snowstorms can occur as early as October. \n\nWinter: Temps can range from the teens to low 30s F. Icy roads are common. Snow tires, all-wheel drive, or chains, may be required. Be prepared with water, snacks, and layers of warm clothing.",
+    name: "Mesa Verde",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "CO",
+    lat: 40.3556924,
+    long: -105.6972879,
+    description: "Rocky Mountain National Park’s 415 square miles encompass and protect spectacular mountain environments. Enjoy Trail Ridge Road – which crests at over 12,000 feet including many overlooks to experience the subalpine and alpine worlds – along with over 300 miles of hiking trails, wildflowers, wildlife, starry nights, and fun times. In a world of superlatives, Rocky is on top!",
+    designation: "National Park",
+    full_name: "Rocky Mountain National Park",
+    url: "https://www.nps.gov/romo/index.htm",
+    weather_info: "Winter (Dec–Mar): cold weather, deep snow at higher elevations, and seasonal closures of facilities and roads. Spring (April–May): unpredictable weather, with a mix of warm sunny days and cool days with heavy snow and rain. Many trails are still snow-covered. Trail Ridge Road opens in late May. Summer (Jun–Aug): warmer weather, thunderstorms, and wildflowers. Most park roads and facilities are open. Fall (Sep–Nov): crisp air, blue skies, fall colors, and the elk rut. Trail Ridge Road closes mid-October.",
+    name: "Rocky Mountain",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "AZ",
+    lat: 36.17280161,
+    long: -112.6836024,
+    description: "Unique combinations of geologic color and erosional forms decorate a canyon that is 277 river miles (446km) long, up to 18 miles (29km) wide, and a mile (1.6km) deep. Grand Canyon overwhelms our senses through its immense size.\n\nSouth Rim is open all year.  North Rim is closed for the winter.  \n\nOn February 26, 1919, Grand Canyon became a National Park. This is our Centennial Year!",
+    designation: "National Park",
+    full_name: "Grand Canyon National Park",
+    url: "https://www.nps.gov/grca/index.htm",
+    weather_info: "This weather varies with cold winters and mild pleasant summers, moderate humidity, and considerable diurnal temperature changes at the higher elevations, with hot and drier summers at the bottom of the Grand Canyon along with cool damp winters. Summer thunderstorms and winter snowfall adds to the weather variety in this region.",
+    name: "Grand Canyon",
+    img: open_asset("usa_np.jpg")
+  },
+      {
+    prov_state: "AZ",
+    lat: 34.98387664,
+    long: -109.7877678,
+    description: "Did you know that Petrified Forest is more spectacular than ever? While the park has all the wonders known for a century, there are many new adventures and discoveries to share. There are backcountry hikes into areas never open before such as Red Basin and little known areas like the Martha's Butte. There are new exhibits that bring the stories to life. Come rediscover Petrified Forest!",
+    designation: "National Park",
+    full_name: "Petrified Forest National Park",
+    url: "https://www.nps.gov/pefo/index.htm",
+    weather_info: "Petrified Forest National Park is a semi-arid grassland. Temperatures range from above 100° F (38° C) to well below freezing. About 10 inches (25.4 cm) of moisture comes during infrequent snow in the winter and often dramatic summer thunder-storms. Animals and plants are adapted to extremes in temperature and moisture. You should be ready too. Check out the forecast before you arrive and plan accordingly.",
+    name: "Petrified Forest",
+    img: open_asset("usa_np.jpg")
+  },
+      {
+    prov_state: "AZ",
+    lat: 32.20909636,
+    long: -110.7574974,
+    description: "Tucson, Arizona is home to the nation's largest cacti. The giant saguaro is the universal symbol of the American west. These majestic plants, found only in a small portion of the United States, are protected by Saguaro National Park, to the east and west of the modern city of Tucson. Here you have a chance to see these enormous cacti, silhouetted by the beauty of a magnificent desert sunset.",
+    designation: "National Park",
+    full_name: "Saguaro National Park",
+    url: "https://www.nps.gov/sagu/index.htm",
+    weather_info: "Winter Season\nWith daytime temperature from the low 50's to the high 70's\n\nSummer Season \nAs we get deeper into the summer season, temperatures will range from mid-80's to low 100's. This is a great time to experience the desert as the day breaks or in the late of the day as the sun disappears behind the surrounding mountain ranges. During the late spring and summer months Saguaro National Park only offers interpretive programs on an intermittent basis.",
+    name: "Saguaro",
+    img: open_asset("usa_np.jpg")
+  },
+      {
+    prov_state: "FL",
+    lat: 24.64884965,
+    long: -82.87176297,
+    description: "Almost 70 miles (113 km) west of Key West lies the remote Dry Tortugas National Park. This 100-square mile park is mostly open water with seven small islands.  Accessible only by boat or seaplane, the park is known the world over as the home of magnificent Fort Jefferson, picturesque blue waters, superlative coral reefs and marine life, and the vast assortment of bird life that frequents the area.",
+    designation: "National Park",
+    full_name: "Dry Tortugas National Park",
+    url: "https://www.nps.gov/drto/index.htm",
+    weather_info: "The climate in the Dry Tortugas is subtropical, which basically means that it has warm and tropical weather in the range of 60°F to 90°F. The two main seasons are the winter stormy season from December through March which is windier and sees rougher seas, and the summertime tropical storm season from June through November where there is a higher chance of isolated storms. During the summers it is hot and humid. During the winter the temperature is milder and drier.",
+    name: "Dry Tortugas",
+    img: open_asset("usa_np.jpg")
+  },
+      {
+    prov_state: "FL",
+    lat: 25.37294225,
+    long: -80.88200301,
+    description: "Everglades National Park protects an unparalleled landscape that provides important habitat for numerous rare and endangered species like the manatee,  American crocodile, and the elusive Florida panther.\n\nAn international treasure as well -  a World Heritage Site, International Biosphere Reserve, a Wetland of International Importance, and a specially protected area under the Cartagena Treaty.",
+    designation: "National Park",
+    full_name: "Everglades National Park",
+    url: "https://www.nps.gov/ever/index.htm",
+    weather_info: "The climate in Florida is known to be mild and sunny.The average annual temperatures for South Florida and the Keys range from 74° to 77°F (23° to 25°C). There are two seasons at the Everglades National Park: the wet season and the dry season. The wet season runs from Mid-May to November and the dry season runs from December to mid-May.",
+    name: "Everglades",
+    img: open_asset("usa_np.jpg")
+  },
+      {
+    prov_state: "WA",
+    lat: 46.86075416,
+    long: -121.7043885,
+    description: "Ascending to 14,410 feet above sea level, Mount Rainier stands as an icon in the Washington landscape. An active volcano, Mount Rainier is the most glaciated peak in the contiguous U.S.A., spawning five major rivers. Subalpine wildflower meadows ring the icy volcano while ancient forest cloaks Mount Rainier’s lower slopes. Wildlife abounds in the park’s ecosystems. A lifetime of discovery awaits.",
+    designation: "National Park",
+    full_name: "Mount Rainier National Park",
+    url: "https://www.nps.gov/mora/index.htm",
+    weather_info: "Weather patterns at Mount Rainier are strongly influenced by the Pacific Ocean and elevation. The climate is generally cool and rainy, with summer highs in the 60s and 70s. While July and August are the sunniest months of the year, rain is very likely in spring, fall, and winter. Visitors should be aware that mountain weather is very changeable. In the higher elevations, like Paradise, winter can last from November to May with many feet of snow on the ground.",
+    name: "Mount Rainier",
+    img: open_asset("usa_np.jpg")
+  },
+      {
+    prov_state: "WA",
+    lat: 48.71171756,
+    long: -121.2069423,
+    description: "Less than three hours from Seattle, an alpine landscape beckons. Discover communities of life adapted to moisture in the west and recurring fire in the east. Explore jagged peaks crowned by more than 300 glaciers. Listen to cascading waters in forested valleys. Witness a landscape sensitive to the Earth's changing climate. Help steward the ecological heart of the Cascades.",
+    designation: "National Park",
+    full_name: "North Cascades National Park",
+    url: "https://www.nps.gov/noca/index.htm",
+    weather_info: "The best weather for visiting the North Cascades generally occurs between mid-June and late-September. Summer daytime temperatures average in the 70's F. Snow is off most trails by mid-July. Autumn and Spring are popular for color and wildlife. Storms are common: always be prepared for a few days of rain and wind. The east side of the Cascade Mountains (Lake Chelan National Recreation Area) is drier and warmer in the summer than the west side. Summer temperatures at Stehekin reach the 90's F.",
+    name: "North Cascades",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "WA",
+    lat: 47.80392754,
+    long: -123.6663848,
+    description: "With its incredible range of precipitation and elevation, diversity is the hallmark of Olympic National Park. Encompassing nearly a million acres, the park protects a vast wilderness, thousands of years of human history, and several distinctly different ecosystems, including glacier-capped mountains, old-growth temperate rain forests, and over 70 miles of wild coastline. Come explore!",
+    designation: "National Park",
+    full_name: "Olympic National Park",
+    url: "https://www.nps.gov/olym/index.htm",
+    weather_info: "Summers tend to be fair and warm, with high temperatures between 65 and 75 degrees F. July, August and September are the driest months, with heavier precipitation during the rest of the year. While winters are mild at lower elevation, snowfall can be heavy in the mountains. It is common for different weather conditions to exist within the park at the same time.  At any time of year, visitors should come prepared for a variety of conditions.",
+    name: "Olympic",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "HI",
+    lat: 20.70693015,
+    long: -156.1591775,
+    description: "This special place vibrates with stories of ancient and modern Hawaiian culture and protects the bond between the land and its people. The park also cares for endangered species, some of which exist nowhere else. Come visit this special place - renew your spirit amid stark volcanic landscapes and sub-tropical rain forest with an unforgettable hike through the backcountry.",
+    designation: "National Park",
+    full_name: "Haleakal&#257; National Park",
+    url: "https://www.nps.gov/hale/index.htm",
+    weather_info: "On any given day, the temperatures in the park can range from a high of 80°F (27°C) in Kīpahulu to a low of 30°F (-1°C) at the summit. In either area clouds and rain can quickly replace warm sunshine.\nWeather in the high-elevation summit and wilderness areas of the park is highly unpredictable and changes often. Cool temperatures, intense solar radiation, and rapidly moving clouds are characteristic. On average, the temperature drops about 3°F for every 1,000 foot rise in elevation.",
+    name: "Haleakal&#257;",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "HI",
+    lat: 19.3355036,
+    long: -155.4700257,
+    description: "Hawai‘i Volcanoes National Park protects some of the most unique geologic, biologic, and cultural landscapes in the world. Extending from sea level to the summit of Mauna Loa at 13,677 feet, the park encompasses the summits of two of the world's most active volcanoes - Kīlauea and Mauna Loa. Learn more about this special place and traditional Hawaiian culture connected to these landscapes.",
+    designation: "National Park",
+    full_name: "Hawai'i Volcanoes National Park",
+    url: "https://www.nps.gov/havo/index.htm",
+    weather_info: "The weather at Kīlauea's summit (4000' elevation) varies daily and may be rainy and chilly any time of the year. Temperature varies by elevation. At the summit of the volcano, temperatures may be 12 to 15 degrees cooler than at sea level. The coastal plain at the end of Chain of Craters Road, where lava crossed the road in 2003, is often hot, dry, and windy with the possibility of passing showers.",
+    name: "Hawai'i Volcanoes",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "SD",
+    lat: 43.58012365,
+    long: -103.4394709,
+    description: "Bison, elk, and other wildlife roam the rolling prairie grasslands and forested hillsides of one of America's oldest national parks. Below the remnant island of intact prairie sits Wind Cave, one of the longest and most complex caves in the world. Named for barometric winds at its entrance, this maze of passages is home to boxwork, a unique formation rarely found elsewhere.",
+    designation: "National Park",
+    full_name: "Wind Cave National Park",
+    url: "https://www.nps.gov/wica/index.htm",
+    weather_info: "Spring:  Highs range from 50 - 70 F with highly variable weather. Spring is the park's wettest season.\n\nSummer:  Warm and generally dry with highs in the 80s F. Thunderstorms are common and can produce large hail and severe lightning. \n\nFall:  Generally dry with warm days and cool nights. Highs in the 50s - 60s F. Lows below freezing are common.\n\nWinter: Highs in the upper 30s F with lows in the 10s F. Snowfall averages 30 inches annually, periodically closing park roads.",
+    name: "Wind Cave",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "TX",
+    lat: 31.92304462,
+    long: -104.885527,
+    description: "Guadalupe Mountains National Park protects the world's most extensive Permian fossil reef, the four highest peaks in Texas, an environmentally diverse collection of flora and fauna, and the stories of lives shaped through conflict, cooperation and survival. Come experience mountains and canyons, desert and dunes, night skies and spectacular vistas within a place unlike any other within the NPS.",
+    designation: "National Park",
+    full_name: "Guadalupe Mountains National Park",
+    url: "https://www.nps.gov/gumo/index.htm",
+    weather_info: "Weather in the Guadalupe Mountains can change in an instant. In the Spring and Summer, average temperatures vary with highs between 70F-80F+ with evening lows in the 40F-60F range. The Fall and Winter bring milder temperatures with highs in between 50F-60F with evening lows in the 30F-50F range.",
+    name: "Guadalupe Mountains",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "WY",
+    lat: 43.81853565,
+    long: -110.7054666,
+    description: "Rising above a scene rich with extraordinary wildlife, pristine lakes, and alpine terrain, the Teton Range stands monument to the people who fought to protect it. These are mountains of the imagination. Mountains that led to the creation of Grand Teton National Park where you can explore over two hundred miles of trails, float the Snake River or enjoy the serenity of this remarkable place.",
+    designation: "National Park",
+    full_name: "Grand Teton National Park",
+    url: "https://www.nps.gov/grte/index.htm",
+    weather_info: "Jackson Hole has long, cold winters; snow and frost are possible any month. \nmid-April, May & June - Mild days and cool nights alternate with rain and snow.\nJuly & August - Warm days and cool nights prevail, with afternoon thundershowers common.\nSeptember, October & November - Sunny days and cold nights alternate with rain and occasional snowstorms.\nDecember to mid-April - Between storms the days are sunny and nights are frigid. Snow blankets the mountains and valley.",
+    name: "Grand Teton",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "ID,MT,WY",
+    lat: 44.59824417,
+    long: -110.5471695,
+    description: "On March 1, 1872, Yellowstone became the first national park for all to enjoy the unique hydrothermal wonders. Preserved within are Earth's most active and diverse geysers, hot springs, mudpots, and fumaroles.",
+    designation: "National Park",
+    full_name: "Yellowstone National Park",
+    url: "https://www.nps.gov/yell/index.htm",
+    weather_info: "Yellowstone's weather can vary quite a bit, even in a single day. In the summer, daytime highs can exceed 70F (25C), only to drop 20 or more degrees when a thunderstorm rolls through. It can snow during any month of the year, and winter lows frequently drop below zero, especially at night. Bring a range of clothing options, including a warm jacket and rain gear, even in the summer.",
+    name: "Yellowstone",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "AR",
+    lat: 34.52414366,
+    long: -93.06332936,
+    description: "Water. That's what first attracted people, and they have been coming here ever since to use these soothing thermal waters to heal and relax. Rich and poor alike came for the baths, and a thriving city built up around the hot springs. Together nicknamed \"The American Spa,\" Hot Springs National Park today surrounds the north end of the city of Hot Springs, Arkansas. Come discover it for yourself.",
+    designation: "National Park",
+    full_name: "Hot Springs National Park",
+    url: "https://www.nps.gov/hosp/index.htm",
+    weather_info: "Temperatures range from >100°F (38°C) to <20°F (-7°C). \nSpring has the highest average rainfall. \nSummer temperatures frequently reach the triple-digit range and high humidity \nFall begins fall colors and cooler temperatures. Frost starts to become more common.\nWinter  temperatures often fall below 33 degrees and occasionally drop below 0. Roads may be icy. \nYour visit can be more enjoyable by checking the forecast and coming prepared for hikes or walks in the park.",
+    name: "Hot Springs",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "KY",
+    lat: 37.19760458,
+    long: -86.13090198,
+    description: "Mammoth Cave National Park preserves the cave system and a part of the Green River valley and hilly country of south central Kentucky. This is the world's longest known cave system, with more than 400 miles (643 km) explored. Early guide Stephen Bishop called the cave a \"grand, gloomy and peculiar place,\" but its vast chambers and complex labyrinths have earned its name - Mammoth.",
+    designation: "National Park",
+    full_name: "Mammoth Cave National Park",
+    url: "https://www.nps.gov/maca/index.htm",
+    weather_info: "Kentucky has a moderate climate with warm, yet moist conditions. Summers average in the high 80s; winters average in the low 40s. Southern Kentucky, where Mammoth Cave is located, receives the highest average precipitation for the state, about 50 inches per year, mostly in spring. Winter can bring mild to moderate snow and ice. Storms happen year-round, and can include tornadoes and flooding in low-lying areas, but severe weather is infrequent. The temperature deep in the cave is a constant 54°F (12°C).",
+    name: "Mammoth Cave",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "MI",
+    lat: 48.01145819,
+    long: -88.82780657,
+    description: "Explore a rugged, isolated island, far from the sights and sounds of civilization. Surrounded by Lake Superior, Isle Royale offers unparalleled solitude and adventures for backpackers, hikers, boaters, kayakers, canoeists and scuba divers. Here, amid stunning scenic beauty, you'll find opportunities for reflection and discovery, and make memories that last a lifetime.",
+    designation: "National Park",
+    full_name: "Isle Royale National Park",
+    url: "https://www.nps.gov/isro/index.htm",
+    weather_info: "Isle Royale National Park is a remote island wilderness in the middle of Lake Superior.  Weather influences traveling to and from the island, as well as your trip once you arrive.  For the most up-to-date weather information, call (906) 482-0984 or email isro_parkinfo@nps.gov prior to your trip.",
+    name: "Isle Royale",
+    img: open_asset("usa_np.jpg")
+  },
+      {
+    prov_state: "MN",
+    lat: 48.48370609,
+    long: -92.8382913,
+    description: "With over 40% of the park water, Voyageurs is a maze of interconnected water highways. Plan ahead before coming to this water park by bringing your own watercraft, reserving a watercraft, or taking a park ranger boat tour.",
+    designation: "National Park",
+    full_name: "Voyageurs National Park",
+    url: "https://www.nps.gov/voya/index.htm",
+    weather_info: "There are four distinct seasons in Voyageur country.  The air is temperate during June, July, and August when periods of fine, mild weather prevail.  The frost-free season averages 120 days from June to mid-September.  The average ice-out date is May 3 but varies year to year.  Annual precipitation (rain and snow) averages 25-28 inches in the park and snowfall ranges from 55-70 inches, but is highly variable.  The first measurable snowfall occurs in late October and the last in late April or early May.",
+    name: "Voyageurs",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "MT",
+    lat: 48.68414678,
+    long: -113.8009306,
+    description: "Come and experience Glacier's pristine forests, alpine meadows, rugged mountains, and spectacular lakes. With over 700 miles of trails, Glacier is a hiker's paradise for adventurous visitors seeking wilderness and solitude. Relive the days of old through historic chalets, lodges, and the famous Going-to-the-Sun Road. Explore Glacier National Park and discover what awaits you.",
+    designation: "National Park",
+    full_name: "Glacier National Park",
+    url: "https://www.nps.gov/glac/index.htm",
+    weather_info: "Glacier's weather is highly variable and can be extreme. Expect warm sunny summer days and in the winter the temperatures can fall well below freezing. Glacier's geography, straddling the Continental Divide, sets the stage for clashes of two very different climates. Warm, wet Pacific air moves in from the west, and cold dry Arctic air from the northeast. They meet at the Divide.",
+    name: "Glacier",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "CA,NV",
+    lat: 36.48753731,
+    long: -117.134395,
+    description: "In this below-sea-level basin, steady drought and record summer heat make Death Valley a land of extremes. Yet, each extreme has a striking contrast. Towering peaks are frosted with winter snow. Rare rainstorms bring vast fields of wildflowers. Lush oases harbor tiny fish and refuge for wildlife and humans. Despite its morbid name, a great diversity of life survives in Death Valley.",
+    designation: "National Park",
+    full_name: "Death Valley National Park",
+    url: "https://www.nps.gov/deva/index.htm",
+    weather_info: "AUTUMN arrives in late October, with warm but pleasant temperatures and generally clear skies.\nWINTER has cool days, chilly nights and rarely, rainstorms. With snow capping the high peaks and low angled winter light, this season is especially beautiful for exploring the valley.\nSPRINGTIME is the most popular time to visit Death Valley. Besides warm and sunny days, the possibility of spring wildflowers is a big attraction.\nSUMMER starts early in Death Valley. By May the valley is too hot for most visitors",
+    name: "Death Valley",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "NM",
+    lat: 32.14089463,
+    long: -104.5529688,
+    description: "High ancient sea ledges, deep rocky canyons, flowering cactus, and desert wildlife—treasures above the ground in the Chihuahuan Desert. Hidden beneath the surface are more than 119 caves—formed when sulfuric acid dissolved limestone leaving behind caverns of all sizes.",
+    designation: "National Park",
+    full_name: "Carlsbad Caverns National Park",
+    url: "https://www.nps.gov/cave/index.htm",
+    weather_info: "Carlsbad Caverns National Park is located in the Chihuahuan Desert in southeast New Mexico. Summers are hot with temperatures between 90°F (32°C) and low 100s °F (38°C). Windy conditions and mild temperatures are common in early spring (March-May) with frequent rain in early fall (August-September). This part of the country also sees cold temperatures in the winter with occasional snow and icy conditions. Most days, the park is enveloped by a gorgeous blue sky with very few clouds, 278 sunny days a year!",
+    name: "Carlsbad Caverns",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "NC,TN",
+    lat: 35.60116374,
+    long: -83.50818326,
+    description: "Ridge upon ridge of forest straddles the border between North Carolina and Tennessee in Great Smoky Mountains National Park. World renowned for its diversity of plant and animal life, the beauty of its ancient mountains, and the quality of its remnants of Southern Appalachian mountain culture, this is America's most visited national park.",
+    designation: "National Park",
+    full_name: "Great Smoky Mountains National Park",
+    url: "https://www.nps.gov/grsm/index.htm",
+    weather_info: "Elevations in the park range from approximately 875 feet to 6,643 feet and the topography can drastically affect local weather. Temperatures can vary 10-20 degrees Fahrenheit from mountain base to top, and clear skies lower down do not guarantee equally pleasant weather at higher elevations. Visit http://www.nps.gov/grsm/planyourvisit/weather.htm for seasonal weather information and links to local forecasts.",
+    name: "Great Smoky Mountains",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "ND",
+    lat: 47.17777274,
+    long: -103.4300083,
+    description: "When Theodore Roosevelt came to Dakota Territory to hunt bison in 1883, he was a skinny, young, spectacled dude from New York. He could not have imagined how his adventure in this remote and unfamiliar place would forever alter the course of the nation. The rugged landscape and strenuous life that TR experienced here would help shape a conservation policy that we still benefit from today.",
+    designation: "National Park",  
+    full_name: "Theodore Roosevelt National Park",
+    url: "https://www.nps.gov/thro/index.htm",
+    weather_info: "In winter, some or all park roads may be closed due to snow.",
+    name: "Theodore Roosevelt",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "OH",
+    lat: "41.26093905",
+    long: "-81.57116722",
+    description: "Though a short distance from the urban areas of Cleveland and Akron, Cuyahoga Valley National Park seems worlds away. The park is a refuge for native plants and wildlife, and provides routes of discovery for visitors. The winding Cuyahoga River gives way to deep forests, rolling hills, and open farmlands. Walk or ride the Towpath Trail to follow the historic route of the Ohio & Erie Canal.",
+    designation: "National Park",
+    full_name: "Cuyahoga Valley National Park",
+    url: "https://www.nps.gov/cuva/index.htm",
+    weather_info: "Spring's rain and warming temperatures bring new leaves on trees, blooming wildflowers, and visitors anxious get out on the trail. \n\nSummer temperatures range from 49 to 95 degrees F and can be humid. Dressing in layers is advisable. \n\nFall temperatures can range from low 70s during the day to freezing during the night. Fall foliage often peaks in mid-October.\n\nWinter weather conditions can rapidly change, due to the lake effect snow from Lake Erie. Temperatures vary from mid-30s to below zero.",
+    name: "Cuyahoga Valley",
+    img: open_asset("usa_np.jpg")
+  },
+  {
+    prov_state: "OR",
+    lat: "42.94065854",
+     long: "-122.1338414",
+    description: "Crater Lake inspires awe. Native Americans witnessed its formation 7,700 years ago, when a violent eruption triggered the collapse of a tall peak. Scientists marvel at its purity: fed by rain and snow, it’s the deepest lake in the USA and one of the most pristine on earth. Artists, photographers, and sightseers gaze in wonder at its blue water and stunning setting atop the Cascade Mountain Range.",
+    designation: "National Park",
+    full_name: "Crater Lake National Park",
+    url: "https://www.nps.gov/crla/index.htm",
+    weather_info: "October through June Crater Lake is snow covered. Snowfall averages 533 inches (1,350 cm) annually, and by early spring, it is typical to have ten to fifteen feet (4 meters) of snow on the ground. \n\nJuly, August, and September are drier and warmer. A typical daytime high temperature during these three months is around 67°F (19°C), but can range from 40°F to 80°F or more (4°C to 27°C). Temperatures cool off rapidly in the evening, with a typical nighttime low around 40°F (4°C).",
+    name: "Crater Lake",
+    img: open_asset("usa_np.jpg")
+  },
+  
+  {
+    prov_state: "SC",
+    lat: "33.79187523", 
+    long: "-80.74867805",
+    description: "Astonishing biodiversity exists in Congaree National Park, the largest intact expanse of old growth bottomland hardwood forest remaining in the southeastern United States. Waters from the Congaree and Wateree Rivers sweep through the floodplain, carrying nutrients and sediments that nourish and rejuvenate this ecosystem and support the growth of national and state champion trees.",
+    designation: "National Park",
+    full_name: "Congaree National Park",
+    url: "https://www.nps.gov/cong/index.htm",
+    weather_info: "Check the forecast before getting on the road. Conditions can change rapidly within the park. Flooding can happen with little or no warning, so make sure to check water levels for Cedar Creek and the Congaree River.",
+    name: "Congaree",
+    img: open_asset("usa_np.jpg")
+  },
+  
+  {
+    prov_state: "VA",
+    lat: "38.49236644", 
+    long: "-78.46907715",
+    description: "Just 75 miles from the bustle of Washington, D.C., Shenandoah National Park is your escape to recreation and re-creation. Cascading waterfalls, spectacular vistas, quiet wooded hollows—take a hike, meander along Skyline Drive, or picnic with the family. 200,000 acres of protected lands are haven to deer, songbirds, the night sky…and you. Plan a Shenandoah escape today!",
+    designation: "National Park",
+    full_name: "Shenandoah National Park",
+    url: "https://www.nps.gov/shen/index.htm",
+    weather_info: "Shenandoah experiences four distinct seasons. Best known for its fall foliage, the park is also spectacular in spring when the wildflowers and trees are in full bloom. Summer brings lush greens and relief from the hot valleys. The park's elevation encourages as much as a 10 degree temperature difference. In winter, this means that when surrounding lowlands are experiencing rain, the the park can be blanketed in snow and ice. It's always a good idea to be prepared for varying weather.",
+    name: "Shenandoah",
+    img: open_asset("usa_np.jpg")
+  }
+      ]
+  
 
 parks_american.select do |park|
     Park.create(park)

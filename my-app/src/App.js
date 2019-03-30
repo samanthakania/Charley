@@ -13,7 +13,7 @@ class App extends Component {
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyADfvn7bqN8wTxIrPUpCZZMEoURzEsj5sU"
           containerElement={<div className="mapContainer"/>}
           loadingElement={<div className="loadingElement"/>}
-          mapElement={<div className="mapElement"/>}
+          mapElement={<div className="mapElement" id="map"/>}
         />
       </div>
     );
