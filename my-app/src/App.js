@@ -8,18 +8,10 @@ class App extends Component {
 
 
   componentDidMount() {
-    this.fetchData();
-  }
-
-  fetchData() {
-    fetch('/parks/index')
-    .then(response => {return response.json()
-    })
-    // .then(parsedJSON => console.log(parsedJSON.results))
-    .then(data => console.log(data))
-    .catch(err => console.log('parsing failed', err))
 
   }
+
+
 
   render() {
     return (
@@ -29,7 +21,7 @@ class App extends Component {
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyADfvn7bqN8wTxIrPUpCZZMEoURzEsj5sU"
           containerElement={<div className="mapContainer"/>}
           loadingElement={<div className="loadingElement"/>}
-          mapElement={<div className="mapElement"/>}
+          mapElement={<div className="mapElement" id="map"/>}
         />
         <header className="App-header">
       <h1>hit hit</h1>
