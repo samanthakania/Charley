@@ -1,0 +1,28 @@
+/* <--- Social Media Tab ---> */
+.social-media-container {
+    padding: 10px;
+}
+
+.hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/BryceCanyon-Amphiteatre1.jpg/2560px-BryceCanyon-Amphiteatre1.jpg");
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.hero-text {
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 37%;
+    left: 37%;
+}
+
+.social-media-content {
+
+}
