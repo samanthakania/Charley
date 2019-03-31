@@ -16,7 +16,7 @@ class App extends Component {
           loadingElement={<div className="loadingElement"/>}
           mapElement={<div className="mapElement" id="map"/>}
         />
-        < ModalWindow />
+      
       </div>
     );
   }

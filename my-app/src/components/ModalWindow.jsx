@@ -9,16 +9,18 @@ import ParkAdvisoriesTab from './ModalWindowComponents/ParkAdvisoriesTab';
 
 
 class ModalWindow extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            showModal: false
+            showModal: true
         };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
     
     }
-
+    componentDidMount() {
+        ReactModal.setAppElement('body')
+    }
     handleOpenModal() {
         this.setState({ showModal: true });
     }
@@ -34,7 +36,7 @@ class ModalWindow extends Component {
                 <ReactModal
                     isOpen={this.state.showModal}
                     contentLabel="Minimal Modal Example"
-                    >
+                    ariaHideApp={false}>
                     <Tabs>
                         <TabList>
                         <Tab>Social Media</Tab>

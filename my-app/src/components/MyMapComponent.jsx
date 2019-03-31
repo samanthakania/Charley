@@ -2,23 +2,30 @@
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, Marker, DirectionsRenderer } from "react-google-maps";
 import './MyMapComponent.css';
-import PointsOfInterest from './PointsOfInterest';
+import ModalWindow from './ModalWindow';
 
 class MyMapComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
       directions: null,
-      parks: []
+      parks: [],
+      modal: false
     }
     this.originInput = React.createRef();
     this.destinationInput = React.createRef();
     this.mapElt = React.createRef();
     this.origin = null
     this.destination = null
+    // this.handleModal = this.handleModal.bind(this);
+
+  }
+  componentDidUpdate(prevState) {
+
   }
 
   componentDidMount() {
+    console.log("did")
     this.fetchData();
     this.directionsService = new google.maps.DirectionsService();
     let originAutocomplete = new google.maps.places.Autocomplete(this.originInput.current);
@@ -34,7 +41,15 @@ class MyMapComponent extends Component {
     this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.destinationInput.current);
 
   }
+  handleModal(park) {
+    console.log(park);
+    this.setState({ modal: false });
+    this.setState({ modal: true });
+  }
 
+  handleCloseModal() {
+    this.setState({ modal: false });
+  }
   placeChanged(autocomplete, mode) {
     var me = this;
     autocomplete.addListener('place_changed', function () {
@@ -90,6 +105,8 @@ class MyMapComponent extends Component {
 
   }
   render() {
+    // eslint-disable-next-line no-lone-blocks
+
     return (
       <div>
         <input ref={this.originInput} type="text" placeholder="Enter a start location"
@@ -102,52 +119,29 @@ class MyMapComponent extends Component {
           defaultCenter={{ lat: 43.6532, lng: -79.3832 }}
         >
           {this.state.parks.map(park => {
-            return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)} />)
+
+
+            return (<Marker className="markers" key={park.id} Name={park.name}
+              position={new google.maps.LatLng(park.lat, park.long)}
+              onClick={this.handleModal.bind(this, park)} />)
           })}
           {this.state.directions && <DirectionsRenderer directions={this.state.directions} />}
+
         </GoogleMap>
-      </div>)
+        {this.state.modal ? (
+          <ModalWindow />
+        ) : (
+            <h1></h1>
+          )}
+
+      </div>
+    )
   }
 
 }
-// state = {
-//   directions: null,
-// }
-
-// componentDidMount() {
-//   const DirectionsService = new google.maps.DirectionsService();
-//   DirectionsService.route({
-//     origin: new google.maps.LatLng(43.6532, -79.3832),
-//     destination: new google.maps.LatLng(41.8525800, -87.6514100),
-//     travelMode: google.maps.TravelMode.DRIVING,
-//   }, (result, status) => {
-//     if (status === google.maps.DirectionsStatus.OK) {
-
-//       this.setState({
-//         directions: result,
-//       });
-//     } else {
-//       console.error(`error fetching directions ${result}`);
-//     }
-//   });
-//   // var marker = new google.maps.Marker({position: myPosition, title: 'Hi', map: map})
-// }
 
 
 
-// render() {
-//   return (
-//     <GoogleMap 
-//       defaultZoom={14}
-//       defaultCenter={{ lat: 43.6532, lng: -79.3832 }}
-
-//     >
-
-//      <PointsOfInterest points={this.state.parks} google={this.props.google}/>
-//         {this.state.directions && <DirectionsRenderer directions={this.state.directions} />}
-//       </GoogleMap>
-//     )
-//   }
-// }
 // icon={park.img}
 export default withGoogleMap(MyMapComponent);
+
