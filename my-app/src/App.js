@@ -3,6 +3,7 @@ import './App.css';
 import MyMapComponent from './components/MyMapComponent.jsx';
 import NavBar from './components/NavBar';
 import ModalWindow from './components/ModalWindow';
+import ToDoList from './components/ToDoList'
 
 class App extends Component {
 
@@ -16,6 +17,7 @@ class App extends Component {
           loadingElement={<div className="loadingElement"/>}
           mapElement={<div className="mapElement" id="map"/>}
         />
+        <ToDoList />
       
       </div>
     );
