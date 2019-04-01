@@ -16,7 +16,7 @@ class ModalWindow extends Component {
         };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
-    
+
     }
 
     handleOpenModal() {
@@ -28,7 +28,7 @@ class ModalWindow extends Component {
     }
 
     render() {
-        return( 
+        return(
             <div>
                 <button onClick={this.handleOpenModal}>Trigger Modal</button>
                 <ReactModal
@@ -44,7 +44,9 @@ class ModalWindow extends Component {
                         </TabList>
 
                         <TabPanel>
-                            <SocialMediaTab/>
+                            <SocialMediaTab
+                            addWaypoint={this.props.addWaypoint}
+                            />
                         </TabPanel>
                         <TabPanel>
                             <ParkDescriptionTab/>

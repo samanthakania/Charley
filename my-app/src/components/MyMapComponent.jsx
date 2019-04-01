@@ -10,7 +10,6 @@ class MyMapComponent extends Component {
     this.state = {
       directions: null,
       parks: [],
-      waypoints: []
     }
     this.originInput = React.createRef();
     this.destinationInput = React.createRef();
@@ -59,20 +58,12 @@ class MyMapComponent extends Component {
       return;
     }
     var me = this;
-    var newWay = [];
-    newWay.push({
-      location: new google.maps.LatLng(this.state.lat, this.state.long),
-      stopover: true
-      });
     this.directionsService.route(
       {
         origin: { 'placeId': this.origin },
         destination: { 'placeId': this.destination },
         travelMode: google.maps.TravelMode.DRIVING,
-        waypoints:
-        this.setState({
-          waypoints: newWay
-        }),
+        waypoints: this.props.waypoints,
         optimizeWaypoints: true,
         },
       function (response, status) {
@@ -85,6 +76,8 @@ class MyMapComponent extends Component {
         }
       });
   }
+
+
 
   fetchData() {
     fetch('/parks/index')
@@ -100,6 +93,7 @@ class MyMapComponent extends Component {
 
   }
   render() {
+    this.route()
     return (
       <div>
         <input ref={this.originInput} type="text" placeholder="Enter a start location"
