@@ -8,7 +8,8 @@ class ParkDescription extends Component {
                     <h1>Park Description</h1>
                 </header>
                 <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam aspernatur rerum omnis repudiandae natus? Excepturi corrupti laboriosam fugiat libero aspernatur. A aut eveniet voluptatum delectus perferendis, consequatur eum nam quasi!</p>
+                    <h3>{this.props.parks[0].description}</h3>
+                    <a href='#'>{this.props.parks[0].url}</a>
                 </div>
             </div>
         )
