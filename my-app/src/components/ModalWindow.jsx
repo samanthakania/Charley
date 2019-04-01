@@ -12,15 +12,25 @@ class ModalWindow extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            showModal: true
+            showModal: false,
+            parks: []
         };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
-    
     }
     componentDidMount() {
         ReactModal.setAppElement('body')
+        fetch('/parks/index')
+        .then(response => {
+        if (response.ok) {
+            response.json().then(data => {
+            this.setState({ parks: data })
+            })
+
+        }})
+        .catch(err => console.log('parsing failed', err))
     }
+
     handleOpenModal() {
         this.setState({ showModal: true });
     }
@@ -46,10 +56,10 @@ class ModalWindow extends Component {
                         </TabList>
 
                         <TabPanel>
-                            <SocialMediaTab/>
+                            <SocialMediaTab parks = {this.state.parks} />
                         </TabPanel>
                         <TabPanel>
-                            <ParkDescriptionTab/>
+                            <ParkDescriptionTab parks = {this.state.parks} />
                         </TabPanel>
                         <TabPanel>
                             <WeatherTab/>

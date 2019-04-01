@@ -3,12 +3,13 @@ import './ModalWindowComponents.css';
 
 class SocialMediaTab extends Component {
     render() {
+        console.log(this.props.parks[0])
         return(
             <div className="social-media-container">
             <div className="hero-image">
                 <div className="hero-text">
-                    <h1>Example National Park</h1>
-                    <p>This park is great</p>  
+                    <h1>{this.props.parks[0].full_name}</h1>
+                    <h2>{this.props.parks[0].prov_state}, {this.props.parks[0].country}</h2>
                     <button>Add Park</button>
                 </div>
             </div>
