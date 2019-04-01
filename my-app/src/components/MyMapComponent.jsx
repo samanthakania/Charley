@@ -9,7 +9,8 @@ class MyMapComponent extends Component {
     super(props);
     this.state = {
       directions: null,
-      parks: []
+      parks: [],
+      waypoints: []
     }
     this.originInput = React.createRef();
     this.destinationInput = React.createRef();
@@ -41,7 +42,7 @@ class MyMapComponent extends Component {
       var place = autocomplete.getPlace();
 
       if (!place.place_id) {
-        window.alert('Please select an option from the dropdown list.');
+        window.alert('');
         return;
       }
       if (mode === 'ORIG') {
@@ -58,13 +59,22 @@ class MyMapComponent extends Component {
       return;
     }
     var me = this;
-    console.log(this.origin, this.destination);
+    var newWay = [];
+    newWay.push({
+      location: new google.maps.LatLng(this.state.lat, this.state.long),
+      stopover: true
+      });
     this.directionsService.route(
       {
         origin: { 'placeId': this.origin },
         destination: { 'placeId': this.destination },
-        travelMode: google.maps.TravelMode.DRIVING
-      },
+        travelMode: google.maps.TravelMode.DRIVING,
+        waypoints:
+        this.setState({
+          waypoints: newWay
+        }),
+        optimizeWaypoints: true,
+        },
       function (response, status) {
         if (status === 'OK') {
           me.setState({
@@ -98,8 +108,8 @@ class MyMapComponent extends Component {
           style={{ position: "absolute", top: 0 }} />
         <GoogleMap
           ref={this.mapElt}
-          defaultZoom={14}
-          defaultCenter={{ lat: 43.6532, lng: -79.3832 }}
+          defaultZoom={4}
+          defaultCenter={{ lat: 47.9253, lng: -97.03294 }}
         >
           {this.state.parks.map(park => {
             return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)} />)
@@ -137,7 +147,7 @@ class MyMapComponent extends Component {
 
 // render() {
 //   return (
-//     <GoogleMap 
+//     <GoogleMap
 //       defaultZoom={14}
 //       defaultCenter={{ lat: 43.6532, lng: -79.3832 }}
 
