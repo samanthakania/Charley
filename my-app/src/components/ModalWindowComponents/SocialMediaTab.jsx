@@ -1,3 +1,4 @@
+/* global google */
 import React, { Component } from 'react';
 import './ModalWindowComponents.css';
 
@@ -12,17 +13,20 @@ class SocialMediaTab extends Component {
     };
      }
 componentDidMount(){
-  // this.fetchTweets()
-  // this. fetchStats()  
+  this.fetchTweets()
+  this. fetchStats()  
      this.fetchFlickr()
+    this.props.addWaypoint({
+       location: new google.maps.LatLng(47.9253,-97.03294),
+       stopover: true
+     })
     console.log("made it here", this.state.tweets)
 } 
 fetchFlickr() {       
-  
-
- console.log('flickr key', key)
+   console.log('flickr key', key)
  let searchWord = this.props.parkInfo.full_name
   console.log("hit", searchWord)
+  let key= '3c93fae0a9bc674a7a19f96368815b24'
   let url = `https://api.flickr.com/services/rest/?api_key=${key}&method=flickr.photos.search&format=json&nojsoncallback=1&&per_page=50&page=1&text=${searchWord}`
  fetch(url)
       .then(response => {
