@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, Marker, DirectionsRenderer } from "react-google-maps";
 import './MyMapComponent.css';
-import ModalWindow from './ModalWindow';
+import PointsOfInterest from './PointsOfInterest';
 
 class MyMapComponent extends Component {
   constructor(props) {
@@ -18,13 +18,9 @@ class MyMapComponent extends Component {
     this.mapElt = React.createRef();
     this.origin = null
     this.destination = null
-    
-
   }
-  
 
   componentDidMount() {
-    console.log("did")
     this.fetchData();
     this.directionsService = new google.maps.DirectionsService();
     let originAutocomplete = new google.maps.places.Autocomplete(this.originInput.current);
@@ -40,22 +36,14 @@ class MyMapComponent extends Component {
     this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.destinationInput.current);
 
   }
-  handleModal(park) {
-    this.setState({ modal: false, currentPark: park });
-    console.log(park);
-    
-    this.setState({ modal: true });
- 
-  }
 
-  
   placeChanged(autocomplete, mode) {
     var me = this;
     autocomplete.addListener('place_changed', function () {
       var place = autocomplete.getPlace();
 
       if (!place.place_id) {
-        window.alert('Please select an option from the dropdown list.');
+        window.alert('');
         return;
       }
       if (mode === 'ORIG') {
@@ -72,13 +60,14 @@ class MyMapComponent extends Component {
       return;
     }
     var me = this;
-    console.log(this.origin, this.destination);
     this.directionsService.route(
       {
         origin: { 'placeId': this.origin },
         destination: { 'placeId': this.destination },
-        travelMode: google.maps.TravelMode.DRIVING
-      },
+        travelMode: google.maps.TravelMode.DRIVING,
+        waypoints: this.props.waypoints,
+        optimizeWaypoints: true,
+        },
       function (response, status) {
         if (status === 'OK') {
           me.setState({
@@ -89,6 +78,8 @@ class MyMapComponent extends Component {
         }
       });
   }
+
+
 
   fetchData() {
     fetch('/parks/index')
@@ -103,9 +94,16 @@ class MyMapComponent extends Component {
       .catch(err => console.log('parsing failed', err))
 
   }
+  handleModal(park) {
+    this.setState({ modal: false, currentPark: park });
+    console.log(park);
+    
+    this.setState({ modal: true });
+ 
+  }
+
   render() {
-
-
+    this.route()
     return (
       <div>
         <input ref={this.originInput} type="text" placeholder="Enter a start location"
@@ -114,33 +112,27 @@ class MyMapComponent extends Component {
           style={{ position: "absolute", top: 0 }} />
         <GoogleMap
           ref={this.mapElt}
-          defaultZoom={14}
-          defaultCenter={{ lat: 43.6532, lng: -79.3832 }}
+          defaultZoom={4}
+          defaultCenter={{ lat: 47.9253, lng: -97.03294 }}
         >
           {this.state.parks.map(park => {
-
-
-            return (<Marker className="markers" key={park.id} Name={park.name}
-              position={new google.maps.LatLng(park.lat, park.long)}
-              onClick={this.handleModal.bind(this, park)} />)
+            return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)} 
+            onClick={this.handleModal.bind(this, park)}
+            />)
           })}
           {this.state.directions && <DirectionsRenderer directions={this.state.directions} />}
-
         </GoogleMap>
-        {this.state.modal ? (
+       {this.state.modal ? (
           <ModalWindow park={this.state.currentPark}/>
         ) : (
             <h1> </h1>
           )}
-
-      </div>
-    )
+      </div>)
   }
 
 }
 
+export default withGoogleMap(MyMapComponent);
 
 
 // icon={park.img}
-export default withGoogleMap(MyMapComponent);
-

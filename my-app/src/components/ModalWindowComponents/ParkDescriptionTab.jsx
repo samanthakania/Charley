@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 var unirest = require('unirest');
 class ParkDescription extends Component {

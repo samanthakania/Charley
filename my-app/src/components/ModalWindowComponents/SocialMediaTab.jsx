@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './ModalWindowComponents.css';
-// import env from 'process-env'
+
 let Twit = require('twit')
 class SocialMediaTab extends Component {
      constructor(props) {
@@ -18,8 +18,8 @@ componentDidMount(){
     console.log("made it here", this.state.tweets)
 } 
 fetchFlickr() {       
-  // let key= '3c93fae0a9bc674a7a19f96368815b24'
- let key = process.env('FLICKR')
+  
+
  console.log('flickr key', key)
  let searchWord = this.props.parkInfo.full_name
   console.log("hit", searchWord)
