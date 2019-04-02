@@ -8,21 +8,27 @@ class SocialMediaTab extends Component {
         super(props)
         this.state = {
           photos: [],
-          tweets: []
-    
+          tweets: [],
     };
-     }
+    this.handleWaypoint = this.handleWaypoint.bind(this)
+  }
 componentDidMount(){
   this.fetchTweets()
-  this. fetchStats()  
+  this.fetchStats()
      this.fetchFlickr()
+
+    console.log("made it here", this.state.tweets)
+}
+
+handleWaypoint(){
     this.props.addWaypoint({
-       location: new google.maps.LatLng(47.9253,-97.03294),
+       location: new google.maps.LatLng(this.props.parkInfo.lat, this.props.parkInfo.long),
        stopover: true
      })
-    console.log("made it here", this.state.tweets)
-} 
-fetchFlickr() {       
+    console.log('points:', this.props.parkInfo.lat)
+  }
+
+fetchFlickr() {
    console.log('flickr key', key)
  let searchWord = this.props.parkInfo.full_name
   console.log("hit", searchWord)
@@ -42,7 +48,7 @@ fetchFlickr() {
   }
   fetchTweets(){
  let name_encoded = encodeURIComponent(this.props.parkInfo.name)
- 
+
     fetch('/twitterfeed/index?name=' + name_encoded)
       .then(response => {
         if (response.ok) {
@@ -56,10 +62,10 @@ fetchFlickr() {
       })
       .catch(err => console.log('parsing failed', err))
 
-  
+
   }
   fetchStats() {
-  fetch('/api/nps_api_show')  
+  fetch('/api/nps_api_show')
   .then(response => {
     if (response.ok) {
       response.json()
@@ -70,6 +76,7 @@ fetchFlickr() {
   })
 
   }
+
     render() {
         return(
             <div className="social-media-container">
@@ -77,10 +84,10 @@ fetchFlickr() {
                 <div className="hero-text">
                   {this.state.photos.map(photo => {
 
-            let srcPth = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg' 
+            let srcPth = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg'
               return(
                   <img className="parkPics" src={srcPth}></img>
-             )})} 
+             )})}
                 </div>
                 {this.state.tweets.map(tweet => {
 
@@ -90,12 +97,12 @@ fetchFlickr() {
                 </span>)
           })}
             </div>
-                    <button>Add Park</button>
+                    <button onClick={this.handleWaypoint}>Add Park</button>
             <div className="social-media-content">
-                <span className="likes"> 2,000 likes</span> 
+                <span className="likes"> 2,000 likes</span>
                 <div className="comments">
-                    
-                    
+
+
 
                 </div>
             </div>
@@ -105,9 +112,6 @@ fetchFlickr() {
 }
 
 export default SocialMediaTab;
-
-
-
 
 
 // "https://api.twitter.com/1.1/search/tweets.json/?api_key=?q=LlZPzsUBTmWNVuDty4AtVUSwu%23yellowstone&count=10&include_entities=true"

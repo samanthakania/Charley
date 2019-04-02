@@ -18,14 +18,10 @@ class ModalWindow extends Component {
         };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
-    
+
     }
     componentDidMount() {
         ReactModal.setAppElement('body')
-    this.props.addWaypoint({
-       location: new google.maps.LatLng(47.9253,-97.03294),
-       stopover: true
-     })
     }
     handleOpenModal() {
         this.setState({ showModal: true });
@@ -36,7 +32,7 @@ class ModalWindow extends Component {
     }
     render() {
         console.log("Window", this.props)
-        return( 
+        return(
             <div>
                 <button onClick={this.handleOpenModal}>{this.props.park.name}</button>
                 <ReactModal
@@ -91,7 +87,7 @@ class ModalWindow extends Component {
                         </TabList>
 
                         <TabPanel>
-                            <SocialMediaTab 
+                            <SocialMediaTab
                             addWaypoint={this.props.addWaypoint}
                             parkInfo={this.props.park}/>
                         </TabPanel>
