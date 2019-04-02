@@ -4,12 +4,16 @@
   "private": true,
   "proxy": "http://0.0.0.0:3000",
   "dependencies": {
+    "cors": "^2.8.5",
+    "process-env": "^1.1.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-google-maps": "^9.4.5",
     "react-modal": "^3.8.1",
     "react-scripts": "2.1.8",
-    "react-tabs": "^3.0.0"
+    "react-tabs": "^3.0.0",
+    "twit": "^2.2.11",
+    "unirest": "^0.6.0"
   },
   "scripts": {
     "start": "PORT=3006 react-scripts start",

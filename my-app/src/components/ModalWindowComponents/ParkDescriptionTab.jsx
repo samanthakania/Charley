@@ -1,14 +1,32 @@
 import React, { Component } from 'react';
-
+var unirest = require('unirest');
 class ParkDescription extends Component {
+  componentDidMount(){
+        this.fetchNps()
+  }
+  fetchCamping(){
+      let lat = this.props.parkDes.lat
+      let long = this.props.parkDes.long
+      unirest.get("https://trailapi-trailapi.p.rapidapi.com/?q-activities_activity_type_name_eq=hiking&lat="+ lat +"&lon="+ long +"&radius=25&limit=25")
+    .header('key goes here')
+    .end(function (result) {
+      console.log(result.status, result.headers, result.body);
+    });
+
+  }
+
+  
+   }
     render() {
-        return(
+      let park = this.props.parkDes
+      console.log(this.props)
+      return(
             <div className="ParkDescriptionContainer">
                 <header>
-                    <h1>Park Description</h1>
+                    <h1>{park.full_name}</h1>
                 </header>
                 <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam aspernatur rerum omnis repudiandae natus? Excepturi corrupti laboriosam fugiat libero aspernatur. A aut eveniet voluptatum delectus perferendis, consequatur eum nam quasi!</p>
+                    <p>{park.description}</p>
                 </div>
             </div>
         )

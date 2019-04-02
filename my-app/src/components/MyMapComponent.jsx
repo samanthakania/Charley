@@ -10,19 +10,18 @@ class MyMapComponent extends Component {
     this.state = {
       directions: null,
       parks: [],
-      modal: false
+      modal: false,
+      currentPark: null
     }
     this.originInput = React.createRef();
     this.destinationInput = React.createRef();
     this.mapElt = React.createRef();
     this.origin = null
     this.destination = null
-    // this.handleModal = this.handleModal.bind(this);
+    
 
   }
-  componentDidUpdate(prevState) {
-
-  }
+  
 
   componentDidMount() {
     console.log("did")
@@ -42,14 +41,14 @@ class MyMapComponent extends Component {
 
   }
   handleModal(park) {
+    this.setState({ modal: false, currentPark: park });
     console.log(park);
-    this.setState({ modal: false });
+    
     this.setState({ modal: true });
+ 
   }
 
-  handleCloseModal() {
-    this.setState({ modal: false });
-  }
+  
   placeChanged(autocomplete, mode) {
     var me = this;
     autocomplete.addListener('place_changed', function () {
@@ -105,7 +104,7 @@ class MyMapComponent extends Component {
 
   }
   render() {
-    // eslint-disable-next-line no-lone-blocks
+
 
     return (
       <div>
@@ -129,9 +128,9 @@ class MyMapComponent extends Component {
 
         </GoogleMap>
         {this.state.modal ? (
-          <ModalWindow />
+          <ModalWindow park={this.state.currentPark}/>
         ) : (
-            <h1></h1>
+            <h1> </h1>
           )}
 
       </div>

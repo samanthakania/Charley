@@ -30,9 +30,10 @@ class ModalWindow extends Component {
     }
 
     render() {
+        console.log("Window", this.props)
         return( 
             <div>
-                <button onClick={this.handleOpenModal}>Trigger Modal</button>
+                <button onClick={this.handleOpenModal}>{this.props.park.name}</button>
                 <ReactModal
                     isOpen={this.state.showModal}
                     contentLabel="Minimal Modal Example"
@@ -46,13 +47,13 @@ class ModalWindow extends Component {
                         </TabList>
 
                         <TabPanel>
-                            <SocialMediaTab/>
+                            <SocialMediaTab parkInfo={this.props.park}/>
                         </TabPanel>
                         <TabPanel>
-                            <ParkDescriptionTab/>
+                            <ParkDescriptionTab parkDes={this.props.park}/>
                         </TabPanel>
                         <TabPanel>
-                            <WeatherTab/>
+                            <WeatherTab weather={this.props.park}/>
                         </TabPanel>
                         <TabPanel>
                             <ParkAdvisoriesTab/>
