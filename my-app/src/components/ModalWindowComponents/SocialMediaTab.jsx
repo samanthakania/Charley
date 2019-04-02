@@ -7,25 +7,31 @@ class SocialMediaTab extends Component {
         super(props)
         this.state = {
           photos: [],
-          tweets: []
+          tweets: [],
     };
+    this.handleWaypoint = this.handleWaypoint.bind(this)
   }
 componentDidMount(){
-    this.props.addWaypoint({
-        location: new google.maps.LatLng(47.9253,-97.03294),
-        stopover: true
-      })
-  // this.fetchTweets()
-  // this. fetchStats()
-    //  this.fetchFlickr()
-    // console.log("made it here", this.state.tweets)
-}
-fetchFlickr() {
+  this.fetchTweets()
+  this.fetchStats()
+     this.fetchFlickr()
 
-let key= '3c93fae0a9bc674a7a19f96368815b24'
- console.log('flickr key', key)
+    console.log("made it here", this.state.tweets)
+}
+
+handleWaypoint(){
+      console.log('lat and longs:', this.props.parkInfo.lat, this.props.parkInfo.long)
+    this.props.addWaypoint({
+       location: new google.maps.LatLng(this.props.parkInfo.lat, this.props.parkInfo.long),
+       stopover: true
+     })
+  }
+
+fetchFlickr() {
+   console.log('flickr key', key)
  let searchWord = this.props.parkInfo.full_name
   console.log("hit", searchWord)
+  let key= '3c93fae0a9bc674a7a19f96368815b24'
   let url = `https://api.flickr.com/services/rest/?api_key=${key}&method=flickr.photos.search&format=json&nojsoncallback=1&&per_page=50&page=1&text=${searchWord}`
  fetch(url)
       .then(response => {
@@ -69,6 +75,7 @@ let key= '3c93fae0a9bc674a7a19f96368815b24'
   })
 
   }
+
     render() {
         return(
             <div className="social-media-container">
@@ -89,7 +96,7 @@ let key= '3c93fae0a9bc674a7a19f96368815b24'
                 </span>)
           })}
             </div>
-                    <button>Add Park</button>
+                    <button onClick={this.handleWaypoint}>Add Park</button>
             <div className="social-media-content">
                 <span className="likes"> 2,000 likes</span>
                 <div className="comments">
@@ -104,7 +111,6 @@ let key= '3c93fae0a9bc674a7a19f96368815b24'
 }
 
 export default SocialMediaTab;
-
 
 
 // "https://api.twitter.com/1.1/search/tweets.json/?api_key=?q=LlZPzsUBTmWNVuDty4AtVUSwu%23yellowstone&count=10&include_entities=true"

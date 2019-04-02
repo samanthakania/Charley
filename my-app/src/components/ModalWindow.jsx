@@ -1,3 +1,4 @@
+/* global google */
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -12,7 +13,8 @@ class ModalWindow extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            showModal: true
+            showModal: true,
+             waypoints: []
         };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
@@ -28,7 +30,6 @@ class ModalWindow extends Component {
     handleCloseModal() {
         this.setState({ showModal: false });
     }
-
     render() {
         console.log("Window", this.props)
         return(
@@ -47,7 +48,48 @@ class ModalWindow extends Component {
                         </TabList>
 
                         <TabPanel>
-                            <SocialMediaTab addWaypoint={this.props.addWaypoint} parkInfo={this.props.park}/>
+                            <SocialMediaTab parkInfo={this.props.park}/>
+                        </TabPanel>
+                        <TabPanel>
+                            <ParkDescriptionTab parkDes={this.props.park}
+                                addWaypoint={this.props.addWaypoint}
+                            />
+                        </TabPanel>
+                        <TabPanel>
+                            <WeatherTab weather={this.props.park}/>
+                        </TabPanel>
+                        <TabPanel>
+                            <ParkAdvisoriesTab/>
+                        </TabPanel>
+
+                    </Tabs>
+
+                    <button onClick={this.handleCloseModal}>Close Modal</button>
+                </ReactModal>
+            </div>
+        )
+    }
+
+    render() {
+        return(
+            <div>
+    <button onClick={this.handleOpenModal}>{this.props.park.name}</button>
+                <ReactModal
+                    isOpen={this.state.showModal}
+                    contentLabel="Minimal Modal Example"
+                    >
+                    <Tabs>
+                        <TabList>
+                        <Tab>Social Media</Tab>
+                        <Tab>Park Description</Tab>
+                        <Tab>Weather</Tab>
+                        <Tab>Park Advisories</Tab>
+                        </TabList>
+
+                        <TabPanel>
+                            <SocialMediaTab
+                            addWaypoint={this.props.addWaypoint}
+                            parkInfo={this.props.park}/>
                         </TabPanel>
                         <TabPanel>
                             <ParkDescriptionTab parkDes={this.props.park}/>
@@ -66,6 +108,8 @@ class ModalWindow extends Component {
             </div>
         )
     }
+
+
 }
 
 export default ModalWindow;

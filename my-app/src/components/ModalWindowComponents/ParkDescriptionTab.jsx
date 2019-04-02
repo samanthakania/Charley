@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 var unirest = require('unirest');
 class ParkDescription extends Component {
   componentDidMount(){
-        this.fetchNps()
+       this.fetchCamping()
+
   }
   fetchCamping(){
       let lat = this.props.parkDes.lat
@@ -15,7 +16,9 @@ class ParkDescription extends Component {
 
   }
 
-  render() {
+  
+
+    render() {
       let park = this.props.parkDes
       console.log(this.props)
       return(

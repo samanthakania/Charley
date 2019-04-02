@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, Marker, DirectionsRenderer } from "react-google-maps";
 import './MyMapComponent.css';
-import ModalWindow from './ModalWindow';
+import ModalWindow from './ModalWindow.jsx';
 
 class MyMapComponent extends Component {
   constructor(props) {
@@ -11,7 +11,8 @@ class MyMapComponent extends Component {
       directions: null,
       parks: [],
       modal: false,
-      currentPark: null
+      currentPark: null,
+       waypoints: []
     }
     this.originInput = React.createRef();
     this.destinationInput = React.createRef();
@@ -56,29 +57,42 @@ class MyMapComponent extends Component {
   }
 
   route() {
+    console.log('route')
     if (!this.origin || !this.destination) {
+
       return;
     }
+
+    console.log('route 2 hit')
     var me = this;
     this.directionsService.route(
       {
         origin: { 'placeId': this.origin },
         destination: { 'placeId': this.destination },
         travelMode: google.maps.TravelMode.DRIVING,
-        waypoints: this.props.waypoints,
+        waypoints: this.state.waypoints,
         optimizeWaypoints: true,
         },
       function (response, status) {
         if (status === 'OK') {
+        console.log('hit if')
           me.setState({
             directions: response,
           });
         } else {
-          window.alert('Directions request failed due to ' + status);
+          window.alert('Oh no! It looks like our map cannot generate a route to this park. Please choose another.');
+          me.removeLastWaypoint();
         }
       });
   }
 
+     removeLastWaypoint =(waypoint)=>{
+      const waypoints = this.state.waypoints
+      waypoints.pop()
+      this.setState({ waypoints: waypoints }, () => {
+        this.route();
+    })
+  }
 
 
   fetchData() {
@@ -101,14 +115,15 @@ class MyMapComponent extends Component {
     this.setState({ modal: true });
 
   }
-  addWaypoint = (waypoint)=>{
+   addWaypoint =(waypoint)=>{
     const waypoints = this.state.waypoints
     waypoints.push(waypoint)
-    this.setState({ waypoints })
+    this.setState({ waypoints: waypoints }, () => {
+      this.route();
+    })
   }
 
   render() {
-    this.route()
     return (
       <div>
         <input ref={this.originInput} type="text" placeholder="Enter a start location"
@@ -128,7 +143,9 @@ class MyMapComponent extends Component {
           {this.state.directions && <DirectionsRenderer directions={this.state.directions} />}
         </GoogleMap>
        {this.state.modal ? (
-          <ModalWindow park={this.state.currentPark}/>
+          <ModalWindow park={this.state.currentPark}
+            addWaypoint={this.addWaypoint}
+          />
         ) : (
             <h1> </h1>
           )}

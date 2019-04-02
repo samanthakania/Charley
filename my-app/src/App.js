@@ -11,15 +11,10 @@ class App extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        waypoints: []
+    
       }
     }
 
-  addWaypoint =(waypoint)=>{
-    const waypoints = this.state.waypoints;
-    waypoints.push(waypoint)
-    this.setState({ waypoints })
-  }
 
   render() {
     return (
@@ -31,9 +26,7 @@ class App extends Component {
           containerElement={<div className="mapContainer"/>}
           loadingElement={<div className="loadingElement"/>}
           mapElement={<div className="mapElement" id="map"/>}
-          addWaypoint={this.addWaypoint}
         />
-
         <ToDoList />
 
       </div>
