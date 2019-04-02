@@ -78,13 +78,18 @@ import SocialMediaTab from './ModalWindowComponents/SocialMediaTab';
 import ParkDescriptionTab from './ModalWindowComponents/ParkDescriptionTab';
 import WeatherTab from './ModalWindowComponents/WeatherTab';
 import ParkAdvisoriesTab from './ModalWindowComponents/ParkAdvisoriesTab';
+import DarkSkyApi from 'dark-sky-api';
+DarkSkyApi.apiKey = '379b67815f86fa3fb81b23bff3f6db3a';
+const proxyURL = 'https://cors-anywhere.herokuapp.com/'
 
 
 class ModalWindow extends Component {
     constructor() {
         super()
         this.state = {
-            showModal: false
+            showModal: false,
+            parks : [],
+            weather: []
         };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
@@ -97,6 +102,39 @@ class ModalWindow extends Component {
 
     handleCloseModal() {
         this.setState({ showModal: false });
+    }
+
+    fetchWeather() {
+        fetch(proxyURL + `https://api.darksky.net/forecast/379b67815f86fa3fb81b23bff3f6db3a/${this.state.parks[1].lat},${this.state.parks[1].long}`)
+        .then(response => {
+            if (response.ok) {
+              response.json().then(data => {
+                this.setState({ weather: data })
+              })
+    
+            }
+          })
+          .catch(err => console.log('parsing failed', err))
+    }
+
+    fetchData() {
+        fetch('/parks/index')
+        .then(response => {
+          if (response.ok) {
+            response.json().then(data => {
+              this.setState({ parks: data })
+              return data;
+            }).then( () => {
+                this.fetchWeather()
+            })
+  
+          }
+        })
+        .catch(err => console.log('parsing failed', err))
+    }
+
+    componentDidMount() {
+        this.fetchData()
     }
 
     render() {
@@ -116,15 +154,27 @@ class ModalWindow extends Component {
                         </TabList>
 
                         <TabPanel>
+<<<<<<< HEAD
                             <SocialMediaTab 
                             addWaypoint={this.props.addWaypoint}
                             parkInfo={this.props.park}/>
+=======
+                            <SocialMediaTab
+                                addWaypoint={this.props.addWaypoint}
+                            />
+>>>>>>> feature/weather
                         </TabPanel>
                         <TabPanel>
                             <ParkDescriptionTab parkDes={this.props.park}/>
                         </TabPanel>
                         <TabPanel>
+<<<<<<< HEAD
                             <WeatherTab weather={this.props.park}/>
+=======
+                            <WeatherTab
+                                weather = {this.state.weather}
+                            />
+>>>>>>> feature/weather
                         </TabPanel>
                         <TabPanel>
                             <ParkAdvisoriesTab/>

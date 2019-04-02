@@ -10,8 +10,6 @@ class MyMapComponent extends Component {
     this.state = {
       directions: null,
       parks: [],
-      modal: false,
-      currentPark: null
     }
     this.originInput = React.createRef();
     this.destinationInput = React.createRef();
@@ -92,16 +90,9 @@ class MyMapComponent extends Component {
         }
       })
       .catch(err => console.log('parsing failed', err))
-
-  }
-  handleModal(park) {
-    this.setState({ modal: false, currentPark: park });
-    console.log(park);
-    
-    this.setState({ modal: true });
- 
   }
 
+  
   render() {
     this.route()
     return (
@@ -116,23 +107,52 @@ class MyMapComponent extends Component {
           defaultCenter={{ lat: 47.9253, lng: -97.03294 }}
         >
           {this.state.parks.map(park => {
-            return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)} 
-            onClick={this.handleModal.bind(this, park)}
-            />)
+            return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)} />)
           })}
           {this.state.directions && <DirectionsRenderer directions={this.state.directions} />}
         </GoogleMap>
-       {this.state.modal ? (
-          <ModalWindow park={this.state.currentPark}/>
-        ) : (
-            <h1> </h1>
-          )}
       </div>)
   }
 
 }
+// state = {
+//   directions: null,
+// }
 
-export default withGoogleMap(MyMapComponent);
+// componentDidMount() {
+//   const DirectionsService = new google.maps.DirectionsService();
+//   DirectionsService.route({
+//     origin: new google.maps.LatLng(43.6532, -79.3832),
+//     destination: new google.maps.LatLng(41.8525800, -87.6514100),
+//     travelMode: google.maps.TravelMode.DRIVING,
+//   }, (result, status) => {
+//     if (status === google.maps.DirectionsStatus.OK) {
+
+//       this.setState({
+//         directions: result,
+//       });
+//     } else {
+//       console.error(`error fetching directions ${result}`);
+//     }
+//   });
+//   // var marker = new google.maps.Marker({position: myPosition, title: 'Hi', map: map})
+// }
 
 
+
+// render() {
+//   return (
+//     <GoogleMap
+//       defaultZoom={14}
+//       defaultCenter={{ lat: 43.6532, lng: -79.3832 }}
+
+//     >
+
+//      <PointsOfInterest points={this.state.parks} google={this.props.google}/>
+//         {this.state.directions && <DirectionsRenderer directions={this.state.directions} />}
+//       </GoogleMap>
+//     )
+//   }
+// }
 // icon={park.img}
+export default withGoogleMap(MyMapComponent);
