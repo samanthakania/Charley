@@ -4,6 +4,9 @@
   "private": true,
   "proxy": "http://0.0.0.0:3000",
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "dark-sky-api": "^0.6.32",
+    "install": "^0.12.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-google-maps": "^9.4.5",
