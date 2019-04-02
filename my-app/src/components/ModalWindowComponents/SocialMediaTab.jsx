@@ -21,6 +21,7 @@ componentDidMount(){
 }
 
 handleWaypoint(){
+      console.log('lat and longs:', this.props.parkInfo.lat, this.props.parkInfo.long)
     this.props.addWaypoint({
        location: new google.maps.LatLng(this.props.parkInfo.lat, this.props.parkInfo.long),
        stopover: true

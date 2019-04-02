@@ -59,7 +59,7 @@ class MyMapComponent extends Component {
   route() {
     console.log('route')
     if (!this.origin || !this.destination) {
-      
+
       return;
     }
 
@@ -80,12 +80,19 @@ class MyMapComponent extends Component {
             directions: response,
           });
         } else {
-          window.alert('Directions request failed due to ' + status);
+          window.alert('Oh no! It looks like our map cannot generate a route to this park. Please choose another.');
+          me.removeLastWaypoint();
         }
       });
   }
 
-
+     removeLastWaypoint =(waypoint)=>{
+      const waypoints = this.state.waypoints
+      waypoints.pop()
+      this.setState({ waypoints: waypoints }, () => {
+        this.route();
+    })
+  }
 
 
   fetchData() {
@@ -104,9 +111,9 @@ class MyMapComponent extends Component {
   handleModal(park) {
     this.setState({ modal: false, currentPark: park });
     console.log(park);
-    
+
     this.setState({ modal: true });
- 
+
   }
    addWaypoint =(waypoint)=>{
     const waypoints = this.state.waypoints
@@ -115,7 +122,7 @@ class MyMapComponent extends Component {
       this.route();
     })
   }
- 
+
   render() {
     return (
       <div>
@@ -129,7 +136,7 @@ class MyMapComponent extends Component {
           defaultCenter={{ lat: 47.9253, lng: -97.03294 }}
         >
           {this.state.parks.map(park => {
-            return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)} 
+            return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)}
             onClick={this.handleModal.bind(this, park)}
             />)
           })}
