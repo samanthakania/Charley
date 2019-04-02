@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_03_29_142808) do
     t.decimal "start"
     t.decimal "end"
     t.integer "likes"
+    t.string "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["park_id"], name: "index_maps_on_park_id"
