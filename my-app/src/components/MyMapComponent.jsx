@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, Marker, DirectionsRenderer } from "react-google-maps";
 import './MyMapComponent.css';
-import PointsOfInterest from './PointsOfInterest';
+import ModalWindow from './ModalWindow';
 
 class MyMapComponent extends Component {
   constructor(props) {
@@ -97,9 +97,14 @@ class MyMapComponent extends Component {
   handleModal(park) {
     this.setState({ modal: false, currentPark: park });
     console.log(park);
-    
+
     this.setState({ modal: true });
- 
+
+  }
+  addWaypoint = (waypoint)=>{
+    const waypoints = this.state.waypoints
+    waypoints.push(waypoint)
+    this.setState({ waypoints })
   }
 
   render() {
@@ -116,7 +121,7 @@ class MyMapComponent extends Component {
           defaultCenter={{ lat: 47.9253, lng: -97.03294 }}
         >
           {this.state.parks.map(park => {
-            return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)} 
+            return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)}
             onClick={this.handleModal.bind(this, park)}
             />)
           })}

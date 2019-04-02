@@ -1,25 +1,28 @@
+/* global google */
 import React, { Component } from 'react';
 import './ModalWindowComponents.css';
 
-let Twit = require('twit')
 class SocialMediaTab extends Component {
      constructor(props) {
         super(props)
         this.state = {
           photos: [],
           tweets: []
-    
     };
-     }
+  }
 componentDidMount(){
+    this.props.addWaypoint({
+        location: new google.maps.LatLng(47.9253,-97.03294),
+        stopover: true
+      })
   // this.fetchTweets()
-  // this. fetchStats()  
-     this.fetchFlickr()
-    console.log("made it here", this.state.tweets)
-} 
-fetchFlickr() {       
-  
+  // this. fetchStats()
+    //  this.fetchFlickr()
+    // console.log("made it here", this.state.tweets)
+}
+fetchFlickr() {
 
+let key= '3c93fae0a9bc674a7a19f96368815b24'
  console.log('flickr key', key)
  let searchWord = this.props.parkInfo.full_name
   console.log("hit", searchWord)
@@ -38,7 +41,7 @@ fetchFlickr() {
   }
   fetchTweets(){
  let name_encoded = encodeURIComponent(this.props.parkInfo.name)
- 
+
     fetch('/twitterfeed/index?name=' + name_encoded)
       .then(response => {
         if (response.ok) {
@@ -52,10 +55,10 @@ fetchFlickr() {
       })
       .catch(err => console.log('parsing failed', err))
 
-  
+
   }
   fetchStats() {
-  fetch('/api/nps_api_show')  
+  fetch('/api/nps_api_show')
   .then(response => {
     if (response.ok) {
       response.json()
@@ -73,10 +76,10 @@ fetchFlickr() {
                 <div className="hero-text">
                   {this.state.photos.map(photo => {
 
-            let srcPth = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg' 
+            let srcPth = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg'
               return(
                   <img className="parkPics" src={srcPth}></img>
-             )})} 
+             )})}
                 </div>
                 {this.state.tweets.map(tweet => {
 
@@ -88,10 +91,10 @@ fetchFlickr() {
             </div>
                     <button>Add Park</button>
             <div className="social-media-content">
-                <span className="likes"> 2,000 likes</span> 
+                <span className="likes"> 2,000 likes</span>
                 <div className="comments">
-                    
-                    
+
+
 
                 </div>
             </div>
@@ -101,8 +104,6 @@ fetchFlickr() {
 }
 
 export default SocialMediaTab;
-
-
 
 
 

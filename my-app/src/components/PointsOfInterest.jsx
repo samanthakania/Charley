@@ -12,23 +12,23 @@ class PointsOfInterest extends Component {
         if (this.props.points.length === 0) {
 
             return null;
-                
+
         } else {
-            return ( 
+            return (
 
                 <div>
-            
+
 
 
             {this.props.points.map(park => {
                 return (<Point key={park.id} userName={park.name} lat={park.lat} lng={park.long} />)
             })}
-    
+
 
 
             </div>
-            
-            ) 
+
+            )
         }
     }
 }

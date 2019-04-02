@@ -31,12 +31,11 @@ class App extends Component {
           containerElement={<div className="mapContainer"/>}
           loadingElement={<div className="loadingElement"/>}
           mapElement={<div className="mapElement" id="map"/>}
-        />
-        < ModalWindow
           addWaypoint={this.addWaypoint}
-          />
+        />
+
         <ToDoList />
-      
+
       </div>
     );
   }
