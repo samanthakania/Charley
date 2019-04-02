@@ -16,7 +16,7 @@ class App extends Component {
     }
 
   addWaypoint =(waypoint)=>{
-    const waypoints = this.state.waypoints
+    const waypoints = this.state.waypoints;
     waypoints.push(waypoint)
     this.setState({ waypoints })
   }
