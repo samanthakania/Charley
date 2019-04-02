@@ -4,6 +4,7 @@ import './App.css';
 import MyMapComponent from './components/MyMapComponent.jsx';
 import NavBar from './components/NavBar';
 import ModalWindow from './components/ModalWindow';
+import ToDoList from './components/ToDoList'
 
 class App extends Component {
   constructor(props) {
@@ -33,6 +34,8 @@ class App extends Component {
         < ModalWindow
           addWaypoint={this.addWaypoint}
           />
+        <ToDoList />
+      
       </div>
     );
   }
