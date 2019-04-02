@@ -90,8 +90,9 @@ class MyMapComponent extends Component {
         }
       })
       .catch(err => console.log('parsing failed', err))
-
   }
+
+  
   render() {
     this.route()
     return (
