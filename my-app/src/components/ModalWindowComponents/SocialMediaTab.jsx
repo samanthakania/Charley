@@ -25,7 +25,6 @@ handleWaypoint(){
        location: new google.maps.LatLng(this.props.parkInfo.lat, this.props.parkInfo.long),
        stopover: true
      })
-    console.log('points:', this.props.parkInfo.lat)
   }
 
 fetchFlickr() {
