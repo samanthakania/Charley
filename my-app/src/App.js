@@ -1,11 +1,11 @@
-
 /* global google */
 import React, { Component } from 'react';
+// import '../node_modules/normalize.css/'
 import './App.css';
 import MyMapComponent from './components/MyMapComponent.jsx';
 import NavBar from './components/NavBar';
-import ModalWindow from './components/ModalWindow';
 import ToDoList from './components/ToDoList'
+import Footer from './components/Footer'
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class App extends Component {
           mapElement={<div className="mapElement" id="map"/>}
         />
         <ToDoList />
-      
+        <Footer />
       </div>
     );
   }

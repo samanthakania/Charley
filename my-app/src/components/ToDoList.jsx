@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './ToDoList.css'
+import '../App.css';
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
     return(
@@ -71,7 +71,6 @@ function ToDoList() {
     };
 
     return (
-        <div className="app">
             <div className="todo-list">
                 {todos.map((todo, index) => (
                     <Todo
@@ -84,7 +83,6 @@ function ToDoList() {
                 ))}
                 <TodoForm addTodo={addTodo} /> 
             </div>
-        </div>
     );
 }
 
