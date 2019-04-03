@@ -16,26 +16,18 @@ class ModalWindow extends Component {
             showModal: true,
             waypoints: []
         };
-<<<<<<< HEAD
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
-=======
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
->>>>>>> mailer
 
     }
     componentDidMount() {
         ReactModal.setAppElement('body')
-<<<<<<< HEAD
-=======
         console.log("hts", this.props.park.lat)
         console.log("hts", this.props.park)
         this.props.addWaypoint({
-            location: new google.maps.LatLng(47.9253, -97.03294),
+            location: location: new google.maps.LatLng(this.props.park.lat, this.props.park.long),
             stopover: true
         })
->>>>>>> mailer
     }
     handleOpenModal() { 
         this.setState({ showModal: true });
@@ -46,11 +38,7 @@ class ModalWindow extends Component {
     }
     render() {
         console.log("Window", this.props)
-<<<<<<< HEAD
-        return(
-=======
         return (
->>>>>>> mailer
             <div>
                 <button onClick={this.handleOpenModal}>{this.props.park.name}</button>
                 <ReactModal
@@ -72,17 +60,7 @@ class ModalWindow extends Component {
                         <TabPanel>
                             <ParkDescriptionTab parkDes={this.props.park}
 
-<<<<<<< HEAD
-                        <TabPanel>
-                            <SocialMediaTab
-                            addWaypoint={this.props.addWaypoint}
-                            parkInfo={this.props.park}/>
-                        </TabPanel>
-                        <TabPanel>
-                            <ParkDescriptionTab parkDes={this.props.park}/>
-=======
                             />
->>>>>>> mailer
                         </TabPanel>
                         <TabPanel>
                             <WeatherTab weather={this.props.park} />
@@ -92,7 +70,7 @@ class ModalWindow extends Component {
                         </TabPanel>
 
                     </Tabs>
-                    <button onClick={this.props.addWaypoint}>Add</button>
+                    <button onClick={this.handleWaypoint}>Add</button>
                     <button onClick={this.handleCloseModal}>Close Modal</button>
                 </ReactModal>
             </div>
