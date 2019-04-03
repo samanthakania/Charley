@@ -23,6 +23,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+ 
+config.js
 
   // let key= '3c93fae0a9bc674a7a19f96368815b24'
    (flickr)
