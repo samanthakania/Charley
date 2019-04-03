@@ -1,25 +1,21 @@
-
 /* global google */
 import React, { Component } from 'react';
+// import '../node_modules/normalize.css/'
 import './App.css';
 import MyMapComponent from './components/MyMapComponent.jsx';
 import NavBar from './components/NavBar';
-import ModalWindow from './components/ModalWindow';
 import ToDoList from './components/ToDoList'
+import Footer from './components/Footer'
 
 class App extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        waypoints: []
+    
       }
     }
 
-  addWaypoint =(waypoint)=>{
-    const waypoints = this.state.waypoints
-    waypoints.push(waypoint)
-    this.setState({ waypoints })
-  }
+
 
   render() {
     return (
@@ -32,11 +28,8 @@ class App extends Component {
           loadingElement={<div className="loadingElement"/>}
           mapElement={<div className="mapElement" id="map"/>}
         />
-        < ModalWindow
-          addWaypoint={this.addWaypoint}
-          />
         <ToDoList />
-      
+        <Footer />
       </div>
     );
   }

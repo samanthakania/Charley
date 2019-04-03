@@ -1,8 +1,8 @@
 /* global google */
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, Marker, DirectionsRenderer } from "react-google-maps";
-import './MyMapComponent.css';
-import PointsOfInterest from './PointsOfInterest';
+import '../App.css';
+import ModalWindow from './ModalWindow.jsx';
 
 class MyMapComponent extends Component {
   constructor(props) {
@@ -10,6 +10,9 @@ class MyMapComponent extends Component {
     this.state = {
       directions: null,
       parks: [],
+      modal: false,
+      currentPark: null,
+      waypoints: []
     }
     this.originInput = React.createRef();
     this.destinationInput = React.createRef();
@@ -54,20 +57,25 @@ class MyMapComponent extends Component {
   }
 
   route() {
+    console.log('route')
     if (!this.origin || !this.destination) {
+      
       return;
     }
+
+    console.log('route 2 hit')
     var me = this;
     this.directionsService.route(
       {
         origin: { 'placeId': this.origin },
         destination: { 'placeId': this.destination },
         travelMode: google.maps.TravelMode.DRIVING,
-        waypoints: this.props.waypoints,
+        waypoints: this.state.waypoints,
         optimizeWaypoints: true,
         },
       function (response, status) {
         if (status === 'OK') {
+        console.log('hit if')
           me.setState({
             directions: response,
           });
@@ -76,6 +84,7 @@ class MyMapComponent extends Component {
         }
       });
   }
+
 
 
 
@@ -90,11 +99,24 @@ class MyMapComponent extends Component {
         }
       })
       .catch(err => console.log('parsing failed', err))
-  }
 
-  
+  }
+  handleModal(park) {
+    this.setState({ modal: false, currentPark: park });
+    console.log(park);
+    
+    this.setState({ modal: true });
+ 
+  }
+   addWaypoint =(waypoint)=>{
+    const waypoints = this.state.waypoints
+    waypoints.push(waypoint)
+    this.setState({ waypoints: waypoints }, () => {
+      this.route();
+    })
+  }
+ 
   render() {
-    this.route()
     return (
       <div>
         <input ref={this.originInput} type="text" placeholder="Enter a start location"
@@ -107,52 +129,25 @@ class MyMapComponent extends Component {
           defaultCenter={{ lat: 47.9253, lng: -97.03294 }}
         >
           {this.state.parks.map(park => {
-            return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)} />)
+            return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)} 
+            onClick={this.handleModal.bind(this, park)}
+            />)
           })}
           {this.state.directions && <DirectionsRenderer directions={this.state.directions} />}
         </GoogleMap>
+       {this.state.modal ? (
+          <ModalWindow park={this.state.currentPark}
+            addWaypoint={this.addWaypoint}
+          />
+        ) : (
+            <h1> </h1>
+          )}
       </div>)
   }
 
 }
-// state = {
-//   directions: null,
-// }
 
-// componentDidMount() {
-//   const DirectionsService = new google.maps.DirectionsService();
-//   DirectionsService.route({
-//     origin: new google.maps.LatLng(43.6532, -79.3832),
-//     destination: new google.maps.LatLng(41.8525800, -87.6514100),
-//     travelMode: google.maps.TravelMode.DRIVING,
-//   }, (result, status) => {
-//     if (status === google.maps.DirectionsStatus.OK) {
-
-//       this.setState({
-//         directions: result,
-//       });
-//     } else {
-//       console.error(`error fetching directions ${result}`);
-//     }
-//   });
-//   // var marker = new google.maps.Marker({position: myPosition, title: 'Hi', map: map})
-// }
-
-
-
-// render() {
-//   return (
-//     <GoogleMap
-//       defaultZoom={14}
-//       defaultCenter={{ lat: 43.6532, lng: -79.3832 }}
-
-//     >
-
-//      <PointsOfInterest points={this.state.parks} google={this.props.google}/>
-//         {this.state.directions && <DirectionsRenderer directions={this.state.directions} />}
-//       </GoogleMap>
-//     )
-//   }
-// }
-// icon={park.img}
 export default withGoogleMap(MyMapComponent);
+
+
+// icon={park.img}
