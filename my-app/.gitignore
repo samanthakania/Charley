@@ -24,14 +24,5 @@ yarn-debug.log*
 yarn-error.log*
 
 
-  // let key= '3c93fae0a9bc674a7a19f96368815b24'
-   (flickr)
 
-   api_key=an30c20NiYP8ed3i3C59f3A7ylCPEgtGmiB0Eweh
-
-  (nps
-  
-  "X-RapidAPI-Key", "79776c126dmshf044a8a304bdd06p1c3f64jsnb0bccede7f84)
-  camping key
-
-   ./src/components/ModalWindowComponents/config.js
+ 
