@@ -7,13 +7,6 @@ import TripId from './components/TripId.jsx'
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import uuid from "uuid";
 
-function generateId() {
-  return (
-    <div className="App">
-      <h1>{uuid.v4()}</h1>
-    </div>
-  );
-}
 
 const routing = (
   <Router>
