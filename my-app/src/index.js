@@ -11,8 +11,8 @@ import uuid from "uuid";
 const routing = (
   <Router>
     <div>
-      <Route exact path="/" component={TripId} />
-      <Route path="/tripid" component={App} />
+      {/* <Route exact path="/tripid" component={TripId} /> */}
+      <Route exact path="/" component={App} />
     </div>
   </Router>
 )

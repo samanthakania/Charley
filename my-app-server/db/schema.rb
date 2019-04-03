@@ -40,5 +40,5 @@ ActiveRecord::Schema.define(version: 2019_03_29_142808) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "trips", "parks"
+
 end

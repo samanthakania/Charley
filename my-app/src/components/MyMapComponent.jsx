@@ -8,6 +8,7 @@ class MyMapComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isloggedIn: true,
       directions: null,
       parks: [],
       modal: false,
@@ -19,6 +20,7 @@ class MyMapComponent extends Component {
     this.mapElt = React.createRef();
     this.origin = null
     this.destination = null
+    // this.handleSave = this.handleSave.bind(this);
   }
 
   componentDidMount() {
@@ -122,7 +124,9 @@ class MyMapComponent extends Component {
       this.route();
     })
   }
-
+  handleSave() {
+    console.log(this.state.directions)
+  } 
   render() {
     return (
       <div>
@@ -149,6 +153,9 @@ class MyMapComponent extends Component {
         ) : (
             <h1> </h1>
           )}
+        <form onSubmit={this.handleSave.bind(this)}>
+      <button>Save Route</button>
+     </form>
       </div>)
   }
 
