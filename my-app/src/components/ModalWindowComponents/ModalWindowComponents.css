@@ -5,7 +5,7 @@
 }
 
 .hero-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/BryceCanyon-Amphiteatre1.jpg/2560px-BryceCanyon-Amphiteatre1.jpg");
+
     height: 400px;
     background-position: center;
     background-repeat: no-repeat;

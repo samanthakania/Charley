@@ -59,7 +59,7 @@ class MyMapComponent extends Component {
   route() {
     console.log('route')
     if (!this.origin || !this.destination) {
-      
+
       return;
     }
 
@@ -72,20 +72,27 @@ class MyMapComponent extends Component {
         travelMode: google.maps.TravelMode.DRIVING,
         waypoints: this.state.waypoints,
         optimizeWaypoints: true,
-        },
+      },
       function (response, status) {
         if (status === 'OK') {
-        console.log('hit if')
+          console.log('hit if')
           me.setState({
             directions: response,
           });
         } else {
-          window.alert('Directions request failed due to ' + status);
+          window.alert('Oh no! It looks like our map cannot generate a route to this park. Please choose another.');
+          me.removeLastWaypoint();
         }
       });
   }
 
-
+     removeLastWaypoint =(waypoint)=>{
+      const waypoints = this.state.waypoints
+      waypoints.pop()
+      this.setState({ waypoints: waypoints }, () => {
+        this.route();
+    })
+  }
 
 
   fetchData() {
@@ -104,18 +111,18 @@ class MyMapComponent extends Component {
   handleModal(park) {
     this.setState({ modal: false, currentPark: park });
     console.log(park);
-    
+
     this.setState({ modal: true });
- 
+
   }
-   addWaypoint =(waypoint)=>{
+  addWaypoint = (waypoint) => {
     const waypoints = this.state.waypoints
     waypoints.push(waypoint)
     this.setState({ waypoints: waypoints }, () => {
       this.route();
     })
   }
- 
+
   render() {
     return (
       <div>
@@ -129,13 +136,13 @@ class MyMapComponent extends Component {
           defaultCenter={{ lat: 47.9253, lng: -97.03294 }}
         >
           {this.state.parks.map(park => {
-            return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)} 
-            onClick={this.handleModal.bind(this, park)}
+            return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)}
+              onClick={this.handleModal.bind(this, park)}
             />)
           })}
           {this.state.directions && <DirectionsRenderer directions={this.state.directions} />}
         </GoogleMap>
-       {this.state.modal ? (
+        {this.state.modal ? (
           <ModalWindow park={this.state.currentPark}
             addWaypoint={this.addWaypoint}
           />

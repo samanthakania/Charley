@@ -1,26 +1,31 @@
-/* global google */
-import React, { Component } from 'react';
-// import '../node_modules/normalize.css/'
+import React, {
+  Component
+} from 'react';
 import './App.css';
 import MyMapComponent from './components/MyMapComponent.jsx';
 import NavBar from './components/NavBar';
-import ToDoList from './components/ToDoList'
-import Footer from './components/Footer'
-
+import TripId from './components/TripId';
+import ToDoList from './components/ToDoList';
+import Footer from './components/Footer';
 class App extends Component {
   constructor(props) {
-      super(props);
-      this.state = {
-    
-      }
+    super(props);
+    this.state = {
+
     }
+  }
 
-
+  addWaypoint =(waypoint)=>{
+    const waypoints = this.state.waypoints
+    waypoints.push(waypoint)
+    this.setState({ waypoints })
+  }
 
   render() {
     return (
       <div className="App">
         <NavBar/>
+        <TripId/>
         <MyMapComponent
           waypoints={this.state.waypoints}
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyADfvn7bqN8wTxIrPUpCZZMEoURzEsj5sU"
@@ -29,11 +34,14 @@ class App extends Component {
           mapElement={<div className="mapElement" id="map"/>}
         />
         <ToDoList />
+<<<<<<< HEAD
         <Footer />
+=======
+        <Footer/>
+>>>>>>> 95ffef20ded1408cc3ded0fc64817c6dd9ff1e4b
       </div>
     );
   }
 }
 
 export default App;
-

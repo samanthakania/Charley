@@ -12,6 +12,7 @@
     "react-dom": "^16.8.5",
     "react-google-maps": "^9.4.5",
     "react-modal": "^3.8.1",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
     "react-tabs": "^3.0.0",
     "twit": "^2.2.11",

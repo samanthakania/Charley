@@ -1,9 +1,9 @@
 class TwitterfeedController < ApplicationController
   def index 
-    puts "  here #{ENV['CONSUMER_KEY']}"
-    puts "#######{params[:name]}######"
-    look_up = params[:name]
-    client = Twitter::REST::Client.new do |config|
+     puts "  here #{ENV['CONSUMER_KEY']}"
+     puts "#######{params[:name]}######"
+      look_up = params[:name]
+      client = Twitter::REST::Client.new do |config|
       config.consumer_key = ENV['CONSUMER_KEY']
       config.consumer_secret = ENV['SECRET_KEY']
       config.access_token = ENV['ACCESS_TOKEN']
