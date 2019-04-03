@@ -33,3 +33,5 @@ yarn-error.log*
   
   "X-RapidAPI-Key", "79776c126dmshf044a8a304bdd06p1c3f64jsnb0bccede7f84)
   camping key
+
+   ./src/components/ModalWindowComponents/config.js
