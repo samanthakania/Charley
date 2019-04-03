@@ -45,26 +45,59 @@
 
 /* <--- TODO LIST ---> */
 
-.todo-list {
+.todo-container {
   position: absolute;
-  width: 393px;
+  width: 373px;
   height: 680px;
   left: 1047px;
   top: 89px;
   
-  background: #FF0000;
+  background:rgb(42, 42, 42);
+  white-space: nowrap;
+  overflow: scroll;
+}
+
+.todo-list {
+  position: relative;
 }
 
 .todo {
-  background: #fff;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-  padding: 3px 10px;
-  font-size: 12px;
-  margin-bottom: 6px;
-  border-radius: 3px;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  background: linear-gradient(to right,#2980b9, #2c3e50);
+  padding: 15px;
+  margin: 10px;
+  border-radius: 8px;
+  width: 85%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+#todo-form {
+  position: absolute;
+  width: 80%;
+  bottom: 0px;
+  
+}
+
+#todo-form input {
+  width: 100%;
+}
+
+#completed, 
+#remove {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#completed {
+  float: left;
+}
+
+#remove {
+  margin-left: 10px;
+  float: right;
 }
 
 /* <--- FOOTER ----> */

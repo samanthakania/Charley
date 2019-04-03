@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css'
 
-class NavBar extends Component {
+class Footer extends Component {
   render() {
     return(
       <header className="footer-main">
@@ -11,4 +11,4 @@ class NavBar extends Component {
     }
 }
 
-export default NavBar
+export default Footer
