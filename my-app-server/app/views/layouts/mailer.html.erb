@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-      /* Email styles need to be inline */
-    </style>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
-
   <body>
-    <%= yield %>
+    <h1>Thanks for signing up, <%= @tripid.email %>!</h1>
+    <p>Thank you for creating a trip with Charley! Here is your Trip ID: <%= @tripid %></p>
+    <p>Use this ID to create your trip.</p>
+    <p>Share it with friends that you would like to bring along!</p>
+
   </body>
 </html>

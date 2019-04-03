@@ -1,16 +1,13 @@
 class UsersController < ApplicationController
-   def  create_route
-    user = params[:email]
-     trip_id = params[:trip_id]
-    @trip = Trip.new({
-      email: user,
-      trip_id: trip_id 
-    })
-    puts "#########{@trip}#####3"
-     if @trip.save
-        render json: @trip
+   def create
+     # Create the id from params
+     @tripid = User.new(params[:trip_id])
+     if @user.save
+       # Deliver the email
+       MapMailer.send_signup_email(@trip_id).deliver
+       redirect_to(@trip_id, :notice => 'Trip created')
+     else
+       render :action => 'new'
      end
-  end
-  def save_route
-  end
-end
+   end
+ end
