@@ -37,7 +37,7 @@ class ModalWindow extends Component {
         })
 >>>>>>> mailer
     }
-    handleOpenModal() {
+    handleOpenModal() { 
         this.setState({ showModal: true });
     }
 
