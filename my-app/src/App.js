@@ -15,11 +15,17 @@ class App extends Component {
       }
     }
 
+  addWaypoint =(waypoint)=>{
+    const waypoints = this.state.waypoints
+    waypoints.push(waypoint)
+    this.setState({ waypoints })
+  }
 
   render() {
     return (
       <div className="App">
         <NavBar/>
+        <TripId/>
         <MyMapComponent
           waypoints={this.state.waypoints}
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyADfvn7bqN8wTxIrPUpCZZMEoURzEsj5sU"
