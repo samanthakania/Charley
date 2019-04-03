@@ -1,7 +1,7 @@
 /* global google */
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, Marker, DirectionsRenderer } from "react-google-maps";
-import './MyMapComponent.css';
+import '../App.css';
 import ModalWindow from './ModalWindow.jsx';
 
 class MyMapComponent extends Component {
@@ -137,11 +137,7 @@ class MyMapComponent extends Component {
         >
           {this.state.parks.map(park => {
             return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)}
-<<<<<<< HEAD
-            onClick={this.handleModal.bind(this, park)}
-=======
               onClick={this.handleModal.bind(this, park)}
->>>>>>> mailer
             />)
           })}
           {this.state.directions && <DirectionsRenderer directions={this.state.directions} />}

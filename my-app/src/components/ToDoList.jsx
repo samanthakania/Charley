@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './ToDoList.css'
+import '../App.css';
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
     return (
@@ -9,8 +9,8 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
         >
             {todo.text}
             <div>
-                <button onClick={() => completeTodo(index)} > Complete </button>
-                <button onClick={() => removeTodo(index)}> x </button>
+                <div onClick={() => completeTodo(index)} id="completed"> <i class="fas fa-check"></i></div>
+                <div onClick={() => removeTodo(index)} id="remove"><i class="fas fa-times"></i></div>
             </div>
         </div>
     )
@@ -27,7 +27,7 @@ function TodoForm({ addTodo }) {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} id="todo-form">
             <input type="text"
                 className="input"
                 value={value}
@@ -71,7 +71,7 @@ function ToDoList() {
     };
 
     return (
-        <div className="app">
+        <div className="todo-container">
             <div className="todo-list">
                 {todos.map((todo, index) => (
                     <Todo

@@ -11,7 +11,7 @@ class ParkAdvisoriesTab extends Component {
                 if (response.ok) {
                     response.json()
                         .then(data => {
-                            console.log(data)
+                            console.log(data.body)
                         })
                 }
             })
