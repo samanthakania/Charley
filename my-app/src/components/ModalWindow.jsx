@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+/* global google */
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -13,11 +13,12 @@ class ModalWindow extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            showModal: true
+            showModal: true,
+             waypoints: []
         };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
-    
+
     }
     componentDidMount() {
         ReactModal.setAppElement('body')
@@ -29,10 +30,9 @@ class ModalWindow extends Component {
     handleCloseModal() {
         this.setState({ showModal: false });
     }
-
     render() {
         console.log("Window", this.props)
-        return( 
+        return(
             <div>
                 <button onClick={this.handleOpenModal}>{this.props.park.name}</button>
                 <ReactModal
@@ -51,7 +51,9 @@ class ModalWindow extends Component {
                             <SocialMediaTab parkInfo={this.props.park}/>
                         </TabPanel>
                         <TabPanel>
-                            <ParkDescriptionTab parkDes={this.props.park}/>
+                            <ParkDescriptionTab parkDes={this.props.park}
+                                addWaypoint={this.props.addWaypoint}
+                            />
                         </TabPanel>
                         <TabPanel>
                             <WeatherTab weather={this.props.park}/>
@@ -66,37 +68,6 @@ class ModalWindow extends Component {
                 </ReactModal>
             </div>
         )
-    }
-}
-
-=======
-import React, { Component } from 'react';
-import ReactModal from 'react-modal';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
-import SocialMediaTab from './ModalWindowComponents/SocialMediaTab';
-import ParkDescriptionTab from './ModalWindowComponents/ParkDescriptionTab';
-import WeatherTab from './ModalWindowComponents/WeatherTab';
-import ParkAdvisoriesTab from './ModalWindowComponents/ParkAdvisoriesTab';
-
-
-class ModalWindow extends Component {
-    constructor() {
-        super()
-        this.state = {
-            showModal: false
-        };
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
-
-    }
-
-    handleOpenModal() {
-        this.setState({ showModal: true });
-    }
-
-    handleCloseModal() {
-        this.setState({ showModal: false });
     }
 
     render() {
@@ -116,7 +87,7 @@ class ModalWindow extends Component {
                         </TabList>
 
                         <TabPanel>
-                            <SocialMediaTab 
+                            <SocialMediaTab
                             addWaypoint={this.props.addWaypoint}
                             parkInfo={this.props.park}/>
                         </TabPanel>
@@ -137,7 +108,8 @@ class ModalWindow extends Component {
             </div>
         )
     }
+
+
 }
 
->>>>>>> b88e6fbea55afb34490de444d66da4043d26ea44
 export default ModalWindow;

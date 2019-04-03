@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        waypoints: []
+    
       }
     }
 
@@ -25,6 +25,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar/>
+        <TripId/>
         <MyMapComponent
           waypoints={this.state.waypoints}
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyADfvn7bqN8wTxIrPUpCZZMEoURzEsj5sU"
@@ -32,11 +33,8 @@ class App extends Component {
           loadingElement={<div className="loadingElement"/>}
           mapElement={<div className="mapElement" id="map"/>}
         />
-        < ModalWindow
-          addWaypoint={this.addWaypoint}
-          />
         <ToDoList />
-      
+
       </div>
     );
   }
