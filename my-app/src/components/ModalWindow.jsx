@@ -7,34 +7,54 @@ import SocialMediaTab from './ModalWindowComponents/SocialMediaTab';
 import ParkDescriptionTab from './ModalWindowComponents/ParkDescriptionTab';
 import WeatherTab from './ModalWindowComponents/WeatherTab';
 import ParkAdvisoriesTab from './ModalWindowComponents/ParkAdvisoriesTab';
+import DarkSkyApi from 'dark-sky-api';
+DarkSkyApi.apiKey = '379b67815f86fa3fb81b23bff3f6db3a';
+const proxyURL = 'https://cors-anywhere.herokuapp.com/'
 
 
 class ModalWindow extends Component {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
         this.state = {
             showModal: true,
             waypoints: []
         };
-        this.handleOpenModal = this.handleOpenModal.bind(this);
-        this.handleCloseModal = this.handleCloseModal.bind(this);
-
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.handleWaypoint = this.handleWaypoint.bind(this);
     }
     componentDidMount() {
         ReactModal.setAppElement('body')
         console.log("hts", this.props.park.lat)
         console.log("hts", this.props.park)
         this.props.addWaypoint({
-            location: location: new google.maps.LatLng(this.props.park.lat, this.props.park.long),
+            location: new google.maps.LatLng(this.props.park.lat, this.props.park.long),
             stopover: true
         })
     }
     handleOpenModal() { 
         this.setState({ showModal: true });
     }
-
+    fetchWeather() {
+        fetch(proxyURL + `https://api.darksky.net/forecast/379b67815f86fa3fb81b23bff3f6db3a/${this.state.parks[1].lat},${this.state.parks[1].long}`)
+        .then(response => {
+            if (response.ok) {
+              response.json().then(data => {
+                this.setState({ weather: data })
+              })
+    
+            }
+          })
+          .catch(err => console.log('parsing failed', err))
+    }
     handleCloseModal() {
         this.setState({ showModal: false });
+    }
+    handleWaypoint() {
+        this.props.addWaypoint({
+            location: new google.maps.LatLng(this.props.park.lat, this.props.park.long),
+            stopover: true
+        })
     }
     render() {
         console.log("Window", this.props)
@@ -59,7 +79,6 @@ class ModalWindow extends Component {
                         </TabPanel>
                         <TabPanel>
                             <ParkDescriptionTab parkDes={this.props.park}
-
                             />
                         </TabPanel>
                         <TabPanel>

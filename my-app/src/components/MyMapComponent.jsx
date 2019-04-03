@@ -1,7 +1,7 @@
 /* global google */
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, Marker, DirectionsRenderer } from "react-google-maps";
-import './MyMapComponent.css';
+import '../App.css';
 import ModalWindow from './ModalWindow.jsx';
 
 class MyMapComponent extends Component {

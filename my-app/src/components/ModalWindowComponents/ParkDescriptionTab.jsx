@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 
 import config from './config.js';
->>>>>>> mailer
 import React, { Component } from 'react';
 var unirest = require('unirest');
 
@@ -28,7 +25,7 @@ class ParkDescription extends Component {
     let lat = this.props.parkDes.lat
     let long = this.props.parkDes.long
     let key = config.trails;
-    console.log(key)
+
     unirest.get("https://trailapi-trailapi.p.rapidapi.com/?q-activities_activity_type_name_eq=hiking&lat=" + lat + "&lon=" + long + "&radius=25&limit=25")
       .header("X-RapidAPI-Key", key)
       .end((result) => {
@@ -63,26 +60,6 @@ class ParkDescription extends Component {
 
   }
 
-<<<<<<< HEAD
-  
-
-    render() {
-      let park = this.props.parkDes
-      console.log(this.props)
-      return(
-            <div className="ParkDescriptionContainer">
-                <header>
-                    <h1>{park.full_name}</h1>
-                </header>
-                <div>
-                    <p>{park.description}</p>
-                </div>
-            </div>
-        )
-  }
-}
-export default ParkDescription;
-=======
   render() {
     let park = this.props.parkDes
     console.log("rrender", this.state)
@@ -113,4 +90,3 @@ export default ParkDescription;
 }
 
 export default ParkDescription; 
->>>>>>> mailer

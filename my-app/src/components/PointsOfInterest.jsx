@@ -17,7 +17,6 @@ class PointsOfInterest extends Component {
             return (
 
                 <div>
-<<<<<<< HEAD
 
 
 
@@ -25,10 +24,6 @@ class PointsOfInterest extends Component {
                 return (<Point key={park.id} userName={park.name} lat={park.lat} lng={park.long} />)
             })}
 
-=======
-
-
->>>>>>> mailer
 
                     {this.props.points.map(park => {
                         return (<Point key={park.id} userName={park.name} lat={park.lat} lng={park.long} />)
@@ -38,11 +33,6 @@ class PointsOfInterest extends Component {
 
                 </div>
 
-<<<<<<< HEAD
-            </div>
-
-=======
->>>>>>> mailer
             )
         }
     }
