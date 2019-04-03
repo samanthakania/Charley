@@ -82,8 +82,9 @@ function ToDoList() {
                         removeTodo={removeTodo}
                     />
                 ))}
-                <TodoForm addTodo={addTodo} />
+                
             </div>
+            <TodoForm addTodo={addTodo} />
         </div>
     );
 }

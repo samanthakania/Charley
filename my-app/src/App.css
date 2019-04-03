@@ -47,7 +47,7 @@
 
 .todo-container {
   position: absolute;
-  width: 373px;
+  width: 393px;
   height: 680px;
   left: 1047px;
   top: 89px;
@@ -58,7 +58,7 @@
 }
 
 .todo-list {
-  position: relative;
+  
 }
 
 .todo {
@@ -68,21 +68,21 @@
   padding: 15px;
   margin: 10px;
   border-radius: 8px;
-  width: 85%;
+  width: 87%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 #todo-form {
-  position: absolute;
   width: 80%;
   bottom: 0px;
-  
+  position: absolute;
 }
 
 #todo-form input {
   width: 100%;
+  
 }
 
 #completed,
