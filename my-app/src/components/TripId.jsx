@@ -8,20 +8,22 @@ class TripId extends Component{
       tripId: uuidv4(),
       email: ""
     };
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  validateForm() {
-    return this.state.email.length > 0 || this.state.tripId.length > 0;
+  componentDidMount(){
   }
 
   handleChange = event => {
     this.setState({
-      [event.target.id]: event.target.value
+      tripId: uuidv4()
     });
   }
-
   handleSubmit = event => {
     event.preventDefault();
+    this.setState({
+    })
   }
 
   render() {
@@ -32,19 +34,23 @@ class TripId extends Component{
             <input
               autoFocus
               type="email"
-              value={this.state.email}
+              value={this.props.email}
               onChange={this.handleChange}
             />
+            <input
+            block
+            bsSize="large"
+            type="submit"
+          />
             <p>Enter existing Trip Id: </p>
             <input
-              value={this.state.password}
-              onChange={this.handleChange}
+              value={this.props.tripId}
               type="tripId"
+              onChange={this.handleChange}
             />
           <input
             block
             bsSize="large"
-            disabled={!this.validateForm()}
             type="submit"
           />
         </form>
@@ -52,25 +58,5 @@ class TripId extends Component{
     );
   }
 }
-  // render() {
-  //   return(
-  //     <header>
-  //       <form>
-  //         <label>
-  //           Create New Trip ID:
-  //           <input type="text" name="name" placeholder="Enter Email" />
-  //         </label>
-  //           <input type="submit" value="Submit" />
-  //       </form>
-  //       <form>
-  //         <label>
-  //           Enter Existing Trip ID:
-  //           <input type="text" name="name" placeholder="Enter Trip ID" />
-  //         </label>
-  //           <input type="submit" value="Submit" />
-  //       </form>
-  //       </header>
-  //     )
-  //   }
 
 export default TripId
