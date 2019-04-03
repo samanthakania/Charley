@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import './App.css';
 import MyMapComponent from './components/MyMapComponent.jsx';
 import NavBar from './components/NavBar';
-import ModalWindow from './components/ModalWindow';
+import TripId from './components/TripId';
 import ToDoList from './components/ToDoList'
 
 class App extends Component {
@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar/>
-        <TripId/>
+        {/* <TripId/> */}
         <MyMapComponent
           waypoints={this.state.waypoints}
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyADfvn7bqN8wTxIrPUpCZZMEoURzEsj5sU"
