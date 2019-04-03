@@ -15,14 +15,11 @@ ActiveRecord::Schema.define(version: 2019_03_29_142808) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "maps", force: :cascade do |t|
-    t.bigint "park_id"
-    t.decimal "start"
-    t.decimal "end"
-    t.integer "likes"
+  create_table "trips", force: :cascade do |t|
+    t.string "trip_id"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["park_id"], name: "index_maps_on_park_id"
   end
 
   create_table "parks", force: :cascade do |t|
@@ -43,5 +40,5 @@ ActiveRecord::Schema.define(version: 2019_03_29_142808) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "maps", "parks"
+  add_foreign_key "trips", "parks"
 end
