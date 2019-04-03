@@ -34,11 +34,7 @@ class App extends Component {
           mapElement={<div className="mapElement" id="map"/>}
         />
         <ToDoList />
-<<<<<<< HEAD
-        <Footer />
-=======
         <Footer/>
->>>>>>> 95ffef20ded1408cc3ded0fc64817c6dd9ff1e4b
       </div>
     );
   }

@@ -1,3 +1,4 @@
+/* global google */
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
