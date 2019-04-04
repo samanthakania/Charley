@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'api/nps_api_show'
   get 'parks/index'
   post 'users/create_route'
-  post '/park/show' => 'parks#show'
+  post 'park/show' => 'parks#show'
   post 'users/save_route'
   get 'twitterfeed/index'
   root to: 'pages#index'
