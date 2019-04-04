@@ -11,10 +11,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+       isLoggedIn: false
     }
+        this.handleState = this.handleState.bind(this);
   }
-
+  handleState() {
+    this.setState({isLoggedIn: true})
+  }
   addWaypoint =(waypoint)=>{
     const waypoints = this.state.waypoints
     waypoints.push(waypoint)
@@ -22,10 +25,12 @@ class App extends Component {
   }
 
   render() {
+    // if(!this.state.isLoggedIn) {
+    //   return ( <TripId update={this.handleState}/>)
+    // } else {
     return (
       <div className="App">
         <NavBar/>
-        <TripId/>
         <MyMapComponent
           waypoints={this.state.waypoints}
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyADfvn7bqN8wTxIrPUpCZZMEoURzEsj5sU"
@@ -37,7 +42,9 @@ class App extends Component {
         <Footer/>
       </div>
     );
-  }
+    }
+ 
+  // }
 }
 
 export default App;
