@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css'
-<<<<<<< HEAD
-=======
 const uuidv4 = require('uuid/v4');
->>>>>>> 4744949c4a03abfa744bb7cf2d85bc11fd2a589a
 
 class NavBar extends Component {
   constructor(props) {
@@ -17,17 +14,13 @@ class NavBar extends Component {
   render() {
     console.log(uuidv4(44))
     return (
-      <header className="nav-bar">
-        <img id="nav-logo" src="https://github.com/ryaaanandrew/final_project/blob/master/logo_transparent.png?raw=true" alt="logo" />
-        <h1>NAV-BAR HEADER</h1>
-      </header >
+    <header className="nav-bar">
+      <img id="nav-logo" src="https://github.com/ryaaanandrew/final_project/blob/f470b1c59b2e2e1d1706c4ecb64aa84d3ea9d482/logo_transparent.png?raw=true" alt="logo" />
+      <h1>NAV-BAR HEADER</h1>
+    </header>
+     
     )
   }
 }
 
 export default NavBar
-
-
-
-
-  
