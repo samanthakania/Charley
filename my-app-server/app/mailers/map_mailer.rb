@@ -1,9 +1,9 @@
-class MapMailer < ApplicationMailer::Base
+class MapMailer < ApplicationMailer
   default :from => 'charley@example.com'
 
-  def send_signup_email(trip_id)
-    @trip_id = trip_id
-    mail( :to => @trip_id.email,
+  def send_signup_email(trip)
+    @trip = trip
+    mail( :to => @trip.email,
     :subject => 'Thank you for creating a trip' )
     end
   end

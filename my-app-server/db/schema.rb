@@ -15,13 +15,6 @@ ActiveRecord::Schema.define(version: 2019_03_29_142808) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "trips", force: :cascade do |t|
-    t.string "trip_id"
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "parks", force: :cascade do |t|
     t.string "full_name"
     t.string "name"
@@ -40,5 +33,11 @@ ActiveRecord::Schema.define(version: 2019_03_29_142808) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "trips", force: :cascade do |t|
+    t.string "trip_id"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
