@@ -39,6 +39,10 @@ class MyMapComponent extends Component {
     this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.originInput.current);
     this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.destinationInput.current);
 
+    // if trip ID exists:
+    // - make AJAX request to get trip data
+    // - update the state with trip waypoints, origin, and destination
+    // - then call this.route() to update the map
   }
 
   placeChanged(autocomplete, mode) {
@@ -132,6 +136,15 @@ class MyMapComponent extends Component {
       this.route();
     })
   }
+
+  removeWaypoint = (waypoint) => {
+    const waypoints = this.state.waypoints
+    waypoints.pop(waypoint)
+    this.setState({ waypoints: waypoints }, () => {
+      this.route();
+    })
+  }
+
   handleSave = (event) => {
     event.preventDefault();
      window.fetch('/users/save_route', {
@@ -174,12 +187,13 @@ class MyMapComponent extends Component {
               onClick={this.handleModal.bind(this, park)}
             />)
           })}
-          {this.state.directions && <DirectionsRenderer directions={this.state.directions} />}
+          {this.state.directions && <DirectionsRenderer directions={this.state.directions} options={ { suppressMarkers: true }} />}
         </GoogleMap>
         {this.state.modal ? (
           <ModalWindow park={this.state.currentPark}
             addWaypoint={this.addWaypoint} 
             save={this.saveParkName}
+            removeWaypoint={this.removeWaypoint}
             />
         ) : (
             <h1> </h1>

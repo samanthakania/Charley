@@ -22,6 +22,8 @@ class ModalWindow extends Component {
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleWaypoint = this.handleWaypoint.bind(this);
+    this.handleRemoveWaypoint = this.handleRemoveWaypoint.bind(this)
+
     }
     componentDidMount() {
         ReactModal.setAppElement('body')
@@ -55,6 +57,11 @@ class ModalWindow extends Component {
             stopover: true
         })
     }
+
+    handleRemoveWaypoint(){
+        this.props.removeWaypoint()
+    }
+
     render() {
         console.log("Window", this.props)
         return (
@@ -88,7 +95,8 @@ class ModalWindow extends Component {
                         </TabPanel>
 
                     </Tabs>
-                    <button onClick={this.handleWaypoint}>Add</button>
+                    <button onClick={this.handleWaypoint}>Add to Route</button>
+                    <button onClick={this.handleRemoveWaypoint}>Remove from Route</button>
                     <button onClick={this.handleCloseModal}>Close Modal</button>
                 </ReactModal>
             </div>
