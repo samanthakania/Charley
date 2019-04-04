@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 2019_04_04_141206) do
   create_table "trips", force: :cascade do |t|
     t.string "trip_id"
     t.string "email"
-    t.integer "park_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
