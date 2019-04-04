@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../App.css';
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
@@ -9,8 +9,8 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
         >
             {todo.text}
             <div>
-                <div onClick={() => completeTodo(index)} id="completed"> <i class="fas fa-check"></i></div>
-                <div onClick={() => removeTodo(index)} id="remove"><i class="fas fa-times"></i></div>
+                <div onClick={() => completeTodo(index)} id="completed"> <i className="fas fa-check"></i></div>
+                <div onClick={() => removeTodo(index)} id="remove"><i className="fas fa-times"></i></div>
             </div>
         </div>
     )
@@ -34,9 +34,15 @@ function TodoForm({ addTodo }) {
                 onChange={e => setValue(e.target.value)} />
         </form>
     );
-}
+} 
 
+var i = 1;
 function ToDoList() {
+    const [initialized, setInitialized] = useState(false);
+
+    useEffect(() => {
+        saveTodo()
+    })
 
     const [todos, setTodos] = useState([
         {
@@ -69,6 +75,20 @@ function ToDoList() {
         newTodos.splice(index, 1);
         setTodos(newTodos);
     };
+
+    function saveTodo() {
+        window.fetch('/todo/create_todo', {
+            method: 'POST',
+            body: JSON.stringify(
+                { todos: todos }
+            ),
+            headers: { 'Content-Type': 'application/json' }
+        }).then(resp => resp.json())
+        .then((json) => {
+                return true;
+              })
+        .catch(err => console.log(err))
+    }
 
     return (
         <div className="todo-container">

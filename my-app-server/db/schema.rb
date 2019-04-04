@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2019_04_04_165727) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "maps", force: :cascade do |t|
+    t.bigint "park_id"
+    t.decimal "start"
+    t.decimal "end"
+    t.integer "likes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["park_id"], name: "index_maps_on_park_id"
+  end
+
   create_table "parks", force: :cascade do |t|
     t.string "full_name"
     t.string "name"
@@ -55,11 +65,18 @@ ActiveRecord::Schema.define(version: 2019_04_04_165727) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
+  create_table "todos", force: :cascade do |t|
+    t.string "todo_item"
+    t.boolean "is_completed"
+=======
   create_table "trips", force: :cascade do |t|
     t.string "trip_id"
     t.string "email"
+>>>>>>> e1fcabaf7107f9bcbdc3f3fac44e9eac5aa1c270
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "maps", "parks"
 end

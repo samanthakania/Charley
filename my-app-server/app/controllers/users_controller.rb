@@ -13,6 +13,7 @@ class UsersController < ApplicationController
       render :action => 'new'      
     end
   end
+
   def save_route
       origin = params[:origin]
       destination = params[:destination]
@@ -39,4 +40,5 @@ class UsersController < ApplicationController
   def trip_params
    params.require(:trip).permit(:trip_id, :email)
   end
+
 end
