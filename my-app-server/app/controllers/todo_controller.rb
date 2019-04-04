@@ -4,7 +4,6 @@ class TodoController < ApplicationController
         puts "********************"
         puts "test: #{params[:text]}"
         puts "********************"
-        byebug
     end
 
 end
