@@ -32,7 +32,7 @@ class NavBar extends Component {
   render() {
     return (
     <header className="nav-bar">
-      <img id="nav-logo" src="#" alt="logo" />
+      <img id="nav-logo" src="https://github.com/ryaaanandrew/final_project/blob/f470b1c59b2e2e1d1706c4ecb64aa84d3ea9d482/logo_transparent.png?raw=true" alt="logo" />
       <h1>NAV-BAR HEADER</h1>
     </header>
      
@@ -41,8 +41,3 @@ class NavBar extends Component {
 }
 
 export default NavBar
-
-
-
-
-

@@ -4,7 +4,7 @@ import '../App.css';
 function Todo({ todo, index, completeTodo, removeTodo }) {
     return (
         <div
-            className="todo"
+            className="todo box sb1"
             style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
         >
             {todo.text}
@@ -40,16 +40,16 @@ function ToDoList() {
 
     const [todos, setTodos] = useState([
         {
-            text: "Learn about React",
+            text: "Someone get bugspray!",
             isCompleted: false
         },
         {
-            text: "Meet friend for lunch",
-            isCompleted: true
+            text: "I'll get it!",
+            isCompleted: false
         },
         {
-            text: "Build really cool todo app",
-            isCompleted: true
+            text: "Als, pringles",
+            isCompleted: false
         }
     ]);
 

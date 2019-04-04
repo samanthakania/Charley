@@ -125,31 +125,32 @@ class MyMapComponent extends Component {
 
   render() {
     return (
-      <div>
-        <input ref={this.originInput} type="text" placeholder="Enter a start location"
-          style={{ position: "absolute", top: 0 }} />
-        <input ref={this.destinationInput} type="text" placeholder="Enter an end location"
-          style={{ position: "absolute", top: 0 }} />
-        <GoogleMap
-          ref={this.mapElt}
-          defaultZoom={4}
-          defaultCenter={{ lat: 47.9253, lng: -97.03294 }}
-        >
-          {this.state.parks.map(park => {
-            return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)}
-              onClick={this.handleModal.bind(this, park)}
-            />)
-          })}
-          {this.state.directions && <DirectionsRenderer directions={this.state.directions} />}
-        </GoogleMap>
-        {this.state.modal ? (
-          <ModalWindow park={this.state.currentPark}
-            addWaypoint={this.addWaypoint}
-          />
-        ) : (
-            <h1> </h1>
-          )}
-      </div>)
+        <div>
+          <input ref={this.originInput} type="text" placeholder="Enter a start location"
+            style={{ position: "absolute", top: 0 }} />
+          <input ref={this.destinationInput} type="text" placeholder="Enter an end location"
+            style={{ position: "absolute", top: 0 }} />
+          <GoogleMap
+            ref={this.mapElt}
+            defaultZoom={4}
+            defaultCenter={{ lat: 47.9253, lng: -97.03294 }}
+          >
+            {this.state.parks.map(park => {
+              return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)}
+                onClick={this.handleModal.bind(this, park)}
+              />)
+            })}
+            {this.state.directions && <DirectionsRenderer directions={this.state.directions} />}
+          </GoogleMap> 
+          {this.state.modal ? (
+            <ModalWindow park={this.state.currentPark}
+              addWaypoint={this.addWaypoint}
+            />
+          ) : (
+              <h1> </h1>
+            )}
+        </div>
+      )
   }
 
 }
