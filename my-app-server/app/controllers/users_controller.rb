@@ -9,13 +9,30 @@ class UsersController < ApplicationController
     puts "#########{@trip}#####3"
      if @trip.save
         render json: @trip
-     end
+     else
+      puts "err"
+      
+    end
   end
   def save_route
-  origin = params[:origin]
-  destination = params[:destination]
-  park_id = params[:waypoints]
-  puts "#{params}"
-   byebug
+      origin = params[:origin]
+      destination = params[:destination]
+      park_ids = params[:waypoints]
+      @route = Route.new({
+         origin: origin,
+         destination: destination,
+         trip_id: 'hardcoded styll',
+         list_id: 42069,
+      })
+   park_ids.select do |id|
+      park = Park.find(id)
+      @route.parks << park
+      end
+      byebug
+       if @route.save
+           render json: @route.parks
+      else
+         puts "err"
+      end
   end
 end
