@@ -25,9 +25,9 @@ class App extends Component {
   }
 
   render() {
-    // if(!this.state.isLoggedIn) {
-    //   return ( <TripId update={this.handleState}/>)
-    // } else {
+    if(!this.state.isLoggedIn) {
+      return ( <TripId update={this.handleState}/>)
+    } else {
     return (
       <div className="App">
         <NavBar/>
@@ -47,7 +47,7 @@ class App extends Component {
     );
     }
  
-  // }
+  }
 }
 
 export default App;

@@ -49,6 +49,7 @@ class ModalWindow extends Component {
         this.setState({ showModal: false });
     }
     handleWaypoint() {
+        this.props.save(this.props.park.id)
         this.props.addWaypoint({
             location: new google.maps.LatLng(this.props.park.lat, this.props.park.long),
             stopover: true
