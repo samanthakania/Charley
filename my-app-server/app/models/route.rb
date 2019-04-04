@@ -1,3 +1,3 @@
 class Route < ApplicationRecord
-  has_many :park
+  has_and_belongs_to_many :parks
 end

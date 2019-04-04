@@ -1,3 +1,3 @@
 class Park < ApplicationRecord
-  belongs_to :route
+    has_many :routes
 end
