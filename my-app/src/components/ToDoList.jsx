@@ -48,7 +48,7 @@ function ToDoList() {
             isCompleted: false
         },
         {
-            text: "Als, pringles",
+            text: "Also, pringles",
             isCompleted: false
         }
     ]);
