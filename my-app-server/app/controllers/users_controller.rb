@@ -11,6 +11,7 @@ class UsersController < ApplicationController
         render json: @trip
      end
   end
+
   def save_route
   origin = params[:origin]
   destination = params[:destination]
@@ -18,4 +19,5 @@ class UsersController < ApplicationController
   puts "#{params}"
    byebug
   end
+
 end
