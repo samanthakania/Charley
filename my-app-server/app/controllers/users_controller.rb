@@ -6,12 +6,11 @@ class UsersController < ApplicationController
       email: user,
       trip_id: trip_id 
     })
-    puts "#########{@trip}#####3"
      if @trip.save
-        render json: @trip
-     else
-      puts "err"
-      
+      MapMailer.send_signup_email(@trip_id).deliver
+      redirect_to(@trip_id, :notice => 'Trip created')
+    else
+      render :action => 'new'      
     end
   end
   def save_route
@@ -34,5 +33,10 @@ class UsersController < ApplicationController
       else
          puts "err"
       end
+  end
+  private
+
+  def trip_params
+   params.require(:trip).permit(:trip_id, :email)
   end
 end
