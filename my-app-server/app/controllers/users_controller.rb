@@ -12,5 +12,10 @@ class UsersController < ApplicationController
      end
   end
   def save_route
+  origin = params[:origin]
+  destination = params[:destination]
+  park_id = params[:waypoints]
+  puts "#{params}"
+   byebug
   end
 end

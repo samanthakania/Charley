@@ -4,7 +4,7 @@ class CreateMaps < ActiveRecord::Migration[5.2]
     create_table :trips do |t|
       t.string :trip_id
       t.string :email
-      
+      t.integer :park_id
       t.timestamps
     end
   end

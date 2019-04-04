@@ -13,7 +13,8 @@ class MyMapComponent extends Component {
       parks: [],
       modal: false,
       currentPark: null,
-      waypoints: []
+      waypoints: [],
+      savedParks: []
     }
     this.originInput = React.createRef();
     this.destinationInput = React.createRef();
@@ -96,7 +97,14 @@ class MyMapComponent extends Component {
     })
   }
 
-
+  saveParkName = (name) => {
+    const saved = this.state.savedParks
+    saved.push(name)
+    this.setState({ 
+      savedParks: saved
+    })
+    console.log("yoyo", this.state.savedParks)
+  }
   fetchData() {
     fetch('/parks/index')
       .then(response => {
@@ -124,10 +132,32 @@ class MyMapComponent extends Component {
       this.route();
     })
   }
-  handleSave() {
-    console.log(this.state.directions)
+  handleSave = (event) => {
+    event.preventDefault();
+     window.fetch('/users/save_route', {
+      method: 'POST',
+      body: JSON.stringify({
+          origin: this.origin,
+          destination: this.destination,
+          waypoints: this.state.savedParks
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(async resp => await resp.json())
+        .then((json) => {
+
+          console.log(json)
+
+
+        })
+        .catch(err => console.log(err))
+
+    
   } 
   render() {
+      console.log("saviing", this.state.savedParks)
     return (
       <div>
         <input ref={this.originInput} type="text" placeholder="Enter a start location"
@@ -148,8 +178,9 @@ class MyMapComponent extends Component {
         </GoogleMap>
         {this.state.modal ? (
           <ModalWindow park={this.state.currentPark}
-            addWaypoint={this.addWaypoint}
-          />
+            addWaypoint={this.addWaypoint} 
+            save={this.saveParkName}
+            />
         ) : (
             <h1> </h1>
           )}
