@@ -6,11 +6,12 @@
 body {
   padding: 0;
   margin: 0;
+  background-color: black;
 }
 
 .nav-bar {
-  width: 1440px;
-  height: 89px;
+  width: 50%;
+  height: 95px;
   background: #000000;
 }
 
@@ -20,10 +21,9 @@ body {
 
 #nav-logo {
   position: absolute;
-  width: 180px;
-  height: 150px;
+  width: 210px;
+  height: 190px;
   left: 10px;
-  top: -15px;
 
   background: url('https://github.com/ryaaanandrew/final_project/blob/master/logo_transparent.png?raw=true');
 }
@@ -58,10 +58,10 @@ body {
 .todo-container {
   position: absolute;
   width: 393px;
-  height: 625px;
+  height: 650px;
   right: 25px;
   padding: 15px 30px;
-  bottom: 50px;
+  bottom: 70px;
   overflow: auto;
   
   background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);

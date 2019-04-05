@@ -79,29 +79,11 @@ class SocialMediaTab extends Component {
 
   render() {
     return (
-      <div className="social-media-container">
-        <span className="likes"> 2,000 likes</span>
-        <div className="hero-image">
-          <div className="hero-text">
-            <img src={this.state.photos[this.state.indexValue]}></img>
-          </div>
-          {this.state.indexValue === 0 ? (<p></p>) : (<button onClick={this.backPhoto}>back</button>)}
-          <button onClick={this.nextPhoto}>next</button>
-        </div>
-
-        <div className="social-media-content">
-          <div className="comments">
-
-            {this.state.tweets.map(tweet => {
-
-              return (<span className="tweets">
-                <h3>{tweet.user.screen_name}</h3>
-                <p>{tweet.text}</p>
-              </span>)
-            })}
-
-
-          </div>
+      <div className="hero-image">
+        <div className="hero-text">
+          <h1>Fake National Park</h1>
+          <p>Come for the nature, stay because you got lost!</p>
+          <button onClick={this.props.handleWaypoint} id="add-button">Add</button>
         </div>
       </div>
     )

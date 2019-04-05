@@ -11,6 +11,19 @@ import DarkSkyApi from 'dark-sky-api';
 DarkSkyApi.apiKey = '379b67815f86fa3fb81b23bff3f6db3a';
 const proxyURL = 'https://cors-anywhere.herokuapp.com/'
 
+const customStyles = {
+    content : {
+        top                   : '50%',
+        left                  : '50%',
+        right                 : 'auto',
+        bottom                : 'auto',
+        marginRight           : '-50%',
+        transform             : 'translate(-50%, -50%)',
+        width: '70%',
+        borderRadius: '7px'
+
+    }
+  };
 
 class ModalWindow extends Component {
     constructor() {
@@ -60,6 +73,7 @@ class ModalWindow extends Component {
             <div>
                 <button onClick={this.handleOpenModal}>{this.props.park.name}</button>
                 <ReactModal
+                    style = { customStyles }
                     isOpen={this.state.showModal}
                     contentLabel="Minimal Modal Example"
                     ariaHideApp={false}>
@@ -72,7 +86,9 @@ class ModalWindow extends Component {
                         </TabList>
 
                         <TabPanel>
-                            <SocialMediaTab parkInfo={this.props.park}
+                            <SocialMediaTab 
+                                parkInfo={ this.props.park }
+                                handleWaypoint = { this.handleWaypoint }
                             />
                         </TabPanel>
                         <TabPanel>
@@ -87,7 +103,6 @@ class ModalWindow extends Component {
                         </TabPanel>
 
                     </Tabs>
-                    <button onClick={this.handleWaypoint}>Add</button>
                     <button onClick={this.handleCloseModal}>Close Modal</button>
                 </ReactModal>
             </div>

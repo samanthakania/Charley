@@ -5,25 +5,26 @@
 }
 
 .hero-image {
-
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://github.com/ryaaanandrew/final_project/blob/master/aescher-hotel-restaurant-swiss-alps-SWISSCLIFFHOTEL1017.jpg?raw=true");
     height: 400px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    background-attachment: fixed;
     border-radius: 10px;
     margin-bottom: 15px;
+    align-items: center;
 }
 
 .hero-text {
     text-align: center;
     color: white;
     position: absolute;
-    top: 37%;
-    left: 37%;
+    top: 32%;
+    left: 32%;
 }
 
-.social-media-content {
-
+#add-button {
+    width: 60px;
+    height: 20px;
 }
