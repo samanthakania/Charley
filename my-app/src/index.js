@@ -4,15 +4,15 @@ import './index.css';
 import App from './App';
 import 'normalize.css';
 import * as serviceWorker from './serviceWorker';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
-
+import { Route, Switch, Link, BrowserRouter as Router } from 'react-router-dom'
+import TripId from './components/TripId'
 
 const routing = (
   <Router>
-    <div>
-      {/* <Route exact path="/tripid" component={TripId} /> */}
-      <Route exact path="/" component={App} />
-    </div>
+    <Switch>
+      <Route exact path="/" component={TripId} />
+      <Route path="/trip/:id" component={App} />
+    </Switch>
   </Router>
 )
 
