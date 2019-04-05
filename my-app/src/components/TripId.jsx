@@ -7,10 +7,12 @@ class TripId extends Component {
     super(props);
     this.state = {
       email: "",
-      isLoggedin: false
+      isLoggedin: false,
+      searchId: ""
     };
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
   handleChange = event => {
@@ -18,7 +20,6 @@ class TripId extends Component {
 
   }
   handleSubmit = event => {
-  let request =  this.state
     event.preventDefault();
     console.log("hit here yo")
     console.log("hit", uuidv4(6))
@@ -34,18 +35,52 @@ class TripId extends Component {
       .then(async resp => await resp.json())
       .then((json) => {
       
-        console.log(json)
-        this.props.update()
+        let id = json.trip_id
+        this.props.update(id)
          
         
       })
     .catch(err => console.log(err))
 
   }
-  componentDidMount() {
-  }
+  handleSearch = event => {
+    this.setState({ searchId: event.target.value })
 
+  }
+  
+  routeSearch = event => {
+    event.preventDefault();
+    window.fetch('/users/find_route', {
+      method: 'POST',
+      body: JSON.stringify({
+        search: this.state.searchId
+    
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(async resp => await resp.json())
+    .then((json) => {
+      let output = []
+      const origin = json.route.origin;
+      const destination = json.route.destination;
+      const tripId = json.route.trip_id;
+      const listId = json.route.list_id;
+      
+    json.parks.forEach( (park) => {
+  let latLong ={  lat: park.lat, long: park.long }
+   output.push(latLong)
+})
+  console.log(output)      
+this.props.search(origin, destination, tripId, listId, output);
+
+      })
+      .catch(err => console.log(err))
  
+}
+
+  
+
 
   render() {
  
@@ -64,11 +99,13 @@ class TripId extends Component {
             bsSize="large"
             type="submit"
           />
+          </form>
+          <form onSubmit={this.routeSearch}>
           <p>Enter existing Trip Id: </p>
           <input
             value={this.props.tripId}
             type="tripId"
-            onChange={this.handleChange}
+            onChange={this.handleSearch}
           />
           <input
             block
@@ -82,5 +119,3 @@ class TripId extends Component {
 }
 
 export default TripId
-
-// browserHistory.push({ pathname: '/trip', state: { message: "hello, im a passed message!" } })

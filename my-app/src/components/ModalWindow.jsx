@@ -44,7 +44,7 @@ class ModalWindow extends Component {
     //         }
     //       })
     //       .catch(err => console.log('parsing failed', err))
-    // }
+    // }  
     handleCloseModal() {
         this.setState({ showModal: false });
     }
