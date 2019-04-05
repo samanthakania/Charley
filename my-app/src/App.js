@@ -11,22 +11,43 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-       isLoggedIn: false
+       isLoggedIn: false,
+       tripId: null,
+       foundRoute: null
     }
-        this.handleState = this.handleState.bind(this);
+    this.handleSearchForRoute = this.handleSearchForRoute.bind(this);
+    this.handleState = this.handleState.bind(this);
   }
-  handleState() {
-    this.setState({isLoggedIn: true})
+  handleState(id) {
+    console.log("state", this.state)
+    this.setState({isLoggedIn: true,
+                  tripId: id
+      })
+    console.log("state", this.state)
   }
   addWaypoint =(waypoint)=>{
     const waypoints = this.state.waypoints
     waypoints.push(waypoint)
     this.setState({ waypoints })
   }
-
+  handleSearchForRoute(ori, des, trip, list, latlong) {
+    // console.log("origin", ori)
+    // console.log("des", des)
+    // console.log("trip", trip)
+    // console.log("list", list)
+    this.setState({
+          isLoggedIn: true,
+      foundRoute: [ori, des, trip, list, latlong]})
+    console.log(this.state.foundRoute)
+  }
+  
   render() {
     if(!this.state.isLoggedIn) {
-      return ( <TripId update={this.handleState}/>)
+      return ( < TripId update = {
+            this.handleState.bind(this)
+          }
+          search={this.handleSearchForRoute.bind(this)}
+          />)
     } else {
     return (
       <div className="App">
@@ -38,7 +59,9 @@ class App extends Component {
             containerElement={<div className="mapContainer"/>}
             loadingElement={<div className="loadingElement"/>}
             mapElement={<div className="mapElement" id="map"/>}
-          />
+            id={this.state.tripId}         
+            foundRoute={this.state.foundRoute}
+         />
           <ToDoList />
         </div>
 

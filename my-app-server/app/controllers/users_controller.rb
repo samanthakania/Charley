@@ -18,27 +18,38 @@ class UsersController < ApplicationController
       origin = params[:origin]
       destination = params[:destination]
       park_ids = params[:waypoints]
+      trip_id = params[:tripId]
       @route = Route.new({
          origin: origin,
          destination: destination,
-         trip_id: 'hardcoded styll',
+         trip_id: trip_id,
          list_id: 42069,
       })
    park_ids.select do |id|
       park = Park.find(id)
       @route.parks << park
       end
-      byebug
        if @route.save
            render json: @route.parks
       else
          puts "err"
       end
   end
-  private
+  
+  def find_route
+   id = params[:search]   
+   @route = Route.find_by trip_id: id
+   
+   if @route == nil
+      render json: nil
+   else 
+      output = {'route' => @route, 'parks' => @route.parks }
+      render json: output
+   end
+end
+private
 
-  def trip_params
-   params.require(:trip).permit(:trip_id, :email)
-  end
-
+def trip_params
+ params.require(:trip).permit(:trip_id, :email)
+end
 end

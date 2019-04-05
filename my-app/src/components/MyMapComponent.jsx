@@ -14,7 +14,9 @@ class MyMapComponent extends Component {
       modal: false,
       currentPark: null,
       waypoints: [],
-      savedParks: []
+      savedParks: [],
+      o: null,
+      d: null,
     }
     this.originInput = React.createRef();
     this.destinationInput = React.createRef();
@@ -23,12 +25,32 @@ class MyMapComponent extends Component {
     this.destination = null
     // this.handleSave = this.handleSave.bind(this);
   }
+  // returningRoute() {
+  //   if (this.props.foundRoute === null) {
+  //     console.log("null hit");
+  //   } else {
 
+  //  this.origin = this.props.foundRoute[0]
+  //   this.destination = this.props.foundRoute[1]
+  //   console.log(this.origin)
+  //   console.log(this.destination)  
+    
+  //     this.route()
+  //   }
+  // }
+  componentWillMount(){
+    
+  }
   componentDidMount() {
+    console.log("input", this.originInput.current)
     this.fetchData();
+    
     this.directionsService = new google.maps.DirectionsService();
+    console.log("pleace", this.originInput.current)
     let originAutocomplete = new google.maps.places.Autocomplete(this.originInput.current);
     let destinationAutocomplete = new google.maps.places.Autocomplete(this.destinationInput.current);
+    this.returningRoute();  
+    
     originAutocomplete.setFields(['place_id']);
     destinationAutocomplete.setFields(['place_id']);
     this.placeChanged(originAutocomplete, 'ORIG')
@@ -44,7 +66,14 @@ class MyMapComponent extends Component {
     // - update the state with trip waypoints, origin, and destination
     // - then call this.route() to update the map
   }
-
+  handlePlaceIdOri = (e) => {
+    this.setState({ o: e.current})
+    console.log(this.state.o)
+  }
+  handlePlaceIdDes = (e) => {
+    this.setState({ d: e.currentTarget.value })
+    console.log(this.state.d)
+  }
   placeChanged(autocomplete, mode) {
     var me = this;
     autocomplete.addListener('place_changed', function () {
@@ -56,6 +85,7 @@ class MyMapComponent extends Component {
       }
       if (mode === 'ORIG') {
         me.origin = place.place_id;
+        console.log(place)
       } else {
         me.destination = place.place_id;
       }
@@ -71,6 +101,7 @@ class MyMapComponent extends Component {
     }
 
     console.log('route 2 hit')
+
     var me = this;
     this.directionsService.route(
       {
@@ -92,7 +123,24 @@ class MyMapComponent extends Component {
         }
       });
   }
+  returningRoute() {
+    if (this.props.foundRoute === null) {
+      console.log("null hit");
+    } else {
 
+      this.origin = this.props.foundRoute[0]
+      this.destination = this.props.foundRoute[1]
+    let latsandlongs = this.props.foundRoute[4]
+    latsandlongs.forEach((latandlong) => {
+      this.addWaypoint({
+          location: new google.maps.LatLng(latandlong.lat, latandlong.long),
+          stopover: true
+        })
+    })  
+    this.route()
+      
+    }
+  }
      removeLastWaypoint =(waypoint)=>{
       const waypoints = this.state.waypoints
       waypoints.pop()
@@ -150,6 +198,7 @@ class MyMapComponent extends Component {
      window.fetch('/users/save_route', {
       method: 'POST',
       body: JSON.stringify({
+          tripId: this.props.id,
           origin: this.origin,
           destination: this.destination,
           waypoints: this.state.savedParks
@@ -174,9 +223,9 @@ class MyMapComponent extends Component {
     return (
       <div>
         <input ref={this.originInput} type="text" placeholder="Enter a start location"
-          style={{ position: "absolute", top: 0 }} />
+          style={{ position: "absolute", top: -1 }} onChange={this.handlePlaceIdOri} />
         <input ref={this.destinationInput} type="text" placeholder="Enter an end location"
-          style={{ position: "absolute", top: 0 }} />
+          style={{ position: "absolute", top: 0 }} onChange={this.handlePlaceIdDes} />
         <GoogleMap
           ref={this.mapElt}
           defaultZoom={4}
