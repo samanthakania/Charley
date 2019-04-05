@@ -8,7 +8,8 @@ class UsersController < ApplicationController
     })
      if @trip.save
       MapMailer.send_signup_email(@trip).deliver
-      redirect_to(@trip_id, :notice => 'Trip created')
+      # redirect_to(@trip_id, :notice => 'Trip created')
+      render json: @trip
     else
       render :action => 'new'      
     end
