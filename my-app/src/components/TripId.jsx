@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
+import './TripId.css';
 
 const uuidv4 = require('uuid/v4');
 
@@ -90,36 +92,48 @@ this.props.search(origin, destination, tripId, listId, output, todos);
   render() {
  
     return (
-      <div name="enter-email">
-        <form onSubmit={this.handleSubmit}>
-          <p>Enter email to generate new Trip Id: </p>
-          <input
-            autoFocus
-            type="email"
-            value={this.props.email}
-            onChange={this.handleChange}
-            required
-          />
-          <input
-            block
-            bsSize="large"
-            type="submit"
-          />
+      <div className="trip-main-container">
+        <div className="input-container">
+          <img id="trip-logo" src="https://github.com/ryaaanandrew/final_project/blob/master/logo_transparent_mini.png?raw=true" alt="logo"/>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              autoFocus
+              className="input-field"
+              type="email"
+              value={this.props.email}
+              onChange={this.handleChange}
+              placeholder="Email"
+              required
+            />
+            <button
+              id="submit-button"
+              className="btn btn-warning"
+              block
+              type="submit"
+              value="Create a trip"
+            > Create a trip </button>
+            </form>
+            <form onSubmit={this.routeSearch}>
+              
+              <div id="or">OR</div>
+
+            <input
+              className="input-field"
+              value={this.props.tripId}
+              type="tripId"
+              onChange={this.handleSearch}
+              placeholder="Trip ID"
+              required
+            />
+            <button
+              id="submit-button"
+              className="btn btn-warning"
+              block
+              type="submit"
+              value="Join an existing trip"
+            > Join a trip </button>
           </form>
-          <form onSubmit={this.routeSearch}>
-          <p>Enter existing Trip Id: </p>
-          <input
-            value={this.props.tripId}
-            type="tripId"
-            onChange={this.handleSearch}
-            required
-          />
-          <input
-            block
-            bsSize="large"
-            type="submit"
-          />
-        </form>
+        </div>
       </div>
     );
   }
