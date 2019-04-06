@@ -1,10 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-<<<<<<< HEAD
-=======
 ruby '2.3.5'
->>>>>>> feature/advanced-styling
 gem 'dotenv-rails'
 gem 'sendgrid-ruby'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
