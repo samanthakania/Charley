@@ -1,7 +1,6 @@
 
 /* <--- Social Media Tab ---> */
 .social-media-container {
-    padding: 10px;
 }
 
 .hero-image {
@@ -16,15 +15,42 @@
     align-items: center;
 }
 
-.hero-text {
-    text-align: center;
-    color: white;
-    position: absolute;
-    top: 32%;
-    left: 32%;
+#park-name {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 120px;
+    text-align: left;
+    display: inline-block;
+    width: 50%;
+    line-height: .6;
+    padding-left: 30px;
+    color: #EDEEE9;
 }
 
 #add-button {
     width: 60px;
     height: 20px;
+}
+
+/* <--- All tabs main content ---> */
+
+.tabs-content-container {
+    background: #ece9e6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top,#2a2a2a, #3b3b3b); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #2a2a2a, #3b3b3b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 450px;
+    overflow: auto;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 7px;
+    color: rgb(255, 237, 203);
+}
+
+.fas {
+    float: left;
+    margin-right: 10px;
+}
+
+.tabs-content-container h1 {
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(195, 195, 195);
 }

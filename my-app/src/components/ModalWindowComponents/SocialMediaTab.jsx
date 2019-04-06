@@ -81,10 +81,10 @@ class SocialMediaTab extends Component {
     return (
       <div className="hero-image">
         <div className="hero-text">
-          <h1>Fake National Park</h1>
-          <p>Come for the nature, stay because you got lost!</p>
+          <h1 id="park-name">Fake National Park</h1>
           <button onClick={this.props.handleWaypoint} id="add-button">Add</button>
         </div>
+        
       </div>
     )
   }

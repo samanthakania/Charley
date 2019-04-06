@@ -20,8 +20,15 @@ const customStyles = {
         marginRight           : '-50%',
         transform             : 'translate(-50%, -50%)',
         width: '70%',
-        borderRadius: '7px'
+        minHeight: '70%',
+        borderRadius: '7px',
+        backgroundColor: 'rgba(24, 24, 24, 0.9)',
+        boxShadow: 		'0px 11px 19px -1px rgba(0,0,0,0.54)',
+        border: '1px solid black'
+    },
 
+    overlay : {
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))'
     }
   };
 
@@ -76,7 +83,9 @@ class ModalWindow extends Component {
                     style = { customStyles }
                     isOpen={this.state.showModal}
                     contentLabel="Minimal Modal Example"
-                    ariaHideApp={false}>
+                    ariaHideApp={false}
+                >
+
                     <Tabs>
                         <TabList>
                             <Tab>Social Media</Tab>
