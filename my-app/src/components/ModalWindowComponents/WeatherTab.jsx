@@ -1,5 +1,5 @@
-
 import React, { Component } from 'react';
+import './ModalWindowComponents.css';
 // import DarkSkyApi from 'dark-sky-api'
 // DarkSkyApi.apiKey = '379b67815f86fa3fb81b23bff3f6db3a'
 
@@ -8,12 +8,11 @@ class WeatherTab extends Component {
 
     render() {
         return(
-            <div>
-                <h1>Current temp: {this.props.weather.currently.apparentTemperature}</h1>
-                <h3>{this.props.weather.currently.summary}</h3>
-                <h3>Summary: {this.props.weather.daily.summary}</h3>
-
-            </div>
+            <div className="tabs-content-container">
+            <i class="fas fa-poo-storm fa-4x"></i>
+            <h1>Tab Header</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti adipisci illo similique vero! Commodi, laboriosam iste numquam nostrum eum temporibus neque tempora? Eligendi tempore inventore sed laboriosam accusamus? Sequi, eaque.</p>
+        </div>
         );
     }
 }

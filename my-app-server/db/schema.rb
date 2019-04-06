@@ -10,15 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_04_05_145738) do
+=======
+ActiveRecord::Schema.define(version: 2019_04_04_201544) do
+>>>>>>> feature/advanced-styling
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "lists", force: :cascade do |t|
+<<<<<<< HEAD
     t.string "trip_id"
+=======
+    t.integer "trip_id"
+    t.integer "route_id"
+    t.string "list_items"
+>>>>>>> feature/advanced-styling
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "maps", force: :cascade do |t|
+    t.bigint "park_id"
+    t.decimal "start"
+    t.decimal "end"
+    t.integer "likes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["park_id"], name: "index_maps_on_park_id"
   end
 
   create_table "parks", force: :cascade do |t|
@@ -39,6 +59,7 @@ ActiveRecord::Schema.define(version: 2019_04_05_145738) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "parks_routes", force: :cascade do |t|
     t.integer "route_id"
     t.integer "park_id"
@@ -48,6 +69,13 @@ ActiveRecord::Schema.define(version: 2019_04_05_145738) do
     t.string "origin"
     t.string "destination"
     t.string "trip_id"
+=======
+  create_table "routes", force: :cascade do |t|
+    t.string "origin"
+    t.string "destination"
+    t.integer "park_id"
+    t.integer "trip_id"
+>>>>>>> feature/advanced-styling
     t.integer "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -58,6 +86,7 @@ ActiveRecord::Schema.define(version: 2019_04_05_145738) do
     t.boolean "is_completed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.integer "list_id"
     t.index ["list_id"], name: "index_todos_on_list_id"
   end
@@ -69,4 +98,9 @@ ActiveRecord::Schema.define(version: 2019_04_05_145738) do
     t.datetime "updated_at", null: false
   end
 
+=======
+  end
+
+  add_foreign_key "maps", "parks"
+>>>>>>> feature/advanced-styling
 end

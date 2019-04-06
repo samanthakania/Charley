@@ -69,9 +69,10 @@ class App extends Component {
             foundRoute={this.state.foundRoute}
          />
           <ToDoList id={this.state.listId} todoListFound={this.state.todos}/>
+          />
+          <Footer/>
         </div>
-
-        <Footer/>
+        
       </div>
     );
     }

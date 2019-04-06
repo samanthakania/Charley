@@ -1,6 +1,6 @@
-
 import config from './config.js';
 import React, { Component } from 'react';
+import './ModalWindowComponents.css';
 var unirest = require('unirest');
 
 function loadingTimer() {
@@ -65,22 +65,23 @@ class ParkDescription extends Component {
     console.log("rrender", this.state)
 
     return (
-      <div className="ParkDescriptionContainer">
+      <div className="tabs-content-container">
         <header>
+          <i class="fas fa-map-marked-alt fa-4x"></i>
           <h1>{park.full_name}</h1>
         </header>
         <div>
           {park.description}
         </div>
 
-        {this.state.camping.map(camp => {
+        {/* { this.state.camping.map(camp => {
 
           return (
             <span className="campSpot" key={camp.unique_id}>
               <h3>{camp.city}, {camp.state}</h3>
               <p>{camp.directions}</p>
             </span>)
-        })}
+        })} */}
 
       </div>
 

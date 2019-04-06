@@ -24,11 +24,6 @@ class TripId extends Component {
     let tripId = uuidv4(6);
     event.preventDefault();
     console.log("hit here yo")
-<<<<<<< HEAD
-    console.log("hit", tripId)
-    console.log()
-=======
->>>>>>> todo_list_saving
     window.fetch('/users/create_route', {
       method: 'POST',
       body: JSON.stringify({email: this.state.email,
@@ -40,17 +35,11 @@ class TripId extends Component {
       .then(async resp => await resp.json())
       .then((json) => {
       
-<<<<<<< HEAD
-        let id = json.trip_id         
-        console.log(json)
-        this.setState({tripId: id})
-=======
         // console.log("hit", json)
         let id = json.trip_id
         this.props.update(id)
          
         
->>>>>>> todo_list_saving
       })
     .catch(err => console.log(err))
 

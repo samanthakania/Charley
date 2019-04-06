@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, Marker, DirectionsRenderer } from "react-google-maps";
 import '../App.css';
 import ModalWindow from './ModalWindow.jsx';
+import InputWindow from './InputWindow.jsx';
 
 class MyMapComponent extends Component {
   constructor(props) {
@@ -207,28 +208,27 @@ class MyMapComponent extends Component {
   render() {
       console.log("saviing", this.state.savedParks)
     return (
-      <div>
-        <input ref={this.originInput} type="text" placeholder="Enter a start location"
-          style={{ position: "absolute", top: -1 }} onChange={this.handlePlaceIdOri} />
-        <input ref={this.destinationInput} type="text" placeholder="Enter an end location"
-          style={{ position: "absolute", top: 0 }} onChange={this.handlePlaceIdDes} />
-        <GoogleMap
-          ref={this.mapElt}
-          defaultZoom={4}
-          defaultCenter={{ lat: 47.9253, lng: -97.03294 }}
-        >
-          {this.state.parks.map(park => {
-            return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)}
-              onClick={this.handleModal.bind(this, park)}
-            />)
-          })}
-          {this.state.directions && <DirectionsRenderer directions={this.state.directions} options={ { suppressMarkers: true }} />}
-        </GoogleMap>
-        {this.state.modal ? (
-          <ModalWindow park={this.state.currentPark}
-            addWaypoint={this.addWaypoint} 
-            save={this.saveParkName}
-            removeWaypoint={this.removeWaypoint}
+        <div>
+          <InputWindow 
+            originInput = { this.originInput }
+            destinationInput = { this.destinationInput }
+          />
+          <GoogleMap
+            defaultOptions={{ styles: this.props.mapStyles }}
+            ref={this.mapElt}
+            defaultZoom={4}
+            defaultCenter={{ lat: 47.9253, lng: -97.03294 }}
+          >
+            {this.state.parks.map(park => {
+              return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)}
+                onClick={this.handleModal.bind(this, park)}
+              />)
+            })}
+            {this.state.directions && <DirectionsRenderer directions={this.state.directions} />}
+          </GoogleMap> 
+          {this.state.modal ? (
+            <ModalWindow park={this.state.currentPark}
+              addWaypoint={this.addWaypoint}
             />
         ) : (
             <h1> </h1>
@@ -241,7 +241,90 @@ class MyMapComponent extends Component {
 
 }
 
+MyMapComponent.defaultProps = {
+  // The style is copy from https://snazzymaps.com/style/2/midnight-commander
+  mapStyles: [
+    {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+    {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+    {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+    {
+      featureType: 'administrative.locality',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#d59563'}]
+    },
+    {
+      featureType: 'poi',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#d59563'}]
+    },
+    {
+      featureType: 'poi.park',
+      elementType: 'geometry',
+      stylers: [{color: '#263c3f'}]
+    },
+    {
+      featureType: 'poi.park',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#6b9a76'}]
+    },
+    {
+      featureType: 'road',
+      elementType: 'geometry',
+      stylers: [{color: '#38414e'}]
+    },
+    {
+      featureType: 'road',
+      elementType: 'geometry.stroke',
+      stylers: [{color: '#212a37'}]
+    },
+    {
+      featureType: 'road',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#9ca5b3'}]
+    },
+    {
+      featureType: 'road.highway',
+      elementType: 'geometry',
+      stylers: [{color: '#746855'}]
+    },
+    {
+      featureType: 'road.highway',
+      elementType: 'geometry.stroke',
+      stylers: [{color: '#1f2835'}]
+    },
+    {
+      featureType: 'road.highway',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#f3d19c'}]
+    },
+    {
+      featureType: 'transit',
+      elementType: 'geometry',
+      stylers: [{color: '#2f3948'}]
+    },
+    {
+      featureType: 'transit.station',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#d59563'}]
+    },
+    {
+      featureType: 'water',
+      elementType: 'geometry',
+      stylers: [{color: '#17263c'}]
+    },
+    {
+      featureType: 'water',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#515c6d'}]
+    },
+    {
+      featureType: 'water',
+      elementType: 'labels.text.stroke',
+      stylers: [{color: '#17263c'}]
+    }
+  ]
+}
+
+
 export default withGoogleMap(MyMapComponent);
 
-
-// icon={park.img}

@@ -11,6 +11,26 @@ import ParkAdvisoriesTab from './ModalWindowComponents/ParkAdvisoriesTab';
 // DarkSkyApi.apiKey = '379b67815f86fa3fb81b23bff3f6db3a';
 // const proxyURL = 'https://cors-anywhere.herokuapp.com/'
 
+const customStyles = {
+    content : {
+        top                   : '50%',
+        left                  : '50%',
+        right                 : 'auto',
+        bottom                : 'auto',
+        marginRight           : '-50%',
+        transform             : 'translate(-50%, -50%)',
+        width: '70%',
+        minHeight: '70%',
+        borderRadius: '7px',
+        backgroundColor: 'rgba(24, 24, 24, 0.9)',
+        boxShadow: 		'0px 11px 19px -1px rgba(0,0,0,0.54)',
+        border: '1px solid black'
+    },
+
+    overlay : {
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))'
+    }
+  };
 
 class ModalWindow extends Component {
     constructor() {
@@ -68,9 +88,12 @@ class ModalWindow extends Component {
             <div>
                 <button onClick={this.handleOpenModal}>{this.props.park.name}</button>
                 <ReactModal
+                    style = { customStyles }
                     isOpen={this.state.showModal}
                     contentLabel="Minimal Modal Example"
-                    ariaHideApp={false}>
+                    ariaHideApp={false}
+                >
+
                     <Tabs>
                         <TabList>
                             <Tab>Social Media</Tab>
@@ -80,7 +103,9 @@ class ModalWindow extends Component {
                         </TabList>
 
                         <TabPanel>
-                            <SocialMediaTab parkInfo={this.props.park}
+                            <SocialMediaTab 
+                                parkInfo={ this.props.park }
+                                handleWaypoint = { this.handleWaypoint }
                             />
                         </TabPanel>
                         <TabPanel>
