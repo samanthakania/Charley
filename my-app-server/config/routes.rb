@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   get 'twitterfeed/index'
   root to: 'pages#index'
   post 'todo/create_todo' => 'todo#create_todo'
+  post 'todo/add_todo'
+  put 'todo/update_todo'
+  delete 'todo/destroy_todo'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

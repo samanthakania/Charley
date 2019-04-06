@@ -15,8 +15,6 @@ class MyMapComponent extends Component {
       currentPark: null,
       waypoints: [],
       savedParks: [],
-      o: null,
-      d: null,
     }
     this.originInput = React.createRef();
     this.destinationInput = React.createRef();
@@ -25,19 +23,7 @@ class MyMapComponent extends Component {
     this.destination = null
     // this.handleSave = this.handleSave.bind(this);
   }
-  // returningRoute() {
-  //   if (this.props.foundRoute === null) {
-  //     console.log("null hit");
-  //   } else {
-
-  //  this.origin = this.props.foundRoute[0]
-  //   this.destination = this.props.foundRoute[1]
-  //   console.log(this.origin)
-  //   console.log(this.destination)  
-    
-  //     this.route()
-  //   }
-  // }
+  
   componentWillMount(){
     
   }
@@ -89,7 +75,7 @@ class MyMapComponent extends Component {
       } else {
         me.destination = place.place_id;
       }
-      me.route();
+      me.route();   
     });
   }
 
@@ -130,7 +116,7 @@ class MyMapComponent extends Component {
 
       this.origin = this.props.foundRoute[0]
       this.destination = this.props.foundRoute[1]
-    let latsandlongs = this.props.foundRoute[4]
+    let latsandlongs = this.props.foundRoute[3]
     latsandlongs.forEach((latandlong) => {
       this.addWaypoint({
           location: new google.maps.LatLng(latandlong.lat, latandlong.long),

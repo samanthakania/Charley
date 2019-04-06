@@ -13,7 +13,9 @@ class App extends Component {
     this.state = {
        isLoggedIn: true,
        tripId: null,
-       foundRoute: null
+       foundRoute: null,
+       listId: null,
+       todos: null
     }
     this.handleSearchForRoute = this.handleSearchForRoute.bind(this);
     this.handleState = this.handleState.bind(this);
@@ -21,7 +23,8 @@ class App extends Component {
   handleState(id) {
     console.log("state", this.state)
     this.setState({isLoggedIn: true,
-                  tripId: id
+                  tripId: id,
+                  listId: id
       })
     console.log("state", this.state)
   }
@@ -30,14 +33,17 @@ class App extends Component {
     waypoints.push(waypoint)
     this.setState({ waypoints })
   }
-  handleSearchForRoute(ori, des, trip, list, latlong) {
+  handleSearchForRoute(ori, des, trip, list, latlong, todos) {
     // console.log("origin", ori)
     // console.log("des", des)
     // console.log("trip", trip)
-    // console.log("list", list)
+    console.log("list", list)
     this.setState({
           isLoggedIn: true,
-      foundRoute: [ori, des, trip, list, latlong]})
+      foundRoute: [ori, des, trip, latlong],
+      todos: todos,
+      listId: list
+    })
     console.log(this.state.foundRoute)
   }
   
@@ -62,7 +68,7 @@ class App extends Component {
             id={this.state.tripId}         
             foundRoute={this.state.foundRoute}
          />
-          <ToDoList />
+          <ToDoList id={this.state.listId} todoListFound={this.state.todos}/>
         </div>
 
         <Footer/>

@@ -1,3 +1,3 @@
 class List < ApplicationRecord
-  belongs_to :route
+  has_many :todos
 end
