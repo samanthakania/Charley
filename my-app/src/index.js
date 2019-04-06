@@ -16,11 +16,6 @@ import TripId from './components/TripId'
 const routing = (
   <Router>
     <Switch>
-       {/* < Route 
-       exact path = "/"
-        render = {
-           (props) => ( <TripId test={TripId}
-             />)} /> */}
       <Route path="/" component={App} />
     </Switch>
   </Router>
