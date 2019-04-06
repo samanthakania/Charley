@@ -229,7 +229,8 @@ class MyMapComponent extends Component {
           {this.state.modal ? (
             <ModalWindow park={this.state.currentPark}
               addWaypoint={this.addWaypoint}
-            />
+              save={this.directionsService.saveParkName}
+              />
         ) : (
             <h1> </h1>
           )}

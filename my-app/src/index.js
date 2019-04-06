@@ -10,8 +10,8 @@ import TripId from './components/TripId'
 const routing = (
   <Router>
     <Switch>
-      <Route exact path="/" component={TripId} />
-      <Route path="/trip/:id" component={App} />
+    {/* <Route exact path="/" component={App} /> */}
+      <Route path="/" component={App} />
     </Switch>
   </Router>
 )

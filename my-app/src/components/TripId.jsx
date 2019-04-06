@@ -101,6 +101,7 @@ this.props.search(origin, destination, tripId, listId, output, todos);
             type="email"
             value={this.props.email}
             onChange={this.handleChange}
+            required
           />
           <input
             block
@@ -114,6 +115,7 @@ this.props.search(origin, destination, tripId, listId, output, todos);
             value={this.props.tripId}
             type="tripId"
             onChange={this.handleSearch}
+            required
           />
           <input
             block
