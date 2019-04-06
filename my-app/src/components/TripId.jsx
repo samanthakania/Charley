@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
 
 const uuidv4 = require('uuid/v4');
 
@@ -20,14 +19,12 @@ class TripId extends Component {
     this.setState({ email:  event.target.value })
 
   }
-  handleSubmit = event => {
-    let tripId = uuidv4(6);
+  handleSubmit(event){
     event.preventDefault();
-    console.log("hit here yo")
     window.fetch('/users/create_route', {
       method: 'POST',
       body: JSON.stringify({email: this.state.email,
-        trip_id: tripId }),
+        trip_id: uuidv4(6) }),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -35,9 +32,14 @@ class TripId extends Component {
       .then(async resp => await resp.json())
       .then((json) => {
       
-        // console.log("hit", json)
         let id = json.trip_id
-        this.props.update(id)
+      
+        
+        this.setState({
+          isLoggedIn: true
+        })
+        this.props.updateId(id)
+        console.log('hit')
          
         
       })
@@ -55,7 +57,6 @@ class TripId extends Component {
       method: 'POST',
       body: JSON.stringify({
         search: this.state.searchId
-    
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -75,8 +76,7 @@ class TripId extends Component {
     json.parks.forEach( (park) => {
   let latLong ={  lat: park.lat, long: park.long }
    output.push(latLong)
-})
-  console.log('HELLLLLLLLLLLLLOOOOOOo', json)      
+})     
 this.props.search(origin, destination, tripId, listId, output, todos);
 
       })
@@ -88,10 +88,7 @@ this.props.search(origin, destination, tripId, listId, output, todos);
 
 
   render() {
-    if (this.state.tripId) {
-      console.log("Redirect to", `/trip/${this.state.tripId}`)
-      return <Redirect to={`/trip/${this.state.tripId}`} />
-    }
+ 
     return (
       <div name="enter-email">
         <form onSubmit={this.handleSubmit}>

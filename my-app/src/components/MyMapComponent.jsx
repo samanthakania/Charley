@@ -142,7 +142,7 @@ class MyMapComponent extends Component {
     this.setState({ 
       savedParks: saved
     })
-    console.log("yoyo", this.state.savedParks)
+  
   }
   fetchData() {
     fetch('/parks/index')
@@ -229,7 +229,7 @@ class MyMapComponent extends Component {
           {this.state.modal ? (
             <ModalWindow park={this.state.currentPark}
               addWaypoint={this.addWaypoint}
-              save={this.directionsService.saveParkName}
+              save={this.saveParkName}
               />
         ) : (
             <h1> </h1>

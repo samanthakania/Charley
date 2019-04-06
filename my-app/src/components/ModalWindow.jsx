@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+// import 'react-tabs/style/react-tabs.css';
 import SocialMediaTab from './ModalWindowComponents/SocialMediaTab';
 import ParkDescriptionTab from './ModalWindowComponents/ParkDescriptionTab';
 import WeatherTab from './ModalWindowComponents/WeatherTab';
@@ -73,7 +73,8 @@ class ModalWindow extends Component {
     handleWaypoint() {
         this.props.save(this.props.park.id)
         this.props.addWaypoint({
-            location: new google.maps.LatLng(this.props.park.lat, this.props.park.long),
+            location: new google.maps.LatLng(this.props.park.lat,
+                 this.props.park.long),
             stopover: true
         })
     }
@@ -103,10 +104,7 @@ class ModalWindow extends Component {
                         </TabList>
 
                         <TabPanel>
-                            <SocialMediaTab 
-                                parkInfo={ this.props.park }
-                                handleWaypoint = { this.handleWaypoint }
-                            />
+                            <SocialMediaTab parkInfo={this.props.park}/>
                         </TabPanel>
                         <TabPanel>
                             <ParkDescriptionTab parkDes={this.props.park}

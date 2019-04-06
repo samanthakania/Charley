@@ -25,24 +25,17 @@ class ParkDescription extends Component {
     let lat = this.props.parkDes.lat
     let long = this.props.parkDes.long
     let key = config.trails;
-
     unirest.get("https://trailapi-trailapi.p.rapidapi.com/?q-activities_activity_type_name_eq=hiking&lat=" + lat + "&lon=" + long + "&radius=25&limit=25")
       .header("X-RapidAPI-Key", key)
       .end((result) => {
         data = result.body
-        console.log(data)
-        // loadingTimer().then(data => {
         this.setState({
           camping: data.places
         });
 
-        // });
-
-
       })
 
-    console.log('data', data)
-    console.log("state", this.state.camping)
+
 
 
   }
@@ -62,7 +55,7 @@ class ParkDescription extends Component {
 
   render() {
     let park = this.props.parkDes
-    console.log("rrender", this.state)
+  
 
     return (
       <div className="tabs-content-container">
