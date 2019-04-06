@@ -10,16 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_29_142808) do
+ActiveRecord::Schema.define(version: 2019_04_04_201544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "trips", force: :cascade do |t|
-    t.string "trip_id"
-    t.string "email"
+  create_table "lists", force: :cascade do |t|
+    t.integer "trip_id"
+    t.integer "route_id"
+    t.string "list_items"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "maps", force: :cascade do |t|
+    t.bigint "park_id"
+    t.decimal "start"
+    t.decimal "end"
+    t.integer "likes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["park_id"], name: "index_maps_on_park_id"
   end
 
   create_table "parks", force: :cascade do |t|
@@ -40,5 +51,22 @@ ActiveRecord::Schema.define(version: 2019_03_29_142808) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "trips", "parks"
+  create_table "routes", force: :cascade do |t|
+    t.string "origin"
+    t.string "destination"
+    t.integer "park_id"
+    t.integer "trip_id"
+    t.integer "list_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "todos", force: :cascade do |t|
+    t.string "todo_item"
+    t.boolean "is_completed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "maps", "parks"
 end
