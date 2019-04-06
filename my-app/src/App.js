@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-       isLoggedIn: true,
+       isLoggedIn: false,
        tripId: null,
        foundRoute: null,
        listId: null,
@@ -44,12 +44,12 @@ class App extends Component {
       todos: todos,
       listId: list
     })
-    console.log(this.state.foundRoute)
+    
   }
   
   render() {
     if(!this.state.isLoggedIn) {
-      return ( < TripId update = {
+      return ( <TripId updateId={
             this.handleState.bind(this)
           }
           search={this.handleSearchForRoute.bind(this)}

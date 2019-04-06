@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import 'react-tabs/style/react-tabs.css';
 class ParkAdvisoriesTab extends Component {
     componentDidMount() {
         console.log('parkadvis mounting')

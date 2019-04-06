@@ -141,7 +141,7 @@ class MyMapComponent extends Component {
     this.setState({ 
       savedParks: saved
     })
-    console.log("yoyo", this.state.savedParks)
+  
   }
   fetchData() {
     fetch('/parks/index')

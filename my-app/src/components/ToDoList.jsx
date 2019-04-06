@@ -48,7 +48,8 @@ function ToDoList(props) {
             createTodo(id)
         } else {
             setTodos(props.todoListFound)
-        } setIdForList(id)
+            setIdForList(id)
+        }
     }, []);
 
     const addTodo = text => {

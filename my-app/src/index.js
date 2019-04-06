@@ -6,12 +6,22 @@ import 'normalize.css';
 import * as serviceWorker from './serviceWorker';
 import { Route, Switch, Link, BrowserRouter as Router } from 'react-router-dom'
 import TripId from './components/TripId'
+// import reactRouterFetch from 'react-router-fetch'
+// const routes = [
+//   path: '/',
+//   component: TripId,
+//   fetchInitialData: () => fetchTripId()
 
+// ]
 const routing = (
   <Router>
     <Switch>
-      <Route exact path="/" component={TripId} />
-      <Route path="/trip/:id" component={App} />
+       {/* < Route 
+       exact path = "/"
+        render = {
+           (props) => ( <TripId test={TripId}
+             />)} /> */}
+      <Route path="/" component={App} />
     </Switch>
   </Router>
 )

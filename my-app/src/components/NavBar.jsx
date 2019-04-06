@@ -9,8 +9,6 @@ class NavBar extends Component {
       email: []
     };
   }
-
-  
   render() {
     
     return (
