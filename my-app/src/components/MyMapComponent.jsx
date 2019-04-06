@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, Marker, DirectionsRenderer } from "react-google-maps";
 import '../App.css';
 import ModalWindow from './ModalWindow.jsx';
+import InputWindow from './InputWindow.jsx';
 
 class MyMapComponent extends Component {
   constructor(props) {
@@ -126,10 +127,10 @@ class MyMapComponent extends Component {
   render() {
     return (
         <div>
-          <input ref={this.originInput} type="text" placeholder="Enter a start location"
-            style={{ position: "absolute", top: 0 }} />
-          <input ref={this.destinationInput} type="text" placeholder="Enter an end location"
-            style={{ position: "absolute", top: 0 }} />
+          <InputWindow 
+            originInput = { this.originInput }
+            destinationInput = { this.destinationInput }
+          />
           <GoogleMap
             defaultOptions={{ styles: this.props.mapStyles }}
             ref={this.mapElt}

@@ -92,6 +92,7 @@ body {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  overflow: auto;
 }
 
 .sb1:after {
