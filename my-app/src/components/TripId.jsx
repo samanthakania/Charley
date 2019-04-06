@@ -22,8 +22,6 @@ class TripId extends Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log("hit here yo")
-    console.log("hit", uuidv4(6))
-    console.log()
     window.fetch('/users/create_route', {
       method: 'POST',
       body: JSON.stringify({email: this.state.email,
@@ -35,6 +33,7 @@ class TripId extends Component {
       .then(async resp => await resp.json())
       .then((json) => {
       
+        // console.log("hit", json)
         let id = json.trip_id
         this.props.update(id)
          
@@ -61,18 +60,22 @@ class TripId extends Component {
       }
     }).then(async resp => await resp.json())
     .then((json) => {
+      let todos = []
       let output = []
-      const origin = json.route.origin;
+      const origin = json.route.origin;  
       const destination = json.route.destination;
       const tripId = json.route.trip_id;
-      const listId = json.route.list_id;
-      
+      const listId = json.list_id;
+      json.todo_list.forEach((item) => {
+        let formatter = { text: item.todo_item, isCompleted: item.is_completed }
+      todos.push(formatter)
+      })
     json.parks.forEach( (park) => {
   let latLong ={  lat: park.lat, long: park.long }
    output.push(latLong)
 })
-  console.log(output)      
-this.props.search(origin, destination, tripId, listId, output);
+  console.log('HELLLLLLLLLLLLLOOOOOOo', json)      
+this.props.search(origin, destination, tripId, listId, output, todos);
 
       })
       .catch(err => console.log(err))

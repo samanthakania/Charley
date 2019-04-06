@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import '../App.css';
 
+
+
 function Todo({ todo, index, completeTodo, removeTodo }) {
     return (
         <div
@@ -18,7 +20,6 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
 
 function TodoForm({ addTodo }) {
     const [value, setValue] = useState("");
-
     const handleSubmit = e => {
         e.preventDefault();
         if (!value) return;
@@ -34,62 +35,82 @@ function TodoForm({ addTodo }) {
                 onChange={e => setValue(e.target.value)} />
         </form>
     );
-} 
+}
 
 var i = 1;
-function ToDoList() {
-    const [initialized, setInitialized] = useState(false);
+function ToDoList(props) {
+    let id = props.id
 
-    useEffect(() => {
-        saveTodo()
-    })
-
-    const [todos, setTodos] = useState([
-        {
-            text: "Someone get bugspray!",
-            isCompleted: false
-        },
-        {
-            text: "I'll get it!",
-            isCompleted: false
-        },
-        {
-            text: "Als, pringles",
-            isCompleted: false
-        }
-    ]);
+    const [todos, setTodos] = useState([]);
+    const [idForList, setIdForList] = useState(null)
+    React.useEffect(() => {
+        if (props.todoListFound === null) {
+            createTodo(id)
+        } else {
+            setTodos(props.todoListFound)
+        } setIdForList(id)
+    }, []);
 
     const addTodo = text => {
-        const newTodos = [...todos, { text }];
-        setTodos(newTodos);
+        const newTodos = { text, isCompleted: false }
+        DataBase('/todo/add_todo', 'POST', newTodos)
     };
 
     const completeTodo = index => {
         const newTodos = [...todos];
-        newTodos[index].isCompleted = true;
-        setTodos(newTodos);
+        const iso = newTodos[index]
+        iso.isCompleted = true;
+        DataBase('/todo/update_todo', 'PUT', iso)
     };
 
     const removeTodo = index => {
-        const newTodos = [...todos];
-        newTodos.splice(index, 1);
-        setTodos(newTodos);
-    };
+        const newtodos = [...todos];
+        const iso = newtodos[index]
+        DataBase('/todo/destroy_todo', 'DELETE', iso)
 
-    function saveTodo() {
+    };
+    function createTodo(id) {
         window.fetch('/todo/create_todo', {
             method: 'POST',
             body: JSON.stringify(
-                { todos: todos }
+                { list_id: id }
             ),
             headers: { 'Content-Type': 'application/json' }
         }).then(resp => resp.json())
-        .then((json) => {
-                return true;
-              })
-        .catch(err => console.log(err))
+            .then((json) => {
+                let listId = json;
+                setIdForList(listId)
+                console.log("listId", idForList)
+            })
+            .catch(err => console.log(err))
     }
+    function DataBase(url, rest, todo) {
+       
+        window.fetch(url, {
+            method: rest,
+            body: JSON.stringify(
+                {
+                    todos: todo,
+                    list_id: idForList
+                }
+            ),
+            headers: { 'Content-Type': 'application/json' }
+        }).then(resp => resp.json())
+            .then((json) => {
+                format(json)
+            })
+            .catch(err => console.log(err))
 
+    }
+    function format(json) {
+        console.log(json);
+        let output = []
+        json.forEach((item) => {
+            let formatter = { text: item.todo_item, isCompleted: item.is_completed }
+            output.push(formatter)
+        })
+        setTodos(output)
+    }
     return (
         <div className="todo-container">
             <div className="todo-list">
@@ -102,7 +123,7 @@ function ToDoList() {
                         removeTodo={removeTodo}
                     />
                 ))}
-                
+
             </div>
             <TodoForm addTodo={addTodo} />
         </div>
