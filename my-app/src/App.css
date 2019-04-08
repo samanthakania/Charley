@@ -51,37 +51,50 @@ body {
 }
 
 /* <--- TODO LIST ---> */
+#todo-header {
+  color: white;
+  text-align: center;
+  width: 95%;
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
+  margin: 10px auto 25px;
+}
 
 .todo-container {
   width: 400px;
   overflow: auto;
   border-radius: 9px;
-  background: rgb(34, 34, 34);
+  background: linear-gradient(to bottom, #0e0e0ed3, #22222200);
   overflow: scroll;
+  padding: 0px 10px 10px 10px;
+  margin-top: 0px;
 }
 
 .todo {
   font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
   color: white;
   background: #614385;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #516395, #614385);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  padding: 7px 15px;
+  padding: 15px;
   border-radius: 8px;
-  width: 60%;
-  float: right;
+  width: 90%;
   margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.todo:nth-child(even) {
-  float: left;
+.todo-buttons {
+  display: flex;
+  justify-content: space-between;
 }
-
 
 #todo-form {
   margin: 0 auto;
   width: 80%;
-  padding: 20px;
+  padding: 10px;
   position: sticky;
   bottom: 0;  
 }
@@ -89,16 +102,6 @@ body {
 #todo-form input {
   width: 100%;
   
-}
-
-#completed,
-#remove {
-}
-
-#completed {
-}
-
-#remove {
 }
 
 /* <--- FOOTER ----> */

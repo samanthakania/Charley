@@ -8,6 +8,7 @@ import TripId from './components/TripId';
 import ToDoList from './components/ToDoList';
 import Footer from './components/Footer';
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -57,6 +58,7 @@ class App extends Component {
           />)
     } else {
     return (
+      
       <div className="App">
         <NavBar/>
         <div className="main-container">
