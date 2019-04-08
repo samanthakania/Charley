@@ -227,7 +227,8 @@ class MyMapComponent extends Component {
             {this.state.directions && <DirectionsRenderer directions={this.state.directions} options={ { suppressMarkers: true }} />}
           </GoogleMap> 
           {this.state.modal ? (
-            <ModalWindow park={this.state.currentPark}
+            <ModalWindow 
+              park={this.state.currentPark}
               addWaypoint={this.addWaypoint}
               save={this.saveParkName}
               removeWaypoint={this.removeWaypoint}

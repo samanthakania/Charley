@@ -7,9 +7,9 @@ import SocialMediaTab from './ModalWindowComponents/SocialMediaTab';
 import ParkDescriptionTab from './ModalWindowComponents/ParkDescriptionTab';
 import WeatherTab from './ModalWindowComponents/WeatherTab';
 import ParkAdvisoriesTab from './ModalWindowComponents/ParkAdvisoriesTab';
-// import DarkSkyApi from 'dark-sky-api';
-// DarkSkyApi.apiKey = '379b67815f86fa3fb81b23bff3f6db3a';
-// const proxyURL = 'https://cors-anywhere.herokuapp.com/'
+import DarkSkyApi from 'dark-sky-api';
+DarkSkyApi.apiKey = '379b67815f86fa3fb81b23bff3f6db3a';
+const proxyURL = 'https://cors-anywhere.herokuapp.com/'
 
 const customStyles = {
     content : {
@@ -37,36 +37,40 @@ class ModalWindow extends Component {
         super()
         this.state = {
             showModal: true,
-            waypoints: []
+            waypoints: [],
+            weather: []
         };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleWaypoint = this.handleWaypoint.bind(this);
     this.handleRemoveWaypoint = this.handleRemoveWaypoint.bind(this)
-
+    this.fetchWeather = this.fetchWeather.bind(this)
     }
     componentDidMount() {
         ReactModal.setAppElement('body')
         console.log("hts", this.props.park.lat)
         console.log("hts", this.props.park)
-       
+        this.fetchWeather()
     }
 
     handleOpenModal() {
         this.setState({ showModal: true });
     }
-    // fetchWeather() {
-    //     // fetch(proxyURL + `https://api.darksky.net/forecast/379b67815f86fa3fb81b23bff3f6db3a/${this.state.parks[1].lat},${this.state.parks[1].long}`)
-    //     .then(response => {
-    //         if (response.ok) {
-    //           response.json().then(data => {
-    //             this.setState({ weather: data })
-    //           })
+
+    fetchWeather() {
+        fetch(proxyURL + `https://api.darksky.net/forecast/379b67815f86fa3fb81b23bff3f6db3a/${this.props.park.lat},${this.props.park.long}`)
+        .then(response => {
+            if (response.ok) {
+              response.json().then(data => {
+                this.setState({ weather: data })
+                console.log('weather', this.state.weather)
+              })
     
-    //         }
-    //       })
-    //       .catch(err => console.log('parsing failed', err))
-    // }  
+            }
+          })
+        .catch(err => console.log('parsing failed', err))
+    }  
+
     handleCloseModal() {
         this.setState({ showModal: false });
     }
@@ -114,15 +118,19 @@ class ModalWindow extends Component {
                             />
                         </TabPanel>
                         <TabPanel>
-                            <WeatherTab weather={this.props.park} />
+                            <WeatherTab 
+                                weather={this.state.weather} 
+                                park={ this.props.park }/>
                         </TabPanel>
                         <TabPanel>
                             <ParkAdvisoriesTab />
                         </TabPanel>
 
                     </Tabs>
-                    <button onClick={this.handleRemoveWaypoint} className="btn btn-warning mr-3">Remove from Route</button>
-                    <button onClick={this.handleCloseModal} className="btn btn-warning mr-3">Close Modal</button>
+                    <div className="modal-buttons-container">
+                        <div onClick={this.handleRemoveWaypoint} className="modal-window-button">Remove from Route</div>
+                        <div onClick={this.handleCloseModal} className="modal-window-button">Close Modal</div>
+                    </div>
                 </ReactModal>
             </div>
         )

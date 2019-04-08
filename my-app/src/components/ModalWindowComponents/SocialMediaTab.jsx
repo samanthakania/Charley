@@ -80,12 +80,12 @@ class SocialMediaTab extends Component {
       <div className="hero-image">
        <div className="hero-text">
          {/* <img src={this.state.photos[this.state.indexValue]}></img> */}
-         <div id="park-name">random park name</div>
-         <button onClick={this.props.handleWaypoint} className="btn btn-warning mr-3">Add to Route</button>
+         <div id="park-name">{this.props.parkInfo.full_name}</div>
+         <div onClick={this.props.handleWaypoint} className="" id="add-button">Add Park</div>
          </div>
          {/* {this.state.indexValue === 0 ? (<p></p>) : (<button onClick={this.backPhoto}>back</button>)} */}
        </div>
-      <button onClick={this.nextPhoto}>next</button>     
+      {/* <button onClick={this.nextPhoto}>next</button> */}
     </div> )
   }
 }
