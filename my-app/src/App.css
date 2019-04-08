@@ -13,17 +13,12 @@ body {
   width: 50%;
   height: 95px;
   background: #000000;
-}
-
-.nav-bar h1 {
-  margin-top: 0px;
+  margin-bottom: 40px;
 }
 
 #nav-logo {
-  position: absolute;
   width: 210px;
   height: 190px;
-  left: 10px;
 
   background: url('https://github.com/ryaaanandrew/final_project/blob/master/logo_transparent.png?raw=true');
 }
@@ -31,18 +26,16 @@ body {
 /* <--- MAP COMPONENT ---> */
 
 .main-container {
-  position: relative;
   background-image: linear-gradient( 179.1deg,  rgba(0,0,0,1) 23.2%, rgba(97,109,140,1) 136% );
-  height: 745px;
+  height: 815px;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .mapContainer {
-  position: absolute;
   width: 918px;
   height: 571px;
   background: #C4C4C4;
-  top: 50px;
-  left: 20px;
 }
 
 .loadingElement {
@@ -55,13 +48,10 @@ body {
 
 /* <--- TODO LIST ---> */
 
-.todo-container {
-  position: absolute;
-  width: 393px;
+.glass {
+  width: 400px;
   height: 660px;
-  right: 25px;
   padding: 15px 30px;
-  bottom: 90px;
   overflow: auto;
   
   background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
@@ -95,42 +85,14 @@ body {
   overflow: auto;
 }
 
-.sb1:after {
-  content: "";
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  border-left: 10px solid #614385;
-  border-right: 10px solid transparent;
-  border-top: 10px solid #614385;
-  border-bottom: 10px solid transparent;
-  right: -20px;
-  top: 6px;
-}
-
 .todo:nth-child(even) {
   float: left;
 }
 
-.sb1:nth-child(even):after {
-    content: "";
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    border-left: 10px solid transparent;
-    border-right: 10px solid #516395;
-    border-top: 10px solid #516395;
-    border-bottom: 10px solid transparent;
-    left: -19px;
-    top: 6px;
-}
 
 #todo-form {
   margin: 0 auto;
   width: 80%;
-  left: 40px;
-  bottom: 20px;
-  position: absolute;
 }
 
 #todo-form input {
@@ -155,8 +117,9 @@ body {
 /* <--- FOOTER ----> */
 
 .footer-main {
-  width: 100%;
   margin: 0 auto;
-  position: absolute;
-  bottom: 0;
+  padding-top: 15px;
+  border-top: 1px solid grey;
+  color: white;
+  text-align: center;
 }

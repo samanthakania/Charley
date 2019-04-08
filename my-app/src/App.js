@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import TripId from './components/TripId';
 import ToDoList from './components/ToDoList';
 import Footer from './components/Footer';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -69,8 +70,7 @@ class App extends Component {
             foundRoute={this.state.foundRoute}
          />
           <ToDoList id={this.state.listId} todoListFound={this.state.todos}/>
-          />
-          <Footer/>
+          {/* <Footer/> */}
         </div>
         
       </div>
