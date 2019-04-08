@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-// import 'react-tabs/style/react-tabs.css';
+import 'react-tabs/style/react-tabs.css';
 import SocialMediaTab from './ModalWindowComponents/SocialMediaTab';
 import ParkDescriptionTab from './ModalWindowComponents/ParkDescriptionTab';
 import WeatherTab from './ModalWindowComponents/WeatherTab';
@@ -93,8 +93,8 @@ class ModalWindow extends Component {
                     isOpen={this.state.showModal}
                     contentLabel="Minimal Modal Example"
                     ariaHideApp={false}
-                >
-
+                    shouldCloseOnOverlayClick={true}
+                >   
                     <Tabs>
                         <TabList>
                             <Tab>Social Media</Tab>
@@ -104,7 +104,10 @@ class ModalWindow extends Component {
                         </TabList>
 
                         <TabPanel>
-                            <SocialMediaTab parkInfo={this.props.park}/>
+                            <SocialMediaTab 
+                                parkInfo={this.props.park}
+                                handleWaypoint={ this.handleWaypoint }
+                            />
                         </TabPanel>
                         <TabPanel>
                             <ParkDescriptionTab parkDes={this.props.park}
@@ -118,9 +121,8 @@ class ModalWindow extends Component {
                         </TabPanel>
 
                     </Tabs>
-                    <button onClick={this.handleWaypoint}>Add to Route</button>
-                    <button onClick={this.handleRemoveWaypoint}>Remove from Route</button>
-                    <button onClick={this.handleCloseModal}>Close Modal</button>
+                    <button onClick={this.handleRemoveWaypoint} className="btn btn-warning mr-3">Remove from Route</button>
+                    <button onClick={this.handleCloseModal} className="btn btn-warning mr-3">Close Modal</button>
                 </ReactModal>
             </div>
         )

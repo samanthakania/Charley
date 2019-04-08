@@ -79,9 +79,11 @@ class SocialMediaTab extends Component {
       <div>
       <div className="hero-image">
        <div className="hero-text">
-         <img src={this.state.photos[this.state.indexValue]}></img>
+         {/* <img src={this.state.photos[this.state.indexValue]}></img> */}
+         <div id="park-name">random park name</div>
+         <button onClick={this.props.handleWaypoint} className="btn btn-warning mr-3">Add to Route</button>
          </div>
-         {this.state.indexValue === 0 ? (<p></p>) : (<button onClick={this.backPhoto}>back</button>)}
+         {/* {this.state.indexValue === 0 ? (<p></p>) : (<button onClick={this.backPhoto}>back</button>)} */}
        </div>
       <button onClick={this.nextPhoto}>next</button>     
     </div> )
