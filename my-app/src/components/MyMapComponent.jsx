@@ -198,7 +198,7 @@ class MyMapComponent extends Component {
         .then((json) => {
 
           console.log(json)
-
+          return (<h1>hit</h1>)
 
         })
         .catch(err => console.log(err))

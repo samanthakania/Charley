@@ -14,15 +14,15 @@ class SocialMediaTab extends Component {
   }
   componentDidMount() {
     this.fetchTweets()
-    this.fetchFlickr()
+    // this.fetchFlickr()
   }
   fetchFlickr() {
     //  console.log('flickr key', key)
-    let searchWord = this.props.parkInfo.full_name;
+    let searchWord = this.props.parkInfo.name;
     let flickr = config.flickr;
     console.log("flickr", flickr)
 
-    let url = `https://api.flickr.com/services/rest/?api_key=${flickr}&method=flickr.photos.search&format=json&nojsoncallback=1&&per_page=50&page=1&text=${searchWord}`
+    let url = `https://api.flickr.com/services/rest/?api_key=${flickr}&method=flickr.photos.search&format=json&nojsoncallback=1&&per_page=53&page=1&lat=${this.props.parkInfo.lat}&long=${this.props.parkInfo.long}&in_gallery=true&text=${searchWord}`
     fetch(url)
       .then(response => {
         if (response.ok) {
@@ -84,8 +84,18 @@ class SocialMediaTab extends Component {
          {this.state.indexValue === 0 ? (<p></p>) : (<button onClick={this.backPhoto}>back</button>)}
        </div>
       <button onClick={this.nextPhoto}>next</button>     
-    </div> )
-  }
+      {this.state.tweets.map(tweet => {
+        
+        return (<span>
+                <h3>{tweet.user.screen_name}</h3>
+                <p>{tweet.text}</p>
+              </span>)
+            })}
+            </div> 
+
+   )
+ 
+}
 }
 
 export default SocialMediaTab;
