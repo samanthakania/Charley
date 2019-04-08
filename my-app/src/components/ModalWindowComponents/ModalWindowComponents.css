@@ -1,34 +1,62 @@
+p {
+    font-family: 'Noto', sans-serif;
+}
 
 /* <--- Social Media Tab ---> */
 .social-media-container {
 }
 
 .hero-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://github.com/ryaaanandrew/final_project/blob/master/aescher-hotel-restaurant-swiss-alps-SWISSCLIFFHOTEL1017.jpg?raw=true");
-    height: 400px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.397), rgba(0, 0, 0, 0.5)), url("https://github.com/ryaaanandrew/final_project/blob/master/aescher-hotel-restaurant-swiss-alps-SWISSCLIFFHOTEL1017.jpg?raw=true");
+    height: 446px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    border-radius: 10px;
+    border-radius: 0px 10px 10px 10px;
     margin-bottom: 15px;
     align-items: center;
 }
 
 #park-name {
     font-family: 'Alegreya Sans SC', sans-serif;
-    font-size: 120px;
+    font-size: 80px;
     text-align: left;
     display: inline-block;
     width: 50%;
-    line-height: .6;
+    line-height: .7;
+    /* margin-top: 35px; */
+    margin-bottom: 40px;
+    padding-top: 40px;
     padding-left: 30px;
     color: #EDEEE9;
+    display: block;
 }
 
 #add-button {
-    width: 60px;
-    height: 20px;
+    background: linear-gradient(to right, #516395, #614385);
+    margin-left: 40px;
+    color: white;
+    border-radius: 7px;
+    margin-right: 9px;
+    text-align: center;
+    width: 100px;
+    padding: 7px;
+    font-family: 'Noto', sans-serif;
+}
+
+.modal-buttons-container {
+    display: flex;
+}
+
+.modal-window-button {
+    background: linear-gradient(to right, #516395, #614385);
+    width: 19%;
+    padding: 7px;
+    text-align: center;
+    border-radius: 7px;
+    margin-right: 12px;
+    color: white;
 }
 
 /* <--- All tabs main content ---> */
@@ -40,7 +68,7 @@
     height: 450px;
     overflow: auto;
     padding: 15px;
-    margin: 10px;
+    margin-bottom: 10px;
     border-radius: 7px;
     color: rgb(255, 237, 203);
 }
@@ -51,6 +79,6 @@
 }
 
 .tabs-content-container h1 {
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     border-bottom: 1px solid rgb(195, 195, 195);
 }

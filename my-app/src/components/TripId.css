@@ -8,7 +8,7 @@
 }
 
 .input-container {
-    background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0.5), #00000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0.5), #00000000); 
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), #00000000);
     border-radius: 7px;
     width: 350px;
@@ -22,6 +22,7 @@
     margin: 10px auto;
     border-radius: 5px;
     background-color: rgb(231, 231, 231);
+    padding: 5px;
 }
 
 .input-field,
@@ -44,8 +45,6 @@ input:focus {
     height: 130px;
     width: 140px;
 }
-
-/* <--- linethrough & OR ---> */
 
 #or {
     margin: 5px auto; 

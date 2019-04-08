@@ -59,10 +59,8 @@ class ParkDescription extends Component {
 
     return (
       <div className="tabs-content-container">
-        <header>
           <i class="fas fa-map-marked-alt fa-4x"></i>
           <h1>{park.full_name}</h1>
-        </header>
         <div>
           {park.description}
         </div>
