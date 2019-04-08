@@ -5,13 +5,34 @@ import './ModalWindowComponents.css';
 
 
 class WeatherTab extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        }
+      }
+      
+    fetchStats() {
+        fetch('/api/nps_api_show')
+          .then(response => {
+            if (response.ok) {
+              response.json()
+                .then(data => {
+                  console.log(data)
+                })
+            }
+          })
+    
+      }
 
     render() {
+        let park = this.props.weather
         return(
             <div className="tabs-content-container">
             <i class="fas fa-poo-storm fa-4x"></i>
-            <h1>Tab Header</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti adipisci illo similique vero! Commodi, laboriosam iste numquam nostrum eum temporibus neque tempora? Eligendi tempore inventore sed laboriosam accusamus? Sequi, eaque.</p>
+            <h1>Weather</h1>
+            <div>
+             {park.weather_info}
+            </div>
         </div>
         );
     }
