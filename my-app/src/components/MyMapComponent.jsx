@@ -224,12 +224,13 @@ class MyMapComponent extends Component {
                 onClick={this.handleModal.bind(this, park)}
               />)
             })}
-            {this.state.directions && <DirectionsRenderer directions={this.state.directions} />}
+            {this.state.directions && <DirectionsRenderer directions={this.state.directions} options={ { suppressMarkers: true }} />}
           </GoogleMap> 
           {this.state.modal ? (
             <ModalWindow park={this.state.currentPark}
               addWaypoint={this.addWaypoint}
               save={this.saveParkName}
+              removeWaypoint={this.removeWaypoint}
               />
         ) : (
             <h1> </h1>
