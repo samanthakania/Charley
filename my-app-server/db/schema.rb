@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2019_04_05_145738) do
     t.boolean "unesco"
     t.text "weather_info"
     t.string "designation"
+    t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
