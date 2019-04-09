@@ -25,6 +25,7 @@ class ParkDescription extends Component {
     let lat = this.props.parkDes.lat
     let long = this.props.parkDes.long
     let key = config.trails;
+    console.log(key)
     unirest.get("https://trailapi-trailapi.p.rapidapi.com/?q-activities_activity_type_name_eq=hiking&lat=" + lat + "&lon=" + long + "&radius=25&limit=25")
       .header("X-RapidAPI-Key", key)
       .end((result) => {
@@ -65,14 +66,15 @@ class ParkDescription extends Component {
           {park.description}
         </div>
 
-        {/* { this.state.camping.map(camp => {
+        { this.state.camping.map(camp => {
+          function createMarkup() { return { __html: camp.directions }; };
 
           return (
             <span className="campSpot" key={camp.unique_id}>
               <h3>{camp.city}, {camp.state}</h3>
-              <p>{camp.directions}</p>
+              <p dangerouslySetInnerHTML={createMarkup()}></p>
             </span>)
-        })} */}
+        })}
 
       </div>
 
