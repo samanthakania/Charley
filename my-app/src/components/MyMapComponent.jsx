@@ -222,7 +222,7 @@ class MyMapComponent extends Component {
             {this.state.parks.map(park => {
               return (<Marker className="markers" Name={park.name} position={new google.maps.LatLng(park.lat, park.long)}
                 onClick={this.handleModal.bind(this, park)}
-                icon={'https://github.com/ryaaanandrew/final_project/blob/cd07f4c798f7b5cc070a789048be935630f165bb/photos/mapicons/nationalparks.png'}/>)
+                icon='./components/nationalparks.png'/>)
             })}
             {this.state.directions && <DirectionsRenderer directions={this.state.directions} options={ { suppressMarkers: true }} />}
           </GoogleMap> 
