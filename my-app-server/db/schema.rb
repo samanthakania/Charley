@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_04_05_145738) do
     t.decimal "lat"
     t.decimal "long"
     t.text "description"
-    t.string "img"
+    t.string "twitter"
     t.string "url"
     t.integer "established"
     t.boolean "unesco"

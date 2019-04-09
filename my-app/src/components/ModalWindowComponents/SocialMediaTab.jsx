@@ -46,7 +46,7 @@ class SocialMediaTab extends Component {
 
 
   fetchTweets() {
-    let name_encoded = encodeURIComponent(this.props.parkInfo.name)
+    let name_encoded = encodeURIComponent(this.props.parkInfo.twitter)
 
     fetch('/twitterfeed/index?name=' + name_encoded)
       .then(response => {
@@ -85,11 +85,6 @@ class SocialMediaTab extends Component {
          </div>
          {/* {this.state.indexValue === 0 ? (<p></p>) : (<button onClick={this.backPhoto}>back</button>)} */}
        </div>
-<<<<<<< HEAD
-      {/* <button onClick={this.nextPhoto}>next</button> */}
-    </div> )
-  }
-=======
       <button onClick={this.nextPhoto}>next</button>     
       {this.state.tweets.map(tweet => {
         
@@ -103,7 +98,6 @@ class SocialMediaTab extends Component {
    )
  
 }
->>>>>>> features/clean_up
 }
 
 export default SocialMediaTab;
