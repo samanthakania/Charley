@@ -23,7 +23,7 @@ parks_canadian = [
       unesco: true,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/banff.jpg",
+      photo: "photos/banff.jpg",
       twitter:"#banffnp"
     },
     {
@@ -39,7 +39,7 @@ parks_canadian = [
       unesco: true,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/waterton.jpg",
+      photo: "photos/waterton.jpg",
       twitter:"#waterton"
     },
     {
@@ -55,7 +55,7 @@ parks_canadian = [
       unesco: true,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/jasper.jpg",
+      photo: "photos/jasper.jpg",
       twitter:"#jaspernp"
     },
     {
@@ -71,7 +71,7 @@ parks_canadian = [
       unesco: true,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/yoho.jpg",
+      photo: "photos/yoho.jpg",
       twitter:"#yohonp"
     },
     {
@@ -87,7 +87,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/elk-island.jpg",
+      photo: "photos/elk-island.jpg",
       twitter:"#elkislandnp"
     },
     {
@@ -103,7 +103,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/mount-revelstoke-national-park.jpg",
+      photo: "photos/mount-revelstoke-national-park.jpg",
       twitter:"#mountrevelstoke"
     },
     {
@@ -119,7 +119,7 @@ parks_canadian = [
       unesco: false, 
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/thousand-islands.jpg",
+      photo: "photos/thousand-islands.jpg",
       twitter:"#thousandislands"
     },
     {
@@ -135,7 +135,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/point-pelee.jpg",
+      photo: "photos/point-pelee.jpg",
       twitter:"#pointpeleenp"
     },
     {
@@ -151,7 +151,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/prince-edward-island.jpg",
+      photo: "photos/prince-edward-island.jpg",
       twitter:"#princeedwardislandnp"
     },
     {
@@ -167,7 +167,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/cape-breton.jpg",
+      photo: "photos/cape-breton.jpg",
       twitter:"#capebretonnp"
     },
     {
@@ -183,7 +183,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/georgian-bay.jpg",
+      photo: "photos/georgian-bay.jpg",
       twitter:"#georgianbayislands"
     },
     {
@@ -199,7 +199,7 @@ parks_canadian = [
       unesco: true,  
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/wood-buffalo.jpg",
+      photo: "photos/wood-buffalo.jpg",
       twitter:"#woodbuffalonp"
     },
     {
@@ -215,7 +215,7 @@ parks_canadian = [
       unesco: false,  
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/prince-albert-np.jpg",
+      photo: "photos/prince-albert-np.jpg",
       twitter:"#princealbertnp"
     },
     {
@@ -231,7 +231,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/riding-mountain.jpg",
+      photo: "photos/riding-mountain.jpg",
       twitter:"#ridingmountain"
     },
     {
@@ -247,7 +247,7 @@ parks_canadian = [
       unesco: true, 
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/kootenay.jpg",
+      photo: "photos/kootenay.jpg",
       twitter:"#kootenaynp"
     },
     {
@@ -263,7 +263,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/fundy.jpg",
+      photo: "photos/fundy.jpg",
       twitter:"#fundynp"
     },
     {
@@ -279,7 +279,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/terra-nova-national-park.jpg",
+      photo: "photos/terra-nova-national-park.jpg",
       twitter:"#terranova"
     },
     {
@@ -295,7 +295,7 @@ parks_canadian = [
       unesco: false, 
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/kejimkujik.jpg",
+      photo: "photos/kejimkujik.jpg",
       twitter:"#kejimkukik"
     },
     {
@@ -311,7 +311,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/Kouchibouguac.jpg",
+      photo: "photos/Kouchibouguac.jpg",
       twitter:"#kouchibouguac"
     },
     {
@@ -327,7 +327,7 @@ parks_canadian = [
       unesco: false,    
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/pacific-rim.jpg",
+      photo: "photos/pacific-rim.jpg",
       twitter:"#pacificrim"
     },
     {
@@ -343,7 +343,7 @@ parks_canadian = [
       unesco: false,          
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/forillon.jpg",
+      photo: "photos/forillon.jpg",
       twitter:"#froillon"
     },
     {
@@ -359,7 +359,7 @@ parks_canadian = [
       unesco: false,   
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/la-maurice.jpg",
+      photo: "photos/la-maurice.jpg",
       twitter:"#lamaurice"
     },
     {
@@ -375,7 +375,7 @@ parks_canadian = [
       unesco: false,                  
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/sable-island-national-park.jpg",
+      photo: "photos/sable-island-national-park.jpg",
       twitter:"#sableisland"
     },
     {
@@ -391,7 +391,7 @@ parks_canadian = [
       unesco: true,                     
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/gros-morne.jpg",
+      photo: "photos/gros-morne.jpg",
       twitter:"#grosmornenp"
     },
     {
@@ -407,7 +407,7 @@ parks_canadian = [
       unesco: false,       
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/pukaskwa.jpg",
+      photo: "photos/pukaskwa.jpg",
       twitter:"#pukaskwa"
     },
     {
@@ -423,7 +423,7 @@ parks_canadian = [
       unesco: false,   
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/kluane.jpg",
+      photo: "photos/kluane.jpg",
       twitter:"#kluane"
     },
     {
@@ -439,7 +439,7 @@ parks_canadian = [
       unesco: true,   
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/nahanni.jpg",
+      photo: "photos/nahanni.jpg",
       twitter:"#nahanninp"
     },
     {
@@ -455,7 +455,7 @@ parks_canadian = [
       unesco: false,    
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/auyuittuq.jpg",
+      photo: "photos/auyuittuq.jpg",
       twitter:"#auyuittuq"
     },
     {
@@ -471,7 +471,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/grasslands.jpg",
+      photo: "photos/grasslands.jpg",
       twitter:"#grasslandsnp"
     },
     {
@@ -487,7 +487,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/ivvavik.jpg",
+      photo: "photos/ivvavik.jpg",
       twitter:"#ivvavik"
     },
     {
@@ -503,7 +503,7 @@ parks_canadian = [
       unesco: false,  
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/mingan.jpg",
+      photo: "photos/mingan.jpg",
       twitter:"#mingan"
     },
     {
@@ -519,7 +519,7 @@ parks_canadian = [
       unesco: false,   
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/quttinirpaaq.jpg",
+      photo: "photos/quttinirpaaq.jpg",
       twitter:"#quttinirpaaq"
     },
     {
@@ -535,7 +535,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/bruce-peninsula.jpg",
+      photo: "photos/bruce-peninsula.jpg",
       twitter:"#brucepeninsula"
     },
     {
@@ -551,7 +551,7 @@ parks_canadian = [
       unesco: false,    
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/fathom-five.jpg",
+      photo: "photos/fathom-five.jpg",
       twitter:"#fathomfive"
     },
     {
@@ -567,7 +567,7 @@ parks_canadian = [
       unesco: false, 
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/saquenay.jpg",
+      photo: "photos/saquenay.jpg",
       twitter:"#saquenay"
     },
     {
@@ -583,7 +583,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/aulavik.jpg",
+      photo: "photos/aulavik.jpg",
       twitter:"#aluavik"
     },
     {
@@ -599,7 +599,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/gwaii-haanas.jpg",
+      photo: "photos/gwaii-haanas.jpg",
       twitter:"#gwaiihannas"
     },
     {
@@ -615,7 +615,7 @@ parks_canadian = [
       unesco: false,  
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/vuntut.jpg",
+      photo: "photos/vuntut.jpg",
       twitter:"#vuntut"
     },
     {
@@ -631,7 +631,7 @@ parks_canadian = [
       unesco: false, 
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/tuktut.jpg",
+      photo: "photos/tuktut.jpg",
       twitter:"#tuktutnogait"
     },
     {
@@ -647,7 +647,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/wapusk.jpg",
+      photo: "photos/wapusk.jpg",
       twitter:"#wapusk"
     },
     {
@@ -663,7 +663,7 @@ parks_canadian = [
       unesco: false,  
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/sirmilik.jpg",
+      photo: "photos/sirmilik.jpg",
       twitter:"#sirmilik"
     },
     {
@@ -679,7 +679,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/gulf-islands.jpg",
+      photo: "photos/gulf-islands.jpg",
       twitter:"#gulfislands"
     },
     {
@@ -695,7 +695,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/torngat.jpg",
+      photo: "photos/torngat.jpg",
       twitter:"#torngatmountains"
     },
     {
@@ -711,7 +711,7 @@ parks_canadian = [
       unesco: false,
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/ukkusiksalik.jpg",
+      photo: "photos/ukkusiksalik.jpg",
       twitter:"#ukkusiksalik"
     },
     {
@@ -727,7 +727,7 @@ parks_canadian = [
       unesco: false,    
       designation: "National Park",
       weather_info: nil,
-      photo: "/photos/qausuittuq.jpg",
+      photo: "photos/qausuittuq.jpg",
       twitter:"#qausuittuq"
     }
     ]
@@ -744,7 +744,7 @@ parks_american = [
     weather_info: "Located on Mount Desert Island in Maine, Acadia experiences all four seasons. Summer temperatures range from 45-90F (7-30C). Fall temperatures range from 30-70F (-1-21C). Typically the first frost is in mid-October and first snowfall begins in November and can continue through April with an average accumulation of 73 inches (185 cm). Winter temperatures range from 14-35F (-10 - 2C). Spring temperatures range from 30-70F (-1-21C).",
     name: "Acadia",
     twitter:"#acadianp",
-    photo: "/photos/American Parks/acadia-national-park.jpg"
+    photo: "photos/American Parks/acadia-national-park.jpg"
   },
   {
     prov_state: "UT",
@@ -757,7 +757,7 @@ parks_american = [
     weather_info: "Arches is part of the Colorado Plateau, a \"high desert\" region that experiences wide temperature fluctuations, sometimes over 40 degrees in a single day. The temperate (and most popular) seasons are spring (April-May) and fall (mid-September-October), when daytime highs average 60 to 80 F and lows average 30 to 50 F. Summer temperatures often exceed 100 F, making strenuous exercise difficult. Winters are cold, with highs averaging 30 to 50 F, and lows averaging 0 to 20 F.",
     name: "Arches",
     twitter:"#archesnp",
-    photo: "/photos/American Parks/arches.jpg"
+    photo: "photos/American Parks/arches.jpg"
   },
       {
     prov_state: "SD",
@@ -770,7 +770,7 @@ parks_american = [
     weather_info: "The Badlands weather is variable and unpredictable with temperature extremes ranging from 116° F to -40° F. Summers are hot and dry with occasional violent thunderstorms. Hailstorms and occasional tornadoes can descend on the Badlands with sudden fury. Winters are typically cold with 12 to 24 inches of total snowfall.",
     name: "Badlands",
     twitter:"#badlandsnp",
-    photo: "/photos/American Parks/badlands-national-park.jpg"
+    photo: "photos/American Parks/badlands-national-park.jpg"
   },
   {
     prov_state: "TX",
@@ -783,7 +783,7 @@ parks_american = [
     weather_info: "Variable\n-- February through April the park abounds with pleasant and comfortable temperatures.\n-- May through August is hot and can also be stormy. Temperatures regularly reach well over 100 degrees in the lower elevations and along the Rio Grande.\n-- September through January temperatures are cooler; the weather can quickly turn cold at any time during these months.",
     name: "Big Bend",
     twitter:"#bigbendnationalpark",
-    photo: "/photos/American Parks/big-bend.jpg"
+    photo: "photos/American Parks/big-bend.jpg"
   },
   {
     prov_state: "FL",
@@ -796,7 +796,7 @@ parks_american = [
     weather_info: "The park is situated in a subtropical climate, which ensures sunshine year-round. Winters are normally dry and mild, with occasional fronts bringing wind and little rain. Summer brings hot and humid weather with scattered thunderstorms in the afternoons. The average temperature in January is 68 degrees Fahrenheit and 82 in July. The average rainfall for the area is 2.17 inches in January and 3.95 inches in July. June to November is hurricane season.",
     name: "Biscayne",
     twitter:"#biscaynenp",
-    photo: "/photos/American Parks/biscayne.jpg"
+    photo: "photos/American Parks/biscayne.jpg"
   },
       {
     prov_state: "AK",
@@ -809,7 +809,7 @@ parks_american = [
     weather_info: "The climate of Gates of the Arctic National Park & Preserve is generally classified as arctic and sub-arctic, with exceptionally cold winters, relatively mild summers, low annual precipitation, and generally high winds. The weather is influenced by many different systems, and can change rapidly.",
     name: "Gates Of The Arctic",
     twitter: "#gatesoftheartic",
-    photo: "/photos/American Parks/gates-of-the-arctic.jpg"
+    photo: "photos/American Parks/gates-of-the-arctic.jpg"
   },
       {
     prov_state: "CA",
@@ -822,7 +822,7 @@ parks_american = [
     weather_info: "Weather at Lassen can vary dramatically throughout the year.\n\nAverage January temperatures are a high of 40.4 °F (4.7 °C) and a low of 20.8 °F (-6.2 °C). Average July temperatures are a high of 88.4 °F and a low of 49.8 °F. Temperatures reach 90 °F or higher on an average of 36.9 days, and drop to 32 ° or lower on an average of 164 days days annually.",
     name: "Lassen Volcanic",
     twitter:"#lassenvolcanic",
-    photo: "/photos/American Parks/lassen-volcanic.jpg"
+    photo: "photos/American Parks/lassen-volcanic.jpg"
   },
       {
     prov_state: "CA",
@@ -835,7 +835,7 @@ parks_american = [
     weather_info: "Yosemite National Park covers nearly 1,200 square miles (3,100 square km) in the Sierra Nevada, with elevations ranging from about 2,000 feet (600 m) to 13,000 ft (4,000 m). Yosemite receives 95% of its precipitation between October and May (and over 75% between November and March). Most of Yosemite is blanketed in snow from about November through May. (Yosemite Valley can be rainy or snowy in any given winter storm.)",
     name: "Yosemite",
     twitter:"#yosemite",
-    photo: "/photos/American Parks/yosemite.jpg"
+    photo: "photos/American Parks/yosemite.jpg"
   },
       {
     prov_state: "UT",
@@ -848,7 +848,7 @@ parks_american = [
     weather_info: "http://forecast.weather.gov/MapClick.php?lat=37.63&lon=-112.17#.VpUamdHUhaR",
     name: "Bryce Canyon",
     twitter:"#brycecanyon",
-    photo: "/photos/American Parks/bryce-canyon.jpg"
+    photo: "photos/American Parks/bryce-canyon.jpg"
   },
       {
     prov_state: "UT",
@@ -861,7 +861,7 @@ parks_american = [
     weather_info: "Canyonlands is part of the Colorado Plateau, a \"high desert\" region that experiences wide temperature fluctuations, sometimes over 40 degrees in a single day. The temperate (and most popular) seasons are spring (April-May) and fall (mid-September-October), when daytime highs average 60 to 80 F and lows average 30 to 50 F. Summer temperatures often exceed 100 F, making strenuous exercise difficult. Winters are cold, with highs averaging 30 to 50 F, and lows averaging 0 to 20 F.",
     name: "Canyonlands",
     twitter:"#canyonlandsnp",
-    photo: "/photos/American Parks/canyonlands.jpg"
+    photo: "photos/American Parks/canyonlands.jpg"
   },
       {
     prov_state: "UT",
@@ -874,7 +874,7 @@ parks_american = [
     weather_info: "Zion is known for a wide range of weather conditions. Temperatures vary with changes in elevation and day/night temperatures may differ by over 30°F.\n\nIn summer, temperatures in Zion National Park often exceed 100°F/38°C. Zion experiences monsoons from mid-July into September that results in an increased risk of flash floods. Always be aware of the threat of storms and lightning and be prepared for a wide range of weather conditions. Winters are generally mild.",
     name: "Zion",
     twitter:"#zionnationalpark",
-    photo: "/photos/American Parks/zion.jpg"
+    photo: "photos/American Parks/zion.jpg"
   },
   {
     prov_state: "CO",
@@ -887,7 +887,7 @@ parks_american = [
     weather_info: "Today's Weather: http://www.weather.com/weather/today/l/NPBLCA:13:US\n\nCLIMATE\nWeather can vary greatly throughout the day. Summer daytime temperatures range between 55 to 90F (13 to 32C), nights 45 to 60F (7 to 16C). Winter daytime temperatures range between 15 to 40F (-9 to 4C), nights 10 to 20F (-12 to -6C).\n\nAfternoon thunderstorms are common during the summer. Snow accumulation varies greatly year to year. Layered clothing appropriate for the season is recommended.",
     name: "Black Canyon Of The Gunnison",
     twitter:"#blackcanyonofthegunnison",
-    photo: "/photos/American Parks/black_canyon_and_gunnison.jpg"
+    photo: "photos/American Parks/black_canyon_and_gunnison.jpg"
   },
   {
     prov_state: "CO",
@@ -900,7 +900,7 @@ parks_american = [
     weather_info: "Spring: Temps range from 40 F to 70 F, but snowstorms can occur as late as May. \n\nSummer: Temps can reach well into the 90s F. Thunderstorms are common in July and August. Be prepared to bring and DRINK plenty of water.\n\nFall: Temps can range from 50 F to 75 F. Snowstorms can occur as early as October. \n\nWinter: Temps can range from the teens to low 30s F. Icy roads are common. Snow tires, all-wheel drive, or chains, may be required. Be prepared with water, snacks, and layers of warm clothing.",
     name: "Mesa Verde",
     twitter: "#mesaverdenationalpark",
-    photo: "/photos/American Parks/mesa-verde.jpg"
+    photo: "photos/American Parks/mesa-verde.jpg"
   },
   {
     prov_state: "CO",
@@ -913,7 +913,7 @@ parks_american = [
     weather_info: "Winter (Dec–Mar): cold weather, deep snow at higher elevations, and seasonal closures of facilities and roads. Spring (April–May): unpredictable weather, with a mix of warm sunny days and cool days with heavy snow and rain. Many trails are still snow-covered. Trail Ridge Road opens in late May. Summer (Jun–Aug): warmer weather, thunderstorms, and wildflowers. Most park roads and facilities are open. Fall (Sep–Nov): crisp air, blue skies, fall colors, and the elk rut. Trail Ridge Road closes mid-October.",
     name: "Rocky Mountain",
     twitter:"#rockymountainnationalpark",
-    photo: "/photos/American Parks/rocky-mountain-national-park.jpg"
+    photo: "photos/American Parks/rocky-mountain-national-park.jpg"
   },
   {
     prov_state: "AZ",
@@ -926,7 +926,7 @@ parks_american = [
     weather_info: "This weather varies with cold winters and mild pleasant summers, moderate humidity, and considerable diurnal temperature changes at the higher elevations, with hot and drier summers at the bottom of the Grand Canyon along with cool damp winters. Summer thunderstorms and winter snowfall adds to the weather variety in this region.",
     name: "Grand Canyon",
     twitter:"#grandcanyonnationalpark",
-    photo: "/photos/American Parks/grand-canyon.jpg"
+    photo: "photos/American Parks/grand-canyon.jpg"
   },
       {
     prov_state: "AZ",
@@ -939,7 +939,7 @@ parks_american = [
     weather_info: "Petrified Forest National Park is a semi-arid grassland. Temperatures range from above 100° F (38° C) to well below freezing. About 10 inches (25.4 cm) of moisture comes during infrequent snow in the winter and often dramatic summer thunder-storms. Animals and plants are adapted to extremes in temperature and moisture. You should be ready too. Check out the forecast before you arrive and plan accordingly.",
     name: "Petrified Forest",
     twitter:"#petrifiedforestnationalpark",
-    photo: "/photos/American Parks/petrified-forest.jpg"
+    photo: "photos/American Parks/petrified-forest.jpg"
   },
       {
     prov_state: "AZ",
@@ -952,7 +952,7 @@ parks_american = [
     weather_info: "Winter Season\nWith daytime temperature from the low 50's to the high 70's\n\nSummer Season \nAs we get deeper into the summer season, temperatures will range from mid-80's to low 100's. This is a great time to experience the desert as the day breaks or in the late of the day as the sun disappears behind the surrounding mountain ranges. During the late spring and summer months Saguaro National Park only offers interpretive programs on an intermittent basis.",
     name: "Saguaro",
     twitter:"#saguoro",
-    photo: "/photos/American Parks/saguaro.jpg"
+    photo: "photos/American Parks/saguaro.jpg"
   },
       {
     prov_state: "FL",
@@ -965,7 +965,7 @@ parks_american = [
     weather_info: "The climate in the Dry Tortugas is subtropical, which basically means that it has warm and tropical weather in the range of 60°F to 90°F. The two main seasons are the winter stormy season from December through March which is windier and sees rougher seas, and the summertime tropical storm season from June through November where there is a higher chance of isolated storms. During the summers it is hot and humid. During the winter the temperature is milder and drier.",
     name: "Dry Tortugas",
     twitter:"#drytortugas",
-    photo: "/photos/American Parks/dry_tortugas.jpg"
+    photo: "photos/American Parks/dry_tortugas.jpg"
   },
       {
     prov_state: "FL",
@@ -978,7 +978,7 @@ parks_american = [
     weather_info: "The climate in Florida is known to be mild and sunny.The average annual temperatures for South Florida and the Keys range from 74° to 77°F (23° to 25°C). There are two seasons at the Everglades National Park: the wet season and the dry season. The wet season runs from Mid-May to November and the dry season runs from December to mid-May.",
     name: "Everglades",
     twitter:"#everglades",
-    photo: "/photos/American Parks/everglades.jpg"
+    photo: "photos/American Parks/everglades.jpg"
   },
       {
     prov_state: "WA",
@@ -991,7 +991,7 @@ parks_american = [
     weather_info: "Weather patterns at Mount Rainier are strongly influenced by the Pacific Ocean and elevation. The climate is generally cool and rainy, with summer highs in the 60s and 70s. While July and August are the sunniest months of the year, rain is very likely in spring, fall, and winter. Visitors should be aware that mountain weather is very changeable. In the higher elevations, like Paradise, winter can last from November to May with many feet of snow on the ground.",
     name: "Mount Rainier",
     twitter:"#mountrainer",
-    photo: "/photos/American Parks/mount-rainier.jpg"
+    photo: "photos/American Parks/mount-rainier.jpg"
   },
       {
     prov_state: "WA",
@@ -1004,7 +1004,7 @@ parks_american = [
     weather_info: "The best weather for visiting the North Cascades generally occurs between mid-June and late-September. Summer daytime temperatures average in the 70's F. Snow is off most trails by mid-July. Autumn and Spring are popular for color and wildlife. Storms are common: always be prepared for a few days of rain and wind. The east side of the Cascade Mountains (Lake Chelan National Recreation Area) is drier and warmer in the summer than the west side. Summer temperatures at Stehekin reach the 90's F.",
     name: "North Cascades",
     twitter:"#northcascades",
-    photo: "/photos/American Parks/north-cascades.jpg"
+    photo: "photos/American Parks/north-cascades.jpg"
   },
   {
     prov_state: "WA",
@@ -1017,7 +1017,7 @@ parks_american = [
     weather_info: "Summers tend to be fair and warm, with high temperatures between 65 and 75 degrees F. July, August and September are the driest months, with heavier precipitation during the rest of the year. While winters are mild at lower elevation, snowfall can be heavy in the mountains. It is common for different weather conditions to exist within the park at the same time.  At any time of year, visitors should come prepared for a variety of conditions.",
     name: "Olympic",
     twitter:"#olympicnationalpark",
-    photo: "/photos/American Parks/olympic.jpg"
+    photo: "photos/American Parks/olympic.jpg"
   },
   {
     prov_state: "HI",
@@ -1030,7 +1030,7 @@ parks_american = [
     weather_info: "On any given day, the temperatures in the park can range from a high of 80°F (27°C) in Kīpahulu to a low of 30°F (-1°C) at the summit. In either area clouds and rain can quickly replace warm sunshine.\nWeather in the high-elevation summit and wilderness areas of the park is highly unpredictable and changes often. Cool temperatures, intense solar radiation, and rapidly moving clouds are characteristic. On average, the temperature drops about 3°F for every 1,000 foot rise in elevation.",
     name: "Haleakala",
     twitter:"#haleakala",
-    photo: "/photos/American Parks/haleakala.jpg"
+    photo: "photos/American Parks/haleakala.jpg"
   },
   {
     prov_state: "HI",
@@ -1043,7 +1043,7 @@ parks_american = [
     weather_info: "The weather at Kīlauea's summit (4000' elevation) varies daily and may be rainy and chilly any time of the year. Temperature varies by elevation. At the summit of the volcano, temperatures may be 12 to 15 degrees cooler than at sea level. The coastal plain at the end of Chain of Craters Road, where lava crossed the road in 2003, is often hot, dry, and windy with the possibility of passing showers.",
     name: "Hawai'i Volcanoes",
     twitter:"#hawaiivolcanos",
-    photo: "/photos/American Parks/hawaii-volcano.jpg"
+    photo: "photos/American Parks/hawaii-volcano.jpg"
   },
   {
     prov_state: "SD",
@@ -1056,7 +1056,7 @@ parks_american = [
     weather_info: "Spring:  Highs range from 50 - 70 F with highly variable weather. Spring is the park's wettest season.\n\nSummer:  Warm and generally dry with highs in the 80s F. Thunderstorms are common and can produce large hail and severe lightning. \n\nFall:  Generally dry with warm days and cool nights. Highs in the 50s - 60s F. Lows below freezing are common.\n\nWinter: Highs in the upper 30s F with lows in the 10s F. Snowfall averages 30 inches annually, periodically closing park roads.",
     name: "Wind Cave",
     twitter:"#windcavenp",
-    photo: "/photos/American Parks/wind-cave.jpg"
+    photo: "photos/American Parks/wind-cave.jpg"
   },
   {
     prov_state: "TX",
@@ -1069,7 +1069,7 @@ parks_american = [
     weather_info: "Weather in the Guadalupe Mountains can change in an instant. In the Spring and Summer, average temperatures vary with highs between 70F-80F+ with evening lows in the 40F-60F range. The Fall and Winter bring milder temperatures with highs in between 50F-60F with evening lows in the 30F-50F range.",
     name: "Guadalupe Mountains",
     twitter:"#guadalupemountains",
-    photo: "/photos/American Parks/guadalupe.jpg"
+    photo: "photos/American Parks/guadalupe.jpg"
   },
   {
     prov_state: "WY",
@@ -1082,7 +1082,7 @@ parks_american = [
     weather_info: "Jackson Hole has long, cold winters; snow and frost are possible any month. \nmid-April, May & June - Mild days and cool nights alternate with rain and snow.\nJuly & August - Warm days and cool nights prevail, with afternoon thundershowers common.\nSeptember, October & November - Sunny days and cold nights alternate with rain and occasional snowstorms.\nDecember to mid-April - Between storms the days are sunny and nights are frigid. Snow blankets the mountains and valley.",
     name: "Grand Teton",
     twitter:"#grandteton",
-    photo: "/photos/American Parks/grand-teton.jpg"
+    photo: "photos/American Parks/grand-teton.jpg"
   },
   {
     prov_state: "ID,MT,WY",
@@ -1095,7 +1095,7 @@ parks_american = [
     weather_info: "Yellowstone's weather can vary quite a bit, even in a single day. In the summer, daytime highs can exceed 70F (25C), only to drop 20 or more degrees when a thunderstorm rolls through. It can snow during any month of the year, and winter lows frequently drop below zero, especially at night. Bring a range of clothing options, including a warm jacket and rain gear, even in the summer.",
     name: "Yellowstone",
     twitter:"#yellowstone",
-    photo: "/photos/American Parks/yellowstone.jpg"
+    photo: "photos/American Parks/yellowstone.jpg"
   },
   {
     prov_state: "AR",
@@ -1108,7 +1108,7 @@ parks_american = [
     weather_info: "Temperatures range from >100°F (38°C) to <20°F (-7°C). \nSpring has the highest average rainfall. \nSummer temperatures frequently reach the triple-digit range and high humidity \nFall begins fall colors and cooler temperatures. Frost starts to become more common.\nWinter  temperatures often fall below 33 degrees and occasionally drop below 0. Roads may be icy. \nYour visit can be more enjoyable by checking the forecast and coming prepared for hikes or walks in the park.",
     name: "Hot Springs",
     twitter:"#hotspringnp",
-    photo: "/photos/American Parks/hot-springs.jpg"
+    photo: "photos/American Parks/hot-springs.jpg"
   },
   {
     prov_state: "KY",
@@ -1121,7 +1121,7 @@ parks_american = [
     weather_info: "Kentucky has a moderate climate with warm, yet moist conditions. Summers average in the high 80s; winters average in the low 40s. Southern Kentucky, where Mammoth Cave is located, receives the highest average precipitation for the state, about 50 inches per year, mostly in spring. Winter can bring mild to moderate snow and ice. Storms happen year-round, and can include tornadoes and flooding in low-lying areas, but severe weather is infrequent. The temperature deep in the cave is a constant 54°F (12°C).",
     name: "Mammoth Cave",
     twitter:"#mammothcave",
-    photo: "/photos/American Parks/mammoth-cave.jpg"
+    photo: "photos/American Parks/mammoth-cave.jpg"
   },
   {
     prov_state: "MI",
@@ -1134,7 +1134,7 @@ parks_american = [
     weather_info: "Isle Royale National Park is a remote island wilderness in the middle of Lake Superior.  Weather influences traveling to and from the island, as well as your trip once you arrive.  For the most up-to-date weather information, call (906) 482-0984 or email isro_parkinfo@nps.gov prior to your trip.",
     name: "Isle Royale",
     twitter:"#isleroyale",
-    photo: "/photos/American Parks/isle-royale.jpg"
+    photo: "photos/American Parks/isle-royale.jpg"
   },
       {
     prov_state: "MN",
@@ -1147,7 +1147,7 @@ parks_american = [
     weather_info: "There are four distinct seasons in Voyageur country.  The air is temperate during June, July, and August when periods of fine, mild weather prevail.  The frost-free season averages 120 days from June to mid-September.  The average ice-out date is May 3 but varies year to year.  Annual precipitation (rain and snow) averages 25-28 inches in the park and snowfall ranges from 55-70 inches, but is highly variable.  The first measurable snowfall occurs in late October and the last in late April or early May.",
     name: "Voyageurs",
     twitter:"#Voyageurs",
-    photo: "/photos/American Parks/voyageurs-national.jpg"
+    photo: "photos/American Parks/voyageurs-national.jpg"
   },
   {
     prov_state: "MT",
@@ -1160,7 +1160,7 @@ parks_american = [
     weather_info: "Glacier's weather is highly variable and can be extreme. Expect warm sunny summer days and in the winter the temperatures can fall well below freezing. Glacier's geography, straddling the Continental Divide, sets the stage for clashes of two very different climates. Warm, wet Pacific air moves in from the west, and cold dry Arctic air from the northeast. They meet at the Divide.",
     name: "Glacier",
     twitter:"#glaciernp",
-    photo: "/photos/American Parks/glacier.jpg"
+    photo: "photos/American Parks/glacier.jpg"
   },
   {
     prov_state: "CA,NV",
@@ -1173,7 +1173,7 @@ parks_american = [
     weather_info: "AUTUMN arrives in late October, with warm but pleasant temperatures and generally clear skies.\nWINTER has cool days, chilly nights and rarely, rainstorms. With snow capping the high peaks and low angled winter light, this season is especially beautiful for exploring the valley.\nSPRINGTIME is the most popular time to visit Death Valley. Besides warm and sunny days, the possibility of spring wildflowers is a big attraction.\nSUMMER starts early in Death Valley. By May the valley is too hot for most visitors",
     name: "Death Valley",
     twitter:"#deathvalley",
-    photo: "/photos/American Parks/death-valley.jpg"
+    photo: "photos/American Parks/death-valley.jpg"
   },
   {
     prov_state: "NM",
@@ -1186,7 +1186,7 @@ parks_american = [
     weather_info: "Carlsbad Caverns National Park is located in the Chihuahuan Desert in southeast New Mexico. Summers are hot with temperatures between 90°F (32°C) and low 100s °F (38°C). Windy conditions and mild temperatures are common in early spring (March-May) with frequent rain in early fall (August-September). This part of the country also sees cold temperatures in the winter with occasional snow and icy conditions. Most days, the park is enveloped by a gorgeous blue sky with very few clouds, 278 sunny days a year!",
     name: "Carlsbad Caverns",
     twitter:"#carlsbadcaverns",
-    photo: "/photos/American Parks/carlsbad.jpg"
+    photo: "photos/American Parks/carlsbad.jpg"
   },
   {
     prov_state: "NC,TN",
@@ -1199,7 +1199,7 @@ parks_american = [
     weather_info: "Elevations in the park range from approximately 875 feet to 6,643 feet and the topography can drastically affect local weather. Temperatures can vary 10-20 degrees Fahrenheit from mountain base to top, and clear skies lower down do not guarantee equally pleasant weather at higher elevations. Visit http://www.nps.gov/grsm/planyourvisit/weather.htm for seasonal weather information and links to local forecasts.",
     name: "Great Smoky Mountains",
     twitter:"#greatsmokymountains",
-    photo: "/photos/American Parks/smoky.jpg"
+    photo: "photos/American Parks/smoky.jpg"
   },
   {
     prov_state: "ND",
@@ -1212,7 +1212,7 @@ parks_american = [
     weather_info: "In winter, some or all park roads may be closed due to snow.",
     name: "Theodore Roosevelt",
     twitter:"#theodorerooseveltnp",
-    photo: "/photos/American Parks/theodore.jpg"
+    photo: "photos/American Parks/theodore.jpg"
   },
   {
     prov_state: "OH",
@@ -1225,7 +1225,7 @@ parks_american = [
     weather_info: "Spring's rain and warming temperatures bring new leaves on trees, blooming wildflowers, and visitors anxious get out on the trail. \n\nSummer temperatures range from 49 to 95 degrees F and can be humid. Dressing in layers is advisable. \n\nFall temperatures can range from low 70s during the day to freezing during the night. Fall foliage often peaks in mid-October.\n\nWinter weather conditions can rapidly change, due to the lake effect snow from Lake Erie. Temperatures vary from mid-30s to below zero.",
     name: "Cuyahoga Valley",
     twitter:"#cuyahogavalley",
-    photo: "/photos/American Parks/cuyahoga.jpg"
+    photo: "photos/American Parks/cuyahoga.jpg"
   },
   {
     prov_state: "OR",
@@ -1238,7 +1238,7 @@ parks_american = [
     weather_info: "October through June Crater Lake is snow covered. Snowfall averages 533 inches (1,350 cm) annually, and by early spring, it is typical to have ten to fifteen feet (4 meters) of snow on the ground. \n\nJuly, August, and September are drier and warmer. A typical daytime high temperature during these three months is around 67°F (19°C), but can range from 40°F to 80°F or more (4°C to 27°C). Temperatures cool off rapidly in the evening, with a typical nighttime low around 40°F (4°C).",
     name: "Crater Lake",
     twitter:"#craterlake",
-    photo: "/photos/American Parks/crater-lake.jpg"
+    photo: "photos/American Parks/crater-lake.jpg"
   },
   
   {
@@ -1252,7 +1252,7 @@ parks_american = [
     weather_info: "Check the forecast before getting on the road. Conditions can change rapidly within the park. Flooding can happen with little or no warning, so make sure to check water levels for Cedar Creek and the Congaree River.",
     name: "Congaree",
     twitter: "#conagree",
-    photo: "/photos/American Parks/congaree.jpg"
+    photo: "photos/American Parks/congaree.jpg"
   },
   
   {
@@ -1266,7 +1266,7 @@ parks_american = [
     weather_info: "Shenandoah experiences four distinct seasons. Best known for its fall foliage, the park is also spectacular in spring when the wildflowers and trees are in full bloom. Summer brings lush greens and relief from the hot valleys. The park's elevation encourages as much as a 10 degree temperature difference. In winter, this means that when surrounding lowlands are experiencing rain, the the park can be blanketed in snow and ice. It's always a good idea to be prepared for varying weather.",
     name: "Shenandoah",
     twitter:"#shenandoah",
-    photo: "/photos/American Parks/shenandoah.jpg"
+    photo: "photos/American Parks/shenandoah.jpg"
   }
       ]
   
