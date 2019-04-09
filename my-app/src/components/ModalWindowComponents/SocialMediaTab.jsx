@@ -46,7 +46,7 @@ class SocialMediaTab extends Component {
 
 
   fetchTweets() {
-    let name_encoded = encodeURIComponent(this.props.parkInfo.name)
+    let name_encoded = encodeURIComponent(this.props.parkInfo.twitter)
 
     fetch('/twitterfeed/index?name=' + name_encoded)
       .then(response => {

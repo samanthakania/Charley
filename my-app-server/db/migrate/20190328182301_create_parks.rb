@@ -8,7 +8,7 @@ class CreateParks < ActiveRecord::Migration[5.2]
       t.decimal :lat
       t.decimal :long
       t.text :description
-      t.string :img
+      t.string :twitter
       t.string :url
       t.integer :established
       t.boolean :unesco
