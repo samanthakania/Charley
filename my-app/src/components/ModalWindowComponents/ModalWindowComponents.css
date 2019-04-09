@@ -7,7 +7,6 @@ p {
 }
 
 .hero-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.397), rgba(0, 0, 0, 0.5)), url("https://github.com/ryaaanandrew/final_project/blob/master/aescher-hotel-restaurant-swiss-alps-SWISSCLIFFHOTEL1017.jpg?raw=true");
     height: 446px;
     background-position: center;
     background-repeat: no-repeat;
