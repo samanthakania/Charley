@@ -1,20 +1,32 @@
 import React, { useState, useEffect } from "react";
 import '../App.css';
-
-
+import { Spring } from 'react-spring/renderprops';
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
+
     return (
-        <div
-            className="todo box sb1"
-            style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+        <Spring
+        from={{ opacity: 0, }}
+        to={{ opacity: 1}}
+        config={{ delay: 100, duration: 300 }}
         >
-            {todo.text}
-            <div>
-                <div onClick={() => completeTodo(index)} id="completed"> <i className="fas fa-check"></i></div>
-                <div onClick={() => removeTodo(index)} id="remove"><i className="fas fa-times"></i></div>
+        {props => (
+            <div 
+            style={props}
+            >
+                <div
+                    className="todo box sb1"
+                    style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+                >
+                    <span>{todo.text}</span>
+                    <div className="todo-buttons">
+                        <div onClick={() => completeTodo(index)} id="completed"> <i className="fas fa-check"></i></div>
+                        <div onClick={() => removeTodo(index)} id="remove"><i className="fas fa-times"></i></div>
+                    </div>
+                </div>
             </div>
-        </div>
+        )}
+        </Spring>
     )
 }
 
@@ -81,7 +93,6 @@ function ToDoList(props) {
             .then((json) => {
                 let listId = json;
                 setIdForList(listId)
-                console.log("listId", idForList)
             })
             .catch(err => console.log(err))
     }
@@ -104,7 +115,6 @@ function ToDoList(props) {
 
     }
     function format(json) {
-        console.log(json);
         let output = []
         json.forEach((item) => {
             let formatter = { text: item.todo_item, isCompleted: item.is_completed }
@@ -114,6 +124,7 @@ function ToDoList(props) {
     }
     return (
         <div className="todo-container">
+            <h1 id="todo-header"> TODO </h1>
             <div className="todo-list">
                 {todos.map((todo, index) => (
                     <Todo
