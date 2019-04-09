@@ -13,7 +13,7 @@ class SocialMediaTab extends Component {
     };
   }
   componentDidMount() {
-    // this.fetchTweets()
+    this.fetchTweets()
     // this.fetchFlickr()
   }
   fetchFlickr() {
