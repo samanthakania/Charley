@@ -1,6 +1,6 @@
 /* global google */
 import React, { Component } from 'react';
-import './ModalWindowComponents.css';
+// import './ModalWindowComponents.css';
 import config from './config.js'
 class SocialMediaTab extends Component {
   constructor(props) {
@@ -14,15 +14,15 @@ class SocialMediaTab extends Component {
   }
   componentDidMount() {
     this.fetchTweets()
-    this.fetchFlickr()
+    // this.fetchFlickr()
   }
   fetchFlickr() {
     //  console.log('flickr key', key)
-    let searchWord = this.props.parkInfo.full_name;
+    let searchWord = this.props.parkInfo.name;
     let flickr = config.flickr;
     console.log("flickr", flickr)
 
-    let url = `https://api.flickr.com/services/rest/?api_key=${flickr}&method=flickr.photos.search&format=json&nojsoncallback=1&&per_page=50&page=1&text=${searchWord}`
+    let url = `https://api.flickr.com/services/rest/?api_key=${flickr}&method=flickr.photos.search&format=json&nojsoncallback=1&&per_page=53&page=1&lat=${this.props.parkInfo.lat}&long=${this.props.parkInfo.long}&in_gallery=true&text=${searchWord}`
     fetch(url)
       .then(response => {
         if (response.ok) {
@@ -76,52 +76,58 @@ class SocialMediaTab extends Component {
   render() {
     console.log(this.state.photos)
     return (
-      <>
-        <div className="social-media-container">
-          <div className="hero-image">
-          <div className="hero-text">
-            <div id="park-name">{this.props.parkInfo.full_name}</div>
-            <div onClick={this.props.handleWaypoint} className="" id="add-button">Add Park</div>
-            </div>
-          </div>
-        </div>
+      <div>
+      <div className="hero-image">
+       <div className="hero-text">
+         {/* <img src={this.state.photos[this.state.indexValue]}></img> */}
+         <div id="park-name">{this.props.parkInfo.full_name}</div>
+         <div onClick={this.props.handleWaypoint} className="" id="add-button">Add Park</div>
+         </div>
+         {/* {this.state.indexValue === 0 ? (<p></p>) : (<button onClick={this.backPhoto}>back</button>)} */}
+       </div>
+      <button onClick={this.nextPhoto}>next</button>     
+      {this.state.tweets.map(tweet => {
+        
+        return (<span>
+                <h3>{tweet.user.screen_name}</h3>
+                <p>{tweet.text}</p>
+              </span>)
+            })}
+            </div> 
 
-      </>
-    )
-  }
+   )
+ 
+}
 }
 
 export default SocialMediaTab;
 
-// flicker-stuff
-// {/* <img src={this.state.photos[this.state.indexValue]}></img> */}
-// {/* {this.state.indexValue === 0 ? (<p></p>) : (<button onClick={this.backPhoto}>back</button>)} */}
-// {/* <button onClick={this.nextPhoto}>next</button> */}
 
 // "https://api.twitter.com/1.1/search/tweets.json/?api_key=?q=LlZPzsUBTmWNVuDty4AtVUSwu%23yellowstone&count=10&include_entities=true"
 
-// <div className="social-media-container">
-//   <span className="likes"> 2,000 likes</span>
-//   <div className="hero-image">
-//     <div className="hero-text">
-//       <img src={this.state.photos[this.state.indexValue]}></img>
-//     </div>
-//     {this.state.indexValue === 0 ? (<p></p>) : (<button onClick={this.backPhoto}>back</button>)}
-//   </div>
 
-//     <button onClick={this.nextPhoto}>next</button>
-//   <div className="social-media-content">
-//     <div className="comments">
+      // <div className="social-media-container">
+      //   <span className="likes"> 2,000 likes</span>
+      //   <div className="hero-image">
+      //     <div className="hero-text">
+      //       <img src={this.state.photos[this.state.indexValue]}></img>
+      //     </div>
+      //     {this.state.indexValue === 0 ? (<p></p>) : (<button onClick={this.backPhoto}>back</button>)}
+      //   </div>
 
-//       {this.state.tweets.map(tweet => {
+      //     <button onClick={this.nextPhoto}>next</button>
+      //   <div className="social-media-content">
+      //     <div className="comments">
 
-//         return (<span className="tweets">
-//           <h3>{tweet.user.screen_name}</h3>
-//           <p>{tweet.text}</p>
-//         </span>)
-//       })}
+      //       {this.state.tweets.map(tweet => {
 
-//       <div><h1>hit</h1></div>
-//     </div>
-//   </div>
-// </div>
+      //         return (<span className="tweets">
+      //           <h3>{tweet.user.screen_name}</h3>
+      //           <p>{tweet.text}</p>
+      //         </span>)
+      //       })}
+
+      //       <div><h1>hit</h1></div>
+      //     </div>
+      //   </div>
+      // </div>
