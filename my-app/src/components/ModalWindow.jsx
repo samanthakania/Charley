@@ -98,7 +98,7 @@ class ModalWindow extends Component {
                     contentLabel="Minimal Modal Example"
                     ariaHideApp={false}
                     shouldCloseOnOverlayClick={true}
-                >   
+                >  
                     <Tabs>
                         <TabList>
                             <Tab>Social Media</Tab>

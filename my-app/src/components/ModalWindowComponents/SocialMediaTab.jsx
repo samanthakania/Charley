@@ -83,9 +83,9 @@ class SocialMediaTab extends Component {
          <div id="park-name">{this.props.parkInfo.full_name}</div>
          <div onClick={this.props.handleWaypoint} className="" id="add-button">Add Park</div>
          </div>
-         {/* {this.state.indexValue === 0 ? (<p></p>) : (<button onClick={this.backPhoto}>back</button>)} */}
+        
        </div>
-      <button onClick={this.nextPhoto}>next</button>     
+      
       {this.state.tweets.map(tweet => {
         
         return (<span>
