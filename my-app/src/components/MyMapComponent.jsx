@@ -167,7 +167,9 @@ class MyMapComponent extends Component {
   addWaypoint = (waypoint) => {
     const waypoints = this.state.waypoints
     waypoints.push(waypoint)
-    this.setState({ waypoints: waypoints }, () => {
+    this.setState({ waypoints: waypoints,
+                    modal: false
+    }, () => {
       this.route();
     })
   }
@@ -198,7 +200,7 @@ class MyMapComponent extends Component {
         .then((json) => {
 
           console.log(json)
-          return (<h1>hit</h1>)
+          return alert('Your Route Has Been Saved!')
 
         })
         .catch(err => console.log(err))

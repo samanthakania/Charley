@@ -61,10 +61,11 @@ class ModalWindow extends Component {
         fetch(proxyURL + `https://api.darksky.net/forecast/379b67815f86fa3fb81b23bff3f6db3a/${this.props.park.lat},${this.props.park.long}`)
         .then(response => {
             if (response.ok) {
-              response.json().then(data => {
-                this.setState({ weather: data })
+                response.json().then(async data => {
+                this.setState({ weather: await data })
                 console.log('weather', this.state.weather)
-              })
+                console.log('alerts', this.state.weather.alerts)
+            })
     
             }
           })
@@ -123,7 +124,10 @@ class ModalWindow extends Component {
                                 park={ this.props.park }/>
                         </TabPanel>
                         <TabPanel>
-                            <ParkAdvisoriesTab />
+                            <ParkAdvisoriesTab
+                                park={this.props.park}
+                               alerts={this.state.weather.alerts} />
+                        
                         </TabPanel>
 
                     </Tabs>
