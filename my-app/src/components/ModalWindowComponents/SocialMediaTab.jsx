@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 // import './ModalWindowComponents.css';
 import config from './config.js'
+
 class SocialMediaTab extends Component {
   constructor(props) {
     super(props)
@@ -73,11 +74,16 @@ class SocialMediaTab extends Component {
     this.setState({ indexValue: prev - 1 })
   }
 
-  render() {
+  render() { 
     console.log(this.state.photos)
+    let imgSrc = require(`../../${this.props.parkInfo.photo}`)
+    // let imgSrc = require('../../photos/yoho.jpg')
+    let heroImageStyle = {
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.397), rgba(0, 0, 0, 0.5)), url(${imgSrc})`
+    }
     return (
       <div>
-      <div className="hero-image">
+      <div className="hero-image" style={heroImageStyle}>
        <div className="hero-text">
          {/* <img src={this.state.photos[this.state.indexValue]}></img> */}
          <div id="park-name">{this.props.parkInfo.full_name}</div>
@@ -85,7 +91,6 @@ class SocialMediaTab extends Component {
          </div>
          {/* {this.state.indexValue === 0 ? (<p></p>) : (<button onClick={this.backPhoto}>back</button>)} */}
        </div>
-      <button onClick={this.nextPhoto}>next</button>     
       {this.state.tweets.map(tweet => {
         
         return (<span>
