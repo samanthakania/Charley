@@ -19,14 +19,37 @@ class ParkAdvisoriesTab extends Component {
 
     }
     render() {
-        console.log('park advis')
-        return (
-                <div className="tabs-content-container">
+        console.log('park advis', this.props.alerts)
+       if(this.props.alerts === undefined) {
+
+           return (
+               <div className="tabs-content-container">
                     <i class="fas fa-comment-dots fa-4x"></i>
-                    <h1>Tab Header</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti adipisci illo similique vero! Commodi, laboriosam iste numquam nostrum eum temporibus neque tempora? Eligendi tempore inventore sed laboriosam accusamus? Sequi, eaque.</p>
+                    <h1>{this.props.park.full_name}</h1>
+                    <p>There Are no Alerts for: {this.props.park.name}.</p>
                 </div>
         )
+    } else {
+        return (
+            <div className="tabs-content-container">
+                <i class="fas fa-comment-dots fa-4x"></i>
+            <h1>{this.props.park.full_name}</h1>
+            {this.props.alerts.map((alert) => {
+               
+               return (
+                <div> 
+                <h1>Type: {alert.title}</h1>
+                <h3>Severity: {alert.severity}</h3>
+               <h4>description:</h4>
+                <span> {alert.description}</span> 
+                <h4>Regions:</h4>
+                <span> {alert.regions}</span>
+                </div>
+               )
+            })}
+            </div>
+        )
+    }
     }
 }
 
