@@ -93,7 +93,7 @@ class ModalWindow extends Component {
         console.log("Window", this.props)
         return (
             <div>
-                <button onClick={this.handleOpenModal}>{this.props.park.name}</button>
+                <button className="btn btn-warning" onClick={this.handleOpenModal}>{this.props.park.name}</button>
                 <ReactModal
                     style = { customStyles }
                     isOpen={this.state.showModal}
@@ -134,7 +134,7 @@ class ModalWindow extends Component {
                     </Tabs>
                     <div className="modal-buttons-container">
                         <div onClick={this.handleRemoveWaypoint} className="modal-window-button">Remove from Route</div>
-                        <div onClick={this.handleCloseModal} className="modal-window-button">Close Modal</div>
+                        <div onClick={this.handleCloseModal} className="modal-window-button">Close</div>
                     </div>
                 </ReactModal>
             </div>

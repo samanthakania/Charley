@@ -177,7 +177,9 @@ class MyMapComponent extends Component {
   removeWaypoint = (waypoint) => {
     const waypoints = this.state.waypoints
     waypoints.pop(waypoint)
-    this.setState({ waypoints: waypoints }, () => {
+    this.setState({ waypoints: waypoints,
+      modal: false
+     }, () => {
       this.route();
     })
   }
@@ -230,6 +232,7 @@ class MyMapComponent extends Component {
           </GoogleMap> 
           {this.state.modal ? (
             <ModalWindow 
+              className="btn btn-warning"
               park={this.state.currentPark}
               addWaypoint={this.addWaypoint}
               save={this.saveParkName}
@@ -239,7 +242,7 @@ class MyMapComponent extends Component {
             <h1> </h1>
           )}
         <form onSubmit={this.handleSave.bind(this)}>
-      <button>Save Route</button>
+      <button className="btn btn-warning">Save Route</button>
      </form>
       </div>)
   }

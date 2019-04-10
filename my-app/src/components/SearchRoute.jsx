@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+{/* <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADfvn7bqN8wTxIrPUpCZZMEoURzEsj5sU&libraries=places&callback=initMap"
+  async defer></script> */}
 
 class SearchRoute extends Component {
   render() {
@@ -10,7 +12,5 @@ class SearchRoute extends Component {
     )
   }
 }
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADfvn7bqN8wTxIrPUpCZZMEoURzEsj5sU&libraries=places&callback=initMap"
-  async defer></script>
 
 export default SearchRoute;

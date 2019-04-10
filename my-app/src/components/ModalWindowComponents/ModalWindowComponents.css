@@ -7,7 +7,7 @@ p {
 }
 
 .hero-image {
-    height: 340px;
+    height: 370px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -103,7 +103,7 @@ p {
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 7px;
-    color: rgb(255, 237, 203);
+    color: white;
 }
 
 .fas {
