@@ -7,14 +7,14 @@ p {
 }
 
 .hero-image {
-    height: 446px;
+    height: 340px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    border-radius: 0px 10px 10px 10px;
-    margin-bottom: 15px;
-    align-items: center;
+    border-radius: 0px 10px 0px 0px;
+    display: flex;
+    justify-content: center;
 }
 
 #park-name {
@@ -24,8 +24,7 @@ p {
     display: inline-block;
     width: 50%;
     line-height: .7;
-    /* margin-top: 35px; */
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     padding-top: 40px;
     padding-left: 30px;
     color: #EDEEE9;
@@ -37,7 +36,8 @@ p {
     margin-left: 40px;
     color: white;
     border-radius: 7px;
-    margin-right: 9px;
+        margin-right: 9px;
+        margin-bottom: 20px;
     text-align: center;
     width: 100px;
     padding: 7px;
@@ -56,6 +56,40 @@ p {
     border-radius: 7px;
     margin-right: 12px;
     color: white;
+}
+
+.tweets-container {
+    color: white;
+    height: 300px;
+    overflow: auto;
+    padding: 20px 5px;
+    margin: 0px 0px 10px;
+    background-color: rgb(66, 66, 66);
+    border-radius: 0 0 10px 10px;
+}
+
+.tweets-container h4 {
+    text-align: center;
+    width: 80%;
+    margin: 0px auto 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(122, 122, 122, 0.287);
+}
+
+.tweets {
+    color: white;
+    width: 90%;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(122, 122, 122, 0.287);
+}
+
+.tweet {
+    margin-bottom: 15px;  
+}
+
+.userName {
+    font-weight: 700;
+    margin: 5px 0px;
 }
 
 /* <--- All tabs main content ---> */

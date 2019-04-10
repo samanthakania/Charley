@@ -1,4 +1,3 @@
-/* global google */
 import React, { Component } from 'react';
 // import './ModalWindowComponents.css';
 import config from './config.js'
@@ -52,10 +51,10 @@ class SocialMediaTab extends Component {
     fetch('/twitterfeed/index?name=' + name_encoded)
       .then(response => {
         if (response.ok) {
-          response.json().then(data => {
-            let op = data
+          response.json().then(async data => {
+            let op = await data
             this.setState({ tweets: op })
-            //  console.log(op)
+             console.log(op)
           })
         }
       })
@@ -80,24 +79,30 @@ class SocialMediaTab extends Component {
     // let imgSrc = require('../../photos/yoho.jpg')
     let heroImageStyle = {
       backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.397), rgba(0, 0, 0, 0.5)), url(${imgSrc})`
-    }
+    } 
     return (
       <div>
-      <div className="hero-image" style={heroImageStyle}>
+        <div className="hero-image" style={heroImageStyle} >
        <div className="hero-text">
-         {/* <img src={this.state.photos[this.state.indexValue]}></img> */}
+            <img src={this.state.photos[this.state.indexValue]}></img>
          <div id="park-name">{this.props.parkInfo.full_name}</div>
          <div onClick={this.props.handleWaypoint} className="" id="add-button">Add Park</div>
          </div>
         
        </div>
-      {this.state.tweets.map(tweet => {
-        
-        return (<span>
-                <h3>{tweet.user.screen_name}</h3>
-                <p>{tweet.text}</p>
-              </span>)
+       <div className='tweets-container'>
+          <h4>See what others are saying about {this.props.parkInfo.full_name}</h4>
+          {this.state.tweets.map(tweet => {
+            return (
+                  <div className='tweets'>
+                      {/* <img className=“displayName” src={tweet.profile_image_url} alt=“tweeter”/> */}
+                      <i class='fas fa-pizza-slice'></i>
+                      <div className='userName'>{tweet.user.screen_name}</div>
+                      <p className='tweet'>{tweet.text}</p>
+                    </div>
+                    )
             })}
+        </div>
             </div> 
 
    )
