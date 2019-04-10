@@ -25,7 +25,7 @@ p {
     display: inline-block;
     width: 50%;
     line-height: .7;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
     padding-top: 40px;
     padding-left: 30px;
     color: #EDEEE9;
@@ -37,8 +37,8 @@ p {
     margin-left: 40px;
     color: white;
     border-radius: 7px;
-    margin-right: 9px;
-    margin-bottom: 20px;
+        margin-right: 9px;
+        margin-bottom: 20px;
     text-align: center;
     width: 100px;
     padding: 7px;

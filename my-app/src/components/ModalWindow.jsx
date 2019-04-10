@@ -24,7 +24,8 @@ const customStyles = {
         borderRadius: '7px',
         backgroundColor: 'rgba(24, 24, 24, 0.9)',
         boxShadow: 		'0px 11px 19px -1px rgba(0,0,0,0.54)',
-        border: '1px solid black'
+        border: '1px solid black',
+        transition: 'width 1s ease-in-out'
     },
 
     overlay : {
