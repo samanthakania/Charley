@@ -77,23 +77,31 @@ class SocialMediaTab extends Component {
     console.log(this.state.photos)
     return (
       <div>
-      <div className="hero-image">
-       <div className="hero-text">
-         {/* <img src={this.state.photos[this.state.indexValue]}></img> */}
-         <div id="park-name">{this.props.parkInfo.full_name}</div>
-         <div onClick={this.props.handleWaypoint} className="" id="add-button">Add Park</div>
-         </div>
-         {/* {this.state.indexValue === 0 ? (<p></p>) : (<button onClick={this.backPhoto}>back</button>)} */}
-       </div>
-      <button onClick={this.nextPhoto}>next</button>     
-      {this.state.tweets.map(tweet => {
+        <div className="hero-image">
+        <div className="hero-text">
+          {/* <img src={this.state.photos[this.state.indexValue]}></img> */}
+          <div id="park-name">{this.props.parkInfo.full_name}</div>
+          <div onClick={this.props.handleWaypoint} className="" id="add-button">Add Park</div>
+          </div>
+          {/* {this.state.indexValue === 0 ? (<p></p>) : (<button onClick={this.backPhoto}>back</button>)} */}
+        </div>
         
-        return (<span>
-                <h3>{tweet.user.screen_name}</h3>
-                <p>{tweet.text}</p>
-              </span>)
+        <div className="tweets-container">
+          <h4>See what others are saying about {this.props.parkInfo.full_name}</h4>
+          {this.state.tweets.map(tweet => {
+            return (
+                  <div className="tweets">
+                      {/* <img className="displayName" src={tweet.profile_image_url} alt="tweeter"/> */}
+                      <i class="fas fa-pizza-slice"></i>
+                      <div className="userName">{tweet.user.screen_name}</div>
+                      <p className="tweet">{tweet.text}</p>
+                    </div>
+                    )
             })}
-            </div> 
+        </div>
+          
+                
+        </div> 
 
    )
  

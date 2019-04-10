@@ -20,7 +20,7 @@ const customStyles = {
         marginRight           : '-50%',
         transform             : 'translate(-50%, -50%)',
         width: '70%',
-        minHeight: '70%',
+        minHeight: 'auto',
         borderRadius: '7px',
         backgroundColor: 'rgba(24, 24, 24, 0.9)',
         boxShadow: 		'0px 11px 19px -1px rgba(0,0,0,0.54)',
