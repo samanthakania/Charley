@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 import './TripId.css';
+import TripIdNav from './TripIdNav';
 
 const uuidv4 = require('uuid/v4');
 
@@ -92,9 +93,11 @@ this.props.search(origin, destination, tripId, listId, output, todos);
   render() {
  
     return (
+      <>
+      < TripIdNav />
       <div className="trip-main-container">
         <div className="input-container">
-          <img id="trip-logo" src="https://github.com/ryaaanandrew/final_project/blob/master/logo_transparent_mini.png?raw=true" alt="logo"/>
+          <img id="trip-logo" src="https://raw.githubusercontent.com/ryaaanandrew/final_project/master/logo_transparent_nowords.png" alt="logo"/>
           <form onSubmit={this.handleSubmit}>
             <input
               autoFocus
@@ -135,6 +138,7 @@ this.props.search(origin, destination, tripId, listId, output, todos);
           </form>
         </div>
       </div>
+      </>
     );
   }
 }

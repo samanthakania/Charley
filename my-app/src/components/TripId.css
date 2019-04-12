@@ -1,5 +1,22 @@
+#tripid-nav-header { 
+    background-color: rgb(20, 20, 20);
+    margin: 0px;
+    padding-left: 20px;
+    color: white; 
+    font-family: 'Playfair Display SC', serif;
+    font-size: 65px; 
+    font-weight: bold; 
+    letter-spacing: -1px; 
+    line-height: 1; 
+    text-align: left; 
+  }
+
+  #tripid-nav-bar {
+    background-color: rgb(20, 20, 20);
+}
+
 .trip-main-container {
-    background: url('https://github.com/ryaaanandrew/final_project/blob/master/night-sky-space-4k-6c.jpg?raw=true');
+    background: url('https://github.com/ryaaanandrew/final_project/blob/master/moraine-lake-summer-banff-hdr-mountains.jpg?raw=true');
     height: 100vh;
     background-size: cover;
     display: flex;
@@ -8,13 +25,14 @@
 }
 
 .input-container {
-    background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0.5), #00000000); 
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), #00000000);
+    background-color: rgba(20, 20, 20, 0.87);
     border-radius: 7px;
     width: 350px;
     height: 420px;
     text-align: center;
-
+    -webkit-box-shadow: 0px 6px 13px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 6px 13px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 6px 13px 0px rgba(0,0,0,0.75);
 }
 
 .input-field {
@@ -42,8 +60,8 @@ input:focus {
 
 #trip-logo {
     padding: 20px 0px;
-    height: 130px;
-    width: 140px;
+    height: 120px;
+    width: 230px;
 }
 
 #or {

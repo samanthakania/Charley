@@ -124,7 +124,7 @@ function ToDoList(props) {
     }
     return (
         <div className="todo-container">
-            <h1 id="todo-header"> To-Do </h1>
+            <h1 id="todo-header"> Reminders </h1>
             <div className="todo-list">
                 {todos.map((todo, index) => (
                     <Todo

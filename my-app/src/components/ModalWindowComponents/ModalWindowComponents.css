@@ -1,5 +1,5 @@
 p {
-    font-family: 'Noto', sans-serif;
+    font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
 /* <--- Social Media Tab ---> */
@@ -18,7 +18,7 @@ p {
 }
 
 #park-name {
-    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Playfair Display SC', serif;
     font-size: 80px;
     text-align: left;
     display: inline-block;
@@ -69,6 +69,7 @@ p {
 }
 
 .tweets-container h4 {
+    font-family: 'Helvetica', 'Arial', sans-serif;
     text-align: center;
     width: 80%;
     margin: 0px auto 20px;
@@ -77,6 +78,7 @@ p {
 }
 
 .tweets {
+    font-family: 'Helvetica', 'Arial', sans-serif;
     color: white;
     width: 90%;
     margin: 0 auto;
@@ -112,6 +114,7 @@ p {
 }
 
 .tabs-content-container h1 {
+    font-family: 'Playfair Display SC', serif;
     padding-bottom: 15px;
     border-bottom: 1px solid rgb(195, 195, 195);
 }

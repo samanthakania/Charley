@@ -1,12 +1,37 @@
 * {
   font-size: 100%;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Helvetica', 'Arial', sans-serif;
  }
 
 body {
   padding: 0;
   margin: 0;
   background-color: black;
+}
+
+.mapOrigin {
+  height: 30px;
+  width: 28%;
+  margin-top: 2%;
+  border-radius: 8px;
+  font-size: small;
+  font-weight: bold;
+  border-color: black;
+  border-width: 3px;
+  padding-left: 5px;
+}
+
+.mapDestination {
+  height: 30px;
+  width: 28%;
+  margin-top: 2%;
+  border-radius: 8px;
+  font-size: small;
+  font-weight: bold;
+  margin-left: 2%;
+  border-color: black;
+  border-width: 3px;
+  padding-left: 5px;
 }
 
 /* .nav-bar {
@@ -23,11 +48,41 @@ body {
   background: url('https://github.com/ryaaanandrew/final_project/blob/master/logo_transparent.png?raw=true');
 } */
 
+.nav-bar {
+  height: 75px;
+  /* margin-top: 15px; */
+}
+
+/* #nav-logo{
+  height: 300px;
+  width: 150px;
+  display: inline-block;
+} */
+
+#nav-header { 
+  background: inherit;
+  margin-top: 5px;
+  padding-left: 20px;
+  color: white; 
+  font-family: 'Playfair Display SC', serif;
+  font-size: 65px; 
+  font-weight: bold; 
+  letter-spacing: -1px; 
+  line-height: 1; 
+  text-align: left; 
+  background-color: rgb(20, 20, 20);
+  margin: 0px;
+}
+
+.nav-bar {
+  background-color: rgb(20, 20, 20);
+}
+
 /* <--- MAP COMPONENT ---> */
 
 .main-container {
   padding: 50px 25px;
-  background: url('https://github.com/ryaaanandrew/final_project/blob/master/night-sky-space-4k-6c.jpg?raw=true');
+  background: url('https://github.com/ryaaanandrew/final_project/blob/master/goodwp.com-30654.jpg?raw=true');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -52,6 +107,7 @@ body {
 
 /* <--- TODO LIST ---> */
 #todo-header {
+  font-family: 'Playfair Display SC', serif;
   color: white;
   text-align: center;
   width: 95%;
@@ -64,7 +120,7 @@ body {
   width: 400px;
   overflow: auto;
   border-radius: 9px;
-  background: linear-gradient(to bottom, #000000, #22222200);
+  background: linear-gradient(to bottom, rgb(20, 20, 20), #22222200);
   overflow: scroll;
   padding: 0px 10px 10px 10px;
   margin-top: 0px;
@@ -72,7 +128,7 @@ body {
 }
 
 .todo {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 1.2em;
   color: white;
   background: #614385;  /* fallback for old browsers */

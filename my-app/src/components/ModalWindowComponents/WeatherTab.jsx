@@ -31,11 +31,11 @@ class WeatherTab extends Component {
             <i class="fas fa-poo-storm fa-4x"></i>
             <h1>Weather Information</h1>
             <h2>{this.props.park.full_name}'s Current temp: {this.props.weather.currently.apparentTemperature}°F</h2>
-            <h4>Weather Summary: {this.props.weather.currently.summary}</h4>
-            <h4>High of: {this.props.weather.daily.data[0].temperatureHigh}°F</h4>
-            <h4>Low of: {this.props.weather.daily.data[0].temperatureLow}°F</h4>
-            <h4>Wind Speed: {this.props.weather.daily.data[0].windSpeed} mp/h</h4>
-            <h4>Wind Gust: {this.props.weather.daily.data[0].windGust} mp/h</h4>
+            <p>Weather Summary: {this.props.weather.currently.summary}</p>
+            <p>High of: {this.props.weather.daily.data[0].temperatureHigh}°F</p>
+            <p>Low of: {this.props.weather.daily.data[0].temperatureLow}°F</p>
+            <p>Wind Speed: {this.props.weather.daily.data[0].windSpeed} mp/h</p>
+            <p>Wind Gust: {this.props.weather.daily.data[0].windGust} mp/h</p>
         </div>
         );
     }

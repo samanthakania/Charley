@@ -4,6 +4,13 @@ import { withGoogleMap, GoogleMap, Marker, DirectionsRenderer } from "react-goog
 import '../App.css';
 import ModalWindow from './ModalWindow.jsx';
 import InputWindow from './InputWindow.jsx';
+const loaded = true;
+function loadingTimer() {
+  return new Promise((resolve) => {
+    setTimeout(resolve, 2000);
+  }).then(() => loaded);
+}
+
 
 class MyMapComponent extends Component {
   constructor(props) {
@@ -16,6 +23,7 @@ class MyMapComponent extends Component {
       currentPark: null,
       waypoints: [],
       savedParks: [],
+      load: false
     }
     this.originInput = React.createRef();
     this.destinationInput = React.createRef();
@@ -31,23 +39,26 @@ class MyMapComponent extends Component {
   componentDidMount() {
     console.log("input", this.originInput.current)
     this.fetchData();
+    loadingTimer().then( loaded => {
+      this.setState({ load: loaded})
+      let originAutocomplete = new google.maps.places.Autocomplete(this.originInput.current);
+      let destinationAutocomplete = new google.maps.places.Autocomplete(this.destinationInput.current);
+      originAutocomplete.setFields(['place_id']);
+      destinationAutocomplete.setFields(['place_id']);
+      this.placeChanged(originAutocomplete, 'ORIG')
+      this.placeChanged(destinationAutocomplete, 'DEST');
+      this.map.disableDefaultUI = true;
+      this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.originInput.current);
+      this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.destinationInput.current);
+    })
     
     this.directionsService = new google.maps.DirectionsService();
     console.log("pleace", this.originInput.current)
-    let originAutocomplete = new google.maps.places.Autocomplete(this.originInput.current);
-    let destinationAutocomplete = new google.maps.places.Autocomplete(this.destinationInput.current);
     this.returningRoute();  
     
-    originAutocomplete.setFields(['place_id']);
-    destinationAutocomplete.setFields(['place_id']);
-    this.placeChanged(originAutocomplete, 'ORIG')
-    this.placeChanged(destinationAutocomplete, 'DEST');
+  
 
     this.map = this.mapElt.current.context['__SECRET_MAP_DO_NOT_USE_OR_YOU_WILL_BE_FIRED'];
-    this.map.disableDefaultUI = true;
-    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.originInput.current);
-    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.destinationInput.current);
-
     // if trip ID exists:
     // - make AJAX request to get trip data
     // - update the state with trip waypoints, origin, and destination
@@ -213,10 +224,14 @@ class MyMapComponent extends Component {
       console.log("saviing", this.state.savedParks)
     return (
         <div>
-          <InputWindow 
-            originInput = { this.originInput }
-            destinationInput = { this.destinationInput }
-          />
+         { this.state.load ? (
+
+          
+<InputWindow 
+originInput = { this.originInput }
+destinationInput = { this.destinationInput }
+/> ) : (null) 
+} 
           <GoogleMap
             defaultOptions={{ styles: this.props.mapStyles }}
             ref={this.mapElt}

@@ -12,8 +12,8 @@ class NavBar extends Component {
   render() {
     
     return (
-    <header className="nav-bar">
-      <h1 id="nav-header">LETS PLAN A TRIP...</h1>
+    <header id="tripid-nav-bar">
+      <h1 id="tripid-nav-header">CHARLEY.</h1>
     </header>
      
     )
