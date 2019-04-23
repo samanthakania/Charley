@@ -1,8 +1,8 @@
-# Charlie
+# Charley
 
 ## About
 
-Charlie is a full-stack web application allowing clients to plan a cross country camping trip to visit national parks across North America. 
+Charley is a full-stack web application allowing clients to plan a cross country camping trip to visit national parks across North America. 
 
 !["Create a trip"](https://github.com/ryaaanandrew/final_project/blob/master/Screen%20Shot%202019-04-23%20at%203.18.48%20PM.png?raw=true)
 !["Main Page"](https://github.com/ryaaanandrew/final_project/blob/master/Screen%20Shot%202019-04-23%20at%203.24.25%20PM.png)
