@@ -1,4 +1,4 @@
-# Charlie: Food Pick-up Ordering
+# Charlie
 
 ## About
 
