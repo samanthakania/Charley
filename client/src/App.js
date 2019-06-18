@@ -45,26 +45,25 @@ class App extends Component {
           search={this.handleSearchForRoute.bind(this)}
         />
       );
-    } else {
-      return (
-        <div className="App">
-          <NavBar />
-          <div className="main-container">
-            <MyMapComponent
-              waypoints={this.state.waypoints}
-              googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyADfvn7bqN8wTxIrPUpCZZMEoURzEsj5sU"
-              containerElement={<div className="mapContainer" />}
-              loadingElement={<div className="loadingElement" />}
-              mapElement={<div className="mapElement" id="map" />}
-              id={this.state.tripId}
-              foundRoute={this.state.foundRoute}
-            />
-            <ToDoList id={this.state.listId} todoListFound={this.state.todos} />
-            {/* <Footer/> */}
-          </div>
-        </div>
-      );
     }
+    
+    return (
+      <div className="App">
+        <NavBar />
+        <div className="main-container">
+          <MyMapComponent
+            waypoints={this.state.waypoints}
+            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyADfvn7bqN8wTxIrPUpCZZMEoURzEsj5sU"
+            containerElement={<div className="mapContainer" />}
+            loadingElement={<div className="loadingElement" />}
+            mapElement={<div className="mapElement" id="map" />}
+            id={this.state.tripId}
+            foundRoute={this.state.foundRoute}
+          />
+          <ToDoList id={this.state.listId} todoListFound={this.state.todos} />
+        </div>
+      </div>
+    );
   }
 }
 
