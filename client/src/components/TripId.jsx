@@ -90,7 +90,7 @@ class TripId extends Component {
           <div className="input-container">
             <img
               id="trip-logo"
-              src="https://raw.githubusercontent.com/ryaaanandrew/final_project/master/logo_transparent_nowords.png"
+              src="https://github.com/ryaaanandrew/Charley/blob/master/client/public/images/logo_transparent_nowords.png?raw=true"
               alt="logo"
             />
             <form onSubmit={this.handleSubmit}>

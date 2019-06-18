@@ -38,14 +38,14 @@ class App extends Component {
   }
 
   render() {
-    if (!this.state.isLoggedIn) {
-      return (
-        <TripId
-          updateId={this.handleState.bind(this)}
-          search={this.handleSearchForRoute.bind(this)}
-        />
-      );
-    }
+    // if (!this.state.isLoggedIn) {
+    //   return (
+    //     <TripId
+    //       updateId={this.handleState.bind(this)}
+    //       search={this.handleSearchForRoute.bind(this)}
+    //     />
+    //   );
+    // }
     
     return (
       <div className="App">
