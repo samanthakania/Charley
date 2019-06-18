@@ -4,8 +4,7 @@ import './index.css';
 import App from './App';
 import 'normalize.css';
 import * as serviceWorker from './serviceWorker';
-import { Route, Switch, Link, BrowserRouter as Router } from 'react-router-dom'
-import TripId from './components/TripId'
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 // import reactRouterFetch from 'react-router-fetch'
 // const routes = [
 //   path: '/',

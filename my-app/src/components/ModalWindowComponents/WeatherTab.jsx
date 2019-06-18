@@ -25,7 +25,6 @@ class WeatherTab extends Component {
       }
 
     render() {
-        let park = this.props.weather
         return(
             <div className="tabs-content-container">
             <i class="fas fa-poo-storm fa-4x"></i>

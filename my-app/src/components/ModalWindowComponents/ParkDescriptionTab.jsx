@@ -3,11 +3,6 @@ import React, { Component } from 'react';
 import './ModalWindowComponents.css';
 var unirest = require('unirest');
 
-function loadingTimer() {
-  return new Promise((resolve) => {
-    setTimeout(resolve, 5000);
-  })
-}
 class ParkDescription extends Component {
   constructor(props) {
     super(props);
