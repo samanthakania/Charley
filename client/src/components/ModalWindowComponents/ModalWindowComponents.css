@@ -1,0 +1,128 @@
+p {
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+/* <--- Social Media Tab ---> */
+.social-media-container {
+}
+
+.hero-image {
+  height: 370px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border-radius: 0px 10px 0px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+#park-name {
+  font-family: "Playfair Display SC", serif;
+  font-size: 80px;
+  text-align: left;
+  display: inline-block;
+  width: 50%;
+  line-height: 0.7;
+  margin-bottom: 20px;
+  padding-top: 40px;
+  padding-left: 30px;
+  color: #edeee9;
+  display: block;
+}
+
+#add-button {
+  background: linear-gradient(to right, #516395, #614385);
+  margin-left: 40px;
+  color: white;
+  border-radius: 7px;
+  margin-right: 9px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100px;
+  padding: 7px;
+  font-family: "Noto", sans-serif;
+}
+
+.modal-buttons-container {
+  display: flex;
+}
+
+.modal-window-button {
+  background: linear-gradient(to right, #516395, #614385);
+  width: 19%;
+  padding: 7px;
+  text-align: center;
+  border-radius: 7px;
+  margin-right: 12px;
+  color: white;
+}
+
+.tweets-container {
+  color: white;
+  height: 300px;
+  overflow: auto;
+  padding: 20px 5px;
+  margin: 0px 0px 10px;
+  background-color: rgb(66, 66, 66);
+  border-radius: 0 0 10px 10px;
+}
+
+.tweets-container h4 {
+  font-family: "Helvetica", "Arial", sans-serif;
+  text-align: center;
+  width: 80%;
+  margin: 0px auto 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(122, 122, 122, 0.287);
+}
+
+.tweets {
+  font-family: "Helvetica", "Arial", sans-serif;
+  color: white;
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(122, 122, 122, 0.287);
+}
+
+.tweet {
+  margin-bottom: 15px;
+}
+
+.userName {
+  font-weight: 700;
+  margin: 5px 0px;
+}
+
+/* <--- All tabs main content ---> */
+
+.tabs-content-container {
+  background: #ece9e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #2a2a2a,
+    #3b3b3b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #2a2a2a,
+    #3b3b3b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 450px;
+  overflow: auto;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 7px;
+  color: white;
+}
+
+.fas {
+  float: left;
+  margin-right: 10px;
+}
+
+.tabs-content-container h1 {
+  font-family: "Playfair Display SC", serif;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgb(195, 195, 195);
+}
